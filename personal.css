@@ -1,0 +1,140 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Finlandica+Headline:ital,wght@0,100..900;1,100..900&family=Major+Mono+Display&display=swap');
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*header*/
+
+header{
+    position: relative;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+    letter-spacing: 3px;
+}
+
+h1{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+  line-height: 15rem;
+  font-size: 13rem;
+  color: rgb(149, 116, 113);
+  z-index: 2;
+  font-family: "Major Mono Display", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.container{
+    animation: moveShape 10s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+header .blob {
+    width: 1500px;
+    aspect-ratio: 1/1;
+    background: radial-gradient(
+        rgb(242, 231, 213) 0%,
+        rgb(197, 175, 220) 50%,
+        rgb(142, 182, 255) 80%
+    );
+    border-radius: 30% 70% 70% 30% / 30% 40% 70% 70%;
+    filter: blur(20px);
+    animation: changeShape 6s linear infinite, rotateShape 12s linear infinite;
+}
+
+
+
+.links{
+    position: absolute;
+    width: 60vw;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+    font-family: "Major Mono Display", monospace;
+    font-size: 2rem;
+   
+}
+
+.links a{
+   font-family: "Major Mono Display", monospace;
+   font-weight: 300;
+   color: rgb(149, 116, 113);
+   text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.links a:hover{
+    color:  rgb(78, 60, 59);
+}
+
+/* header keyframes*/
+
+@keyframes rotateShape{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(36deg);
+    }
+}
+
+@keyframes moveShape{
+    0%, 
+    100%{
+        transform: translate(30%, 0);
+    }
+    25%{
+        transform: translate(45%, 10vh);
+    }
+    50%
+    {
+        transform: translate(25%, 30vh);
+    }
+    75%
+    {
+        transform: translate(10%, 20vh);
+    }
+}
+
+@keyframes changeShape{
+    0%, 
+    100%{
+       border-radius: 30% 70% 70% 30% / 30% 40% 70% 70%;
+    }
+    20%{
+       border-radius: 40% 65% 50% 50% / 40% 35% 35% 65%;
+    }
+    40%
+    {
+        border-radius: 35% 65% 65% 35% / 65% 50% 50% 25%;
+    }
+    60%{
+        border-radius: 40% 65% 50% 50% / 30% 30% 70% 75%;
+    }
+    90%{
+        border-radius: 40% 60% 40% 60% / 50% 50% 50% 60%;
+    }
+}
+
+@keyframes letterSpacing{
+    0%{
+        letter-spacing: 10px;
+    }
+    100%{
+        letter-spacing: 4px;
+    }
+}
+
+
