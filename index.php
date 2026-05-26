@@ -16,7 +16,7 @@
             <h1>Phoebe Taylor</h1>
             <div class="links">
                 <a href="abt.php">About</a>
-                <a href="funFacts.php">Fun Facts</a>
+                <a href="projects.php">Projects</a>
             </div>
         </div>
     </header>
