@@ -9,7 +9,7 @@
 <body>
     <header>
         <a href="personal_website.html">Back</a>
-        <h1>About</h1>
+        <h1>Projects</h1>
     </header>
     <section class="body-area">
         <section class="info">

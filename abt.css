@@ -114,17 +114,20 @@ p{
     font-family: "Roboto Condensed", sans-serif;
     letter-spacing: 2px;
     text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
 }
 
 .images .main-img{
     z-index: 2;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
+
 
 .images .main-img:hover{
     opacity: 1;
 }
+
 
 
 
