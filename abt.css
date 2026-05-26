@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Finlandica+Headline:ital,wght@0,100..900;1,100..900&family=Major+Mono+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
@@ -72,5 +73,63 @@ p{
     color: rgb(73, 56, 55);
     font-family: "Roboto Condensed", sans-serif;
 }
+
+
+.body-area{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 7rem;
+}
+.images{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.images a{
+    position: relative;
+    width: 25vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.images img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.images h2{
+    position: relative;
+    color: rgb(73, 56, 55);
+    z-index: 1000;
+    font-family: "Roboto Condensed", sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.images .main-img{
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.images .main-img:hover{
+    opacity: 1;
+}
+
+
+
+
+
+
 
 
