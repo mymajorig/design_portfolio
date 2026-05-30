@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
-    <link rel="stylesheet" href="abt.css">
-</head>
-<body>
+
+<?php
+    include('include/init.php');
+    echoHeader("Projects Page");
+
+    $projectsPostID = $_REQUEST['postId'];
+    $projectsPostArray = getPost($projectsPostID);
+    $title = $projectsPostArray['title'];
+    $content = $projectsPostArray['content'];
+
+    echo "
+        <h1> $title <h1>
+        <p> $content <p>
+    "
+
+?>
     <header>
         <a href="index.php">Back</a>
         <h1>Projects</h1>
@@ -42,6 +49,7 @@
             </a>
         </section>
     </section>
-    
-</body>
-</html>
+
+<?php
+    echoFooter();
+?>

@@ -28,17 +28,17 @@ header{
     gap: 1rem;
 }
 
-h1, a{
+.title, a{
     font-family: "Major Mono Display", monospace;
 }
 
-h1{
-    font-size: 8rem;
+.title{
+    font-size: 4rem;
     position: relative;
     padding-bottom: 3rem;
 }
 
-h1::after{
+.title::after{
     content: '';
     width: 2rem;
     height: 0.5rem;
@@ -50,7 +50,7 @@ h1::after{
     margin-left: 1rem;
 }
 
-h1:hover::after{
+.title:hover::after{
     width: 25rem;
 }
 
