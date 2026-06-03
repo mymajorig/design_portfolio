@@ -25,26 +25,27 @@
                 I'm really excited to work with everyone this summer!
             </p>
         </section>
+       
 
         <section class="images">
-            <a href="">
+            <a href="https://www.figma.com/design/WJk7UqjA4CsqSYUiYH2Iiz/website-drafts?node-id=0-1&t=bX4LsBxww5fVQFrq-1">
                 <h2>Book to Website</h2>
-                <img src="https://hips.hearstapps.com/hmg-prod/images/dahlia-1508785047.jpg?crop=1.00xw:0.669xh;0,0.0136xh" alt="" class="main-img">
+                <img src="images/invisible-cities.webp" alt="invisible-cities-pic" class="main-img">  <!-- invisibile cities pic -->
                 <img src="https://creativepaint.com/cdn/shop/products/2076-60-dogsear_3d0bc9a5-68b3-4396-96d6-570172381a37_1600x.png?v=1617304306" alt="" class="color-image">
             </a>
-            <a href="https://youtu.be/-BR-B0kTmSI?si=aWdvVY6L3wD-3LyT">
+            <a href="https://www.figma.com/design/LUoZRdjPnadZx1E9P01Pcy/WashUX-Project-Tracker---Querri?node-id=6001-162&t=Jk6PS7banmmf5qmn-1">
                 <h2>Website Redesign: Querri</h2>
-                <img src="https://i.pinimg.com/564x/b5/9d/9e/b59d9e9449cb29c2a24fc41643405ab1.jpg" alt="" class="main-img">
+                <img src="images/querri-logo.jpeg" alt="querri-logo" class="main-img">
                 <img src="https://preview.colorkit.co/color/ffb6c1.png?size=vertical-wallpaper&static=true" alt="" class="color-image">
             </a>
-            <a href="">
+            <a href="https://www.figma.com/design/JdjXOVaz4084wDcf0MnAas/Pretus-WashUX-Project-Tracker?node-id=2021-2&t=LKJI27F4rKepKsXt-1">
                 <h2>Website Redesign: Pretus</h2>
-                <img src="https://www.verdissimo.com/wp-content/uploads/2023/08/Verdissimo_flores_bonitas_CONT_09.jpg" alt="" class="main-img">
+                <img src="images/pretus-logo.jpeg" alt="pretus-logo" class="main-img">
                 <img src="https://www.colorpalettestore.com/cdn/shop/products/F8E3E8_1024x.png?v=1750858375" alt="" class="color-image">
             </a>
-            <a href="">
+            <a href="http://localhost:5173/final-project-mymajorig/#/">
                 <h2>SelfShuffle Project</h2>
-                <img src="https://www.dutchgrown.co.uk/cdn/shop/articles/shutterstock_2306718573_732a0a25-2052-41cc-82f8-389b9545384e_789x_crop_center.jpg?v=1738857655" alt="" class="main-img">
+                <img src="images/black-book.png" alt="black-book" class="main-img">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5waZ67StVOOJdCE1p-orC9lc0HtTWUMo73Q&s" alt="" class="color-image">
             </a>
         </section>

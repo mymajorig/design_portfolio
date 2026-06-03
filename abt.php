@@ -14,20 +14,16 @@
         echo"
             <a href='index.php'>Back</a>
             <h1 class = 'title'>$postTitle<h1>
-        "
+        ";
         ?>
     </header>
     <section class="body-area">
         <section class="info">
             <?php
-            echo"
-            <p>$postContent<p>
-            "
+                echo"
+                <p>$postContent<p>
+                ";
             ?>
-            <!-- <p>Hi everyone! My name is Phoebe Taylor. I am a sophomore at Washington University in St.Louis (WashU) where I am majoring in Computer Science with a double minor
-                in Chinese and Human Computer Interation. I love to read, write, draw, and basically learn about all things art related. My favorite coding languages to work with are HTML, CSS, and a bit of react.
-                I'm really excited to work with everyone this summer!
-            </p> -->
         </section>
 
         <section class="images">
