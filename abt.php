@@ -1,22 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
-    <link rel="stylesheet" href="abt.css">
-</head>
-<body>
+<?php
+    include('include/init.php');
+    echoHeader("About Page");
+
+    $postID = $_REQUEST["postId"]; //'request' finds the key "post Id" for this specific page and returns the post id value "note: the name of this key is based on whats in my abt URL on index page"
+    // then call "getPost" with the post id that i just got from request array
+    $postArray = getPost($postID);
+    $postTitle = $postArray['title'];
+    $postContent = $postArray['content'];
+   
+?>
     <header>
-        <a href="index.php">Back</a>
-        <h1>About</h1>
+        <?php
+        echo"
+            <a href='index.php'>Back</a>
+            <h1 class = 'title'>$postTitle<h1>
+        ";
+        ?>
     </header>
     <section class="body-area">
         <section class="info">
-            <p>Hi everyone! My name is Phoebe Taylor. I am a sophomore at Washington University in St.Louis (WashU) where I am majoring in Computer Science with a double minor
-                in Chinese and Human Computer Interation. I love to read, write, draw, and basically learn about all things art related. My favorite coding languages to work with are HTML, CSS, and a bit of react.
-                I'm really excited to work with everyone this summer!
-            </p>
+            <?php
+                echo"
+                <p>$postContent<p>
+                ";
+            ?>
         </section>
 
         <section class="images">
@@ -43,5 +50,7 @@
         </section>
     </section>
     
-</body>
-</html>
+<?php
+    include('include/init.php');
+    echoFooter();
+?>
