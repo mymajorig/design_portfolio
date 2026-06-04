@@ -16,6 +16,7 @@
     $colorImgArr = json_decode($postArray['colorImgArray'], true);
 
     //variables for comments
+    $comments = getComments($postId);
     
 
     echoHeader($postTitle);
@@ -38,16 +39,31 @@
 
         <section class="images">
         <?php
+                $container_num = 1;
             for($x=0; $x<=3; $x++){ //change into a for loop for indexing purposes 
+                if($x%2 ==0){
+                    echo"
+                    <div id='container $container_num'>
+                    ";
+                }
                 echo"
-                <a href='$aTagArr[$x]'>
-                    <h2>$linkNamesArr[$x]</h2>
-                    <img src='$mainImgArr[$x]' alt='book' class='main-img'>
-                    <img src='$colorImgArr[$x]' alt='' class='color-image'>
-                </a>
+                    <a href='$aTagArr[$x]'>
+                        <h2>$linkNamesArr[$x]</h2>
+                        <img src='$mainImgArr[$x]' alt='book' class='main-img'>
+                        <img src='$colorImgArr[$x]' alt='' class='color-image'>
+                    </a>
                 ";
+
+                 if($x%2 ==0){
+                    echo"
+                    </div>
+                    ";
+                    $container_num++;
+                }
             }
             ?>
+
+            </div>
             <!-- <a href="https://www.goodreads.com/">
                 <?php
                 // echo"

@@ -80,9 +80,9 @@ p{
 
 
 .body-area{
-    display: grid;
+     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 7rem;
+    margin-top: 7rem; 
 }
 .images{
     display: flex;
