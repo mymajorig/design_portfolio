@@ -102,6 +102,20 @@
             </a> -->
         </section>
     </section>
+
+<?php
+    $userIdArr[];
+    foreach($comments as comment){
+        $userId = $comments['userId'];
+        $userIdArr[] = $userId;
+    }
+    $userIdString = implode(",", userIdArr);
+    foreach($comments as comment){
+        echo"
+            $comment['content'];
+        ";
+    }
+?>
     
 <?php
     include('include/init.php');
