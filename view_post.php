@@ -16,7 +16,7 @@
     $colorImgArr = json_decode($postArray['colorImgArray'], true);
 
     //variables for comments
-    $comments = getComments($postId);
+    $comments = getComments($postID);
     
 
     echoHeader($postTitle);
@@ -39,11 +39,11 @@
 
         <section class="images">
         <?php
-                $container_num = 1;
-            for($x=0; $x<=3; $x++){ //change into a for loop for indexing purposes 
+            $container_num = 1; //making 2 containers so one can be flex direction row and the other can be flex direction col
+            for($x=0; $x<=3; $x++){ 
                 if($x%2 ==0){
                     echo"
-                    <div id='container $container_num'>
+                    <div id='container_$container_num'>
                     ";
                 }
                 echo"
@@ -54,7 +54,7 @@
                     </a>
                 ";
 
-                 if($x%2 ==0){
+                 if($x%2 ==1){
                     echo"
                     </div>
                     ";
@@ -104,15 +104,19 @@
     </section>
 
 <?php
-    $userIdArr[];
-    foreach($comments as comment){
-        $userId = $comments['userId'];
+    $userIdArr = [];
+
+    foreach($comments as $comment){
+        $userId = $comment['userId'];
         $userIdArr[] = $userId;
     }
-    $userIdString = implode(",", userIdArr);
-    foreach($comments as comment){
+
+    $userIdString = implode(",", $userIdArr);
+
+    foreach($comments as 
+    $comment){
         echo"
-            $comment['content'];
+            {$comment['content']};
         ";
     }
 ?>

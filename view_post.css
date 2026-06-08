@@ -18,7 +18,7 @@ html{
 }
 
 body{
-    color: rgb(149, 116, 113);
+    color: rgb(149, 116, 113); 
     padding: 2rem;
 }
 
@@ -86,7 +86,7 @@ p{
 }
 .images{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 2rem;
@@ -146,6 +146,12 @@ p{
 .images .main-img:hover{
     opacity: 1;
 }
+
+/* containers made with php */
+
+/* #container_2{
+    flex-direction: row;
+} */
 
 
 
