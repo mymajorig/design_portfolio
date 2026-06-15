@@ -149,9 +149,10 @@ p{
 
 /* containers made with php */
 
-/* #container_2{
-    flex-direction: row;
-} */
+#container_1, #container_2{
+    flex-direction: column;
+    gap: 1rem;
+} 
 
 
 

@@ -17,7 +17,16 @@
 
     //variables for comments
     $comments = getComments($postID);
-    
+    debugOutput($comments);
+    debugOutput($_GET);
+    debugOutput($_POST);
+
+    //if there is something in the POST arr aka if there's been a form submission
+    if(isset($_POST["comment-content"])){ 
+        debugOutput($_POST);
+        saveComment($_POST["comment-content"], $postID);
+        header('Location: view_post.php?postId='.$postID);
+    }
 
     echoHeader($postTitle);
 
@@ -103,9 +112,22 @@
         </section>
     </section>
 
+<form action="">
+    <h2>Leave a comment</h2>
+    <label for="name">Name</label>
+    <input type='text' name = 'name-content' id='name' value=''>
+
+    <label for="comment">Comment</label>
+    <input type='text' name = 'comments' id='comments' value=''>
+    <input type='submit' value='Save and Submit'>
+
+</form>
+
 <?php
+
     $userIdArr = [];
 
+    //comments
     foreach($comments as $comment){
         $userId = $comment['userId'];
         $userIdArr[] = $userId;
@@ -119,6 +141,7 @@
             {$comment['content']};
         ";
     }
+
 ?>
     
 <?php
