@@ -1,8 +1,16 @@
+:root{
+    --main-font: "Bebas Neue", sans-serif;
+    --black: #1E1E1E;
+    --white: #F2F0EF;
+}
+
 body {
   margin: 0;
-  background: #1a1a1a;
+  background: var(--black);
   height: 100vh;
   position: relative;
+  color: var(--white);
+  font-family: var(--main-font);
 }
 
 #three-container {
@@ -27,4 +35,19 @@ body {
 nav {
   display: flex;
   gap: 120px;
+}
+
+nav a{
+  text-decoration: none;
+  color: var(--white);
+}
+
+.main-header{
+  font-size: 8rem;
+  letter-spacing: 2rem;
+}
+
+nav h2{
+font-size: 3rem;
+letter-spacing: 0.5rem;
 }
