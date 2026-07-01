@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  background: var(--black);
+  background-color: rgb(8, 10, 33);
   height: 100vh;
   position: relative;
   color: var(--white);
@@ -30,6 +30,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 80px;
+  perspective: 1000px;
 }
 
 nav {
@@ -45,6 +46,7 @@ nav a{
 .main-header{
   font-size: 8rem;
   letter-spacing: 2rem;
+  transform-style: preserve-3d;
 }
 
 nav h2{
