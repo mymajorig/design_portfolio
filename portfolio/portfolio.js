@@ -45,26 +45,42 @@ scene.add(stars);
 // cube setup 
 
 //geometry and material
-const geometry = new THREE.BoxGeometry(3, 3, 3);
-const material = new THREE.MeshNormalMaterial();
-
-// const material = new THREE.MeshStandardMaterial({
-//   color: 0xF2F0EF,
-//   metalness: 0.3,
-//   roughness: 0.1,
-//   envMapIntensity: 1,
-// });
+const geometry = new THREE.IcosahedronGeometry(2, 1);
+const material = new THREE.ShaderMaterial({
+  uniforms: {
+    time: { value: 0 },
+  },
+  vertexShader: `
+    varying vec3 vNormal;
+    void main() {
+      vNormal = normalize(normalMatrix * normal);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    varying vec3 vNormal;
+    uniform float time;
+    void main() {
+      vec3 colorA = vec3(0.5, 0.8, 1.0);  // light blue
+      vec3 colorB = vec3(0.8, 0.5, 1.0);  // purple
+      vec3 colorC = vec3(1.0, 0.6, 0.8);  // pink
+      vec3 color = colorA * (0.5 + 0.5 * sin(vNormal.x + time)) + colorB * (0.5 + 0.5 * sin(vNormal.y + time)) + colorC * (0.5 + 0.5 * sin(vNormal.z + time));
+      gl_FragColor = vec4(color, 1.0);
+    }
+  `,
+});
 
 //making cube
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
 const edges = new THREE.EdgesGeometry(geometry);
-const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
+const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
 const wireframe = new THREE.LineSegments(edges, lineMaterial);
 cube.add(wireframe);
 
 // lights
+
 const light = new THREE.DirectionalLight(0xffffff, 3);
 light.position.set(5, 3, 2);
 scene.add(light);
@@ -90,6 +106,7 @@ let time = 0;
 function animate() {
   requestAnimationFrame(animate);
   time += 0.005;
+  material.uniforms.time.value = time;
 
   cube.rotation.x = Math.sin(time) * 0.2;
   cube.rotation.y = Math.sin(time * 0.7) * 0.2;
