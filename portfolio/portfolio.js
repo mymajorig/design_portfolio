@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { FontLoader, TextGeometry } from 'three/examples/jsm/Addons.js';
+
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -7,7 +9,31 @@ const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('three-container').appendChild(renderer.domElement);
 
-// stars
+//LOADING FONTS
+const fontLoader = new FontLoader();
+
+fontLoader.load(
+  'https://threejs.org/examples/fonts/helvetiker_regular.typeface.json',
+  (font) =>
+  {
+    const textGeometry = new TextGeometry( //getting geometry
+      'HELLO',
+      {
+        font: font, //the loaded font
+        size: 0.5,    // how tall the letters are
+        depth: 0.1,   // how thick/extruded they are (0 = flat)
+      }
+    )
+    const textMaterial = new THREE.MeshNormalMaterial();
+    textGeometry.computeBoundingBox();
+    textGeometry.center();
+    const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+    textMesh.position.set(0, 0, 3);
+    cube.add(textMesh);
+  }
+);
+
+// STARS SETUP
 function createStarTexture() {
   const canvas = document.createElement('canvas');
   canvas.width = 64;
@@ -42,7 +68,7 @@ const starMaterial = new THREE.PointsMaterial({
 const stars = new THREE.Points(starGeometry, starMaterial);
 scene.add(stars);
 
-// cube setup 
+// CUBE SETUP
 
 //geometry and material
 const geometry = new THREE.IcosahedronGeometry(2, 1);
@@ -79,8 +105,7 @@ const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent:
 const wireframe = new THREE.LineSegments(edges, lineMaterial);
 cube.add(wireframe);
 
-// lights
-
+// LIGHTS
 const light = new THREE.DirectionalLight(0xffffff, 3);
 light.position.set(5, 3, 2);
 scene.add(light);
@@ -94,7 +119,7 @@ scene.add(light2);
 
 camera.position.z = 5;
 
-// mouse
+// MOUSE MOVEMENT
 let mouseX = 0;
 let mouseY = 0;
 window.addEventListener('mousemove', (e) => {
@@ -105,17 +130,17 @@ window.addEventListener('mousemove', (e) => {
 let time = 0;
 function animate() {
   requestAnimationFrame(animate);
-  time += 0.005;
+  time += 0.002;
   material.uniforms.time.value = time;
 
-  cube.rotation.x = Math.sin(time) * 0.2;
-  cube.rotation.y = Math.sin(time * 0.7) * 0.2;
+  cube.rotation.x = Math.sin(time) * 0.05;
+  cube.rotation.y = Math.sin(time * 0.6) * 0.05;
 
   stars.rotation.y += (mouseX * 0.3 - stars.rotation.y) * 0.05;
   stars.rotation.x += (mouseY * 0.3 - stars.rotation.x) * 0.05;
 
   const h1 = document.querySelector('h1');
-  h1.style.transform = `rotateY(${cube.rotation.y}rad) rotateX(${-cube.rotation.x}rad)`;
+  if (h1) h1.style.transform = `rotateY(${cube.rotation.y}rad) rotateX(${-cube.rotation.x}rad)`;
 
   renderer.render(scene, camera);
 }
