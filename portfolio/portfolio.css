@@ -1,56 +1,95 @@
+
 :root{
     --main-font: "Bebas Neue", sans-serif;
-    --black: #1E1E1E;
+    --card-bg: #333;
+    /* colors */
+     --black: #1e1e1e;
     --white: #F2F0EF;
+
+    /* font families */
+    --sans-serif-font: "Bebas Neue", sans-serif;
+    --serif-font: "Lora", serif;
+    /* font sizes */
+    --h1-font-size: 10rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 2rem;
+    --text-font-size: 16px;
+    --back-button-font-size: 14px;
 }
 
 body {
   margin: 0;
-  background-color: rgb(8, 10, 33); 
-
+  background-color: white;
   height: 100vh;
   position: relative;
-  color: #CCCCFF;
+  color: black;
   font-family: var(--main-font);
+  overflow: hidden;
 }
 
-#three-container {
+.text{
+  display: flex;
+  flex-direction: column;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+
+header h1,
+header h2{
+  margin: 0;
+}
+
+h1{
+    font-size: 10rem;
+}
+
+h2{
+  font-family: var(--serif-font);
+  font-size: var(--h2-font-size);
+}
+
+h3{
+  font-size: var(--h3-font-size);
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a{
+  text-decoration: none;
+  color: black;
+}
+
+#stars-container {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: 0; /* sphere lives behind everything */
+  z-index: 0; /* stars live behind everything */
 }
 
 .overlay {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: 1; /* text floats on top of the sphere*/
+  z-index: 1; /* cube + text float on top of the stars */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 80px;
-  perspective: 1000px;
 }
 
-nav {
-  display: flex;
-  gap: 120px;
+.cube-container {
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
 }
 
-nav a{
-  text-decoration: none;
-  color: var(--white);
-}
 
-.main-header{
-  font-size: 8rem;
-  letter-spacing: 2rem;
-  transform-style: preserve-3d;
-}
 
-nav h2{
-font-size: 3rem;
-letter-spacing: 0.5rem;
-}
