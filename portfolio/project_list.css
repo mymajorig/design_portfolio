@@ -26,9 +26,10 @@ body{
     color: whitesmoke;
     display: flex;
     flex-direction: column;
-    gap: 10rem;
+    gap: 4rem;
     align-items: flex-start;
     justify-content: flex-start;
+    padding: 3rem 3rem;
 }
 
 #stars-container{
@@ -44,10 +45,10 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    width: 220px;
-    height: 220px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    background: radial-gradient(circle, red, orange, yellow, transparent 10%);
+    background: radial-gradient(circle, yellow 0%, orange 45%, red 65%, transparent 100%);
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 999;
@@ -69,9 +70,24 @@ header{
     /* padding: 1rem; */
 }
 
-#title-container {
-    width: 500px;
-    height: 150px;
+.title-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.page-title {
+    font-family: var(--sans-serif-font);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    line-height: 1;
+    margin: 0;
+    color: var(--white);
+}
+
+#title-cube-container {
+    position: absolute;
+    inset: -20% -10%;
 }
 
 .back-button{
@@ -99,6 +115,12 @@ header{
     width: 100%;
     text-decoration: none;
     color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project:hover{
+    transform: translateY(-6px);
 }
 
 .project-preview{
@@ -106,6 +128,13 @@ header{
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease, transform 0.4s ease;
+}
+
+.project:hover .project-preview{
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    transform: scale(1.02);
 }
 
 .project-text{

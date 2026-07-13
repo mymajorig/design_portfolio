@@ -1,7 +1,7 @@
 
 :root{
     --main-font: "Bebas Neue", sans-serif;
-    --card-bg: #333;
+    --card-bg: #232323;
     /* colors */
      --black: #1e1e1e;
     --white: #F2F0EF;
@@ -11,8 +11,8 @@
     --serif-font: "Lora", serif;
     /* font sizes */
     --h1-font-size: 10rem;
-    --h2-font-size: 2rem;
-    --h3-font-size: 2rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 3rem;
     --text-font-size: 16px;
     --back-button-font-size: 14px;
 }
@@ -22,7 +22,7 @@ body {
   background-color: white;
   height: 100vh;
   position: relative;
-  color: black;
+  color: var(--black);
   font-family: var(--main-font);
   overflow: hidden;
 }
@@ -30,6 +30,7 @@ body {
 .text{
   display: flex;
   flex-direction: column;
+  gap:8rem; 
 }
 
 header{
@@ -45,25 +46,30 @@ header h2{
 
 h1{
     font-size: 10rem;
+    letter-spacing: 2rem;
 }
 
 h2{
   font-family: var(--serif-font);
   font-size: var(--h2-font-size);
+    letter-spacing: 0.1rem;
 }
 
 h3{
   font-size: var(--h3-font-size);
+  letter-spacing: 0.5rem;
 }
 
 nav {
   display: flex;
   gap: 20px;
+  justify-content: space-between;
+  width: 50%;
 }
 
 nav a{
   text-decoration: none;
-  color: black;
+  color: var(--black);
 }
 
 #stars-container {
@@ -86,8 +92,8 @@ nav a{
 }
 
 .cube-container {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   flex-shrink: 0;
 }
 

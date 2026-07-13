@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import {FontLoader,TextGeometry} from 'three/examples/jsm/Addons.js';
 
 // STARS BACKGROUND
 const starsContainer = document.getElementById('stars-container');
@@ -66,50 +65,37 @@ window.addEventListener('resize', () => {
   starsRenderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-const container = document.getElementById('title-container'); //grabbing the space where the h1 is so we can make a scene thats the width and height of this container
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+// SPINNING WIREFRAME CUBE AROUND "PROJECTS"
+const titleCubeContainer = document.getElementById('title-cube-container');
+const titleCubeScene = new THREE.Scene();
+const titleCubeCamera = new THREE.PerspectiveCamera(75, titleCubeContainer.clientWidth / titleCubeContainer.clientHeight, 0.1, 1000);
+titleCubeCamera.position.z = 10;
 
-const renderer = new THREE.WebGLRenderer({alpha: true});
-renderer.setSize(container.clientWidth, container.clientHeight);
-container.appendChild(renderer.domElement);
+const titleCubeRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+titleCubeRenderer.setSize(titleCubeContainer.clientWidth, titleCubeContainer.clientHeight);
+titleCubeContainer.appendChild(titleCubeRenderer.domElement);
 
-//font loader
+// scale the box to the container's aspect ratio so it isn't stretched into an oval
+const titleCubeAspect = titleCubeContainer.clientWidth / titleCubeContainer.clientHeight;
+const titleBoxGeometry = new THREE.BoxGeometry(7 * titleCubeAspect, 7, 7);
+const titleEdges = new THREE.EdgesGeometry(titleBoxGeometry);
+const titleLineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff });
+const titleCube = new THREE.LineSegments(titleEdges, titleLineMaterial);
+titleCubeScene.add(titleCube);
 
-const fontLoader = new FontLoader();
+function animateTitleCube() {
+  requestAnimationFrame(animateTitleCube);
+  titleCube.rotation.y += 0.003;
+  titleCube.rotation.x += 0.0015;
+  titleCubeRenderer.render(titleCubeScene, titleCubeCamera);
+}
+animateTitleCube();
 
-fontLoader.load(
-  'https://threejs.org/examples/fonts/helvetiker_regular.typeface.json',
-  (font) => {
-    const textGeometry = new TextGeometry('PROJECTS', {
-      font: font,
-      size: 3,
-      depth: 0.1,
-    });
-    textGeometry.computeBoundingBox();
-    textGeometry.center();
-    const textMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
-    const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-    scene.add(textMesh);
-
-    camera.position.z = 5;
-    textMesh.position.x = 0;
-
-    const light = new THREE.DirectionalLight(0xffffff, 3);
-    light.position.set(5, 3, 2);
-    scene.add(light);
-
-   let time = 0;
-    function animate() {
-        requestAnimationFrame(animate);
-        time += 0.003;
-        textMesh.rotation.y = 0.1 + Math.sin(time) * 0.03; // rocks left and right
-        textMesh.rotation.x = Math.sin(time) * 0.1; // fixed upward tilt
-        renderer.render(scene, camera);
-    }
-    animate();
-  }
-);
+window.addEventListener('resize', () => {
+  titleCubeCamera.aspect = titleCubeContainer.clientWidth / titleCubeContainer.clientHeight;
+  titleCubeCamera.updateProjectionMatrix();
+  titleCubeRenderer.setSize(titleCubeContainer.clientWidth, titleCubeContainer.clientHeight);
+});
 
 // CURSOR GLOW
 const cursorGlow = document.getElementById('cursor-glow');

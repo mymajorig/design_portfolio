@@ -69,13 +69,13 @@ window.addEventListener('resize', () => {
 const cubeContainer = document.getElementById('cube-container');
 const cubeScene = new THREE.Scene();
 const cubeCamera = new THREE.PerspectiveCamera(75, cubeContainer.clientWidth / cubeContainer.clientHeight, 0.1, 1000);
-cubeCamera.position.z = 7;
+cubeCamera.position.z = 10;
 
 const cubeRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 cubeRenderer.setSize(cubeContainer.clientWidth, cubeContainer.clientHeight);
 cubeContainer.appendChild(cubeRenderer.domElement);
 
-const boxGeometry = new THREE.BoxGeometry(5, 5, 5);
+const boxGeometry = new THREE.BoxGeometry(7, 7, 7);
 const edges = new THREE.EdgesGeometry(boxGeometry);
 const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
 const cube = new THREE.LineSegments(edges, lineMaterial);
