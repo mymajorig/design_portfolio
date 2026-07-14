@@ -94,3 +94,16 @@ window.addEventListener('resize', () => {
   cubeCamera.updateProjectionMatrix();
   cubeRenderer.setSize(cubeContainer.clientWidth, cubeContainer.clientHeight);
 });
+
+// CURSOR GLOW
+const cursorGlow = document.getElementById('cursor-glow');
+
+window.addEventListener('mousemove', (e) => {
+  cursorGlow.style.left = `${e.clientX}px`;
+  cursorGlow.style.top = `${e.clientY}px`;
+});
+
+document.querySelectorAll('nav a').forEach((el) => {
+  el.addEventListener('mouseenter', () => cursorGlow.classList.add('hidden'));
+  el.addEventListener('mouseleave', () => cursorGlow.classList.remove('hidden'));
+});

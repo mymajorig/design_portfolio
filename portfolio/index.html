@@ -11,17 +11,21 @@
   <body>
     <!-- Three.js renders the black star field background -->
     <div id="stars-container"></div>
+    <div id="cursor-glow">
+      <span class="cursor-square cursor-square--a"></span>
+      <span class="cursor-square cursor-square--b"></span>
+    </div>
 
     <div class="overlay">
       <div class="cube-container" id="cube-container"></div> <!--spinning wireframe cube goes here-->
       <section class="text">
         <header>
-          <h1>PHOEBE TAYLOR</h1>
+          <h1>PHOEBE <br> TAYLOR</h1>
           <h2>BRINGING COLOR AND VIBRANCY TO PROJECTS</h2>
         </header>
         <nav>
-          <h3><a href="project_list.html">PROJECTS</a></h3>
-          <h3><a href="#">ABOUT</a></h3>
+          <h3 id="projects-button"><a href="project_list.html">PROJECTS</a></h3>
+          <h3 id="about-button"><a href="#">ABOUT</a></h3>
         </nav>
       </section>
     </div>

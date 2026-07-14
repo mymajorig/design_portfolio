@@ -18,6 +18,43 @@
     box-sizing: border-box;
 }
 
+#cursor-glow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+#cursor-glow.hidden{
+    opacity: 0;
+}
+
+.cursor-square{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    border: 2px solid;
+}
+
+.cursor-square--a{
+    border-color: #ffb5c2;
+    background-color: rgba(255, 181, 194, 0.75);
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.cursor-square--b{
+    border-color: #a8d8ea;
+    background-color: rgba(168, 216, 234, 0.75);
+    transform: translate(-50%, -50%) rotate(18deg);
+}
+
 body{
     margin: 0;
     background-color: var(--black);

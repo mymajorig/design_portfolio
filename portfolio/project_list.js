@@ -33,7 +33,7 @@ for (let i = 0; i < starCount * 3; i++) {
 starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
 
 const starMaterial = new THREE.PointsMaterial({
-  color: 0xffffff,
+  color: 0x000000,
   size: 0.3,
   sizeAttenuation: true,
   transparent: true,
@@ -75,11 +75,9 @@ const titleCubeRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true
 titleCubeRenderer.setSize(titleCubeContainer.clientWidth, titleCubeContainer.clientHeight);
 titleCubeContainer.appendChild(titleCubeRenderer.domElement);
 
-// scale the box to the container's aspect ratio so it isn't stretched into an oval
-const titleCubeAspect = titleCubeContainer.clientWidth / titleCubeContainer.clientHeight;
-const titleBoxGeometry = new THREE.BoxGeometry(7 * titleCubeAspect, 7, 7);
+const titleBoxGeometry = new THREE.BoxGeometry(7, 7, 7);
 const titleEdges = new THREE.EdgesGeometry(titleBoxGeometry);
-const titleLineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff });
+const titleLineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
 const titleCube = new THREE.LineSegments(titleEdges, titleLineMaterial);
 titleCubeScene.add(titleCube);
 

@@ -1,5 +1,18 @@
 import * as THREE from 'three';
 
+// CURSOR GLOW
+const cursorGlow = document.getElementById('cursor-glow');
+
+window.addEventListener('mousemove', (e) => {
+  cursorGlow.style.left = `${e.clientX}px`;
+  cursorGlow.style.top = `${e.clientY}px`;
+});
+
+document.querySelectorAll('.back-button').forEach((el) => {
+  el.addEventListener('mouseenter', () => cursorGlow.classList.add('hidden'));
+  el.addEventListener('mouseleave', () => cursorGlow.classList.remove('hidden'));
+});
+
 const container = document.querySelector('#header-3d');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);

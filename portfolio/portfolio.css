@@ -25,18 +25,58 @@ body {
   color: var(--black);
   font-family: var(--main-font);
   overflow: hidden;
+  padding: 2rem;
+}
+
+#cursor-glow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+#cursor-glow.hidden{
+    opacity: 0;
+}
+
+.cursor-square{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    border: 2px solid;
+}
+
+.cursor-square--a{
+    border-color: #ffb5c2;
+    background-color: rgba(255, 181, 194, 0.75);
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.cursor-square--b{
+    border-color: #a8d8ea;
+    background-color: rgba(168, 216, 234, 0.75);
+    transform: translate(-50%, -50%) rotate(18deg);
 }
 
 .text{
   display: flex;
   flex-direction: column;
   gap:8rem; 
+  align-items: center;
 }
 
 header{
   display: flex;
   flex-direction: column;
   gap: 0rem;
+  align-items: flex-start;
 }
 
 header h1,
@@ -45,14 +85,23 @@ header h2{
 }
 
 h1{
-    font-size: 10rem;
-    letter-spacing: 2rem;
+    font-size: 12rem;
+    letter-spacing: 1.5rem;
 }
 
 h2{
   font-family: var(--serif-font);
   font-size: var(--h2-font-size);
     letter-spacing: 0.1rem;
+    color: rgb(165, 165, 165);
+}
+
+#projects-button:hover a{
+  color: lavender;
+}
+
+#about-button:hover a{
+  color: aqua;
 }
 
 h3{
@@ -64,7 +113,7 @@ nav {
   display: flex;
   gap: 20px;
   justify-content: space-between;
-  width: 50%;
+  width: 100%;
 }
 
 nav a{
@@ -88,7 +137,7 @@ nav a{
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 80px;
+  gap: 12rem;
 }
 
 .cube-container {
