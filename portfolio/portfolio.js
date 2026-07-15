@@ -81,10 +81,57 @@ const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
 const cube = new THREE.LineSegments(edges, lineMaterial);
 cubeScene.add(cube);
 
+// pastel fill that fades in while the cube is being pressed/dragged, and fades out on release
+const FILL_OPACITY = 0.25;
+const fillMaterial = new THREE.MeshBasicMaterial({
+  color: 0xc9b6f0,
+  transparent: true,
+  opacity: 0,
+  side: THREE.DoubleSide,
+  depthWrite: true,
+});
+const cubeFill = new THREE.Mesh(boxGeometry, fillMaterial);
+cube.add(cubeFill);
+
+let isDragging = false;
+let lastPointerX = 0;
+let lastPointerY = 0;
+let fillOpacityTarget = 0;
+
+cubeContainer.style.cursor = 'grab';
+
+cubeContainer.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  lastPointerX = e.clientX;
+  lastPointerY = e.clientY;
+  cubeContainer.style.cursor = 'grabbing';
+  fillOpacityTarget = FILL_OPACITY;
+});
+
+window.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  const deltaX = e.clientX - lastPointerX;
+  const deltaY = e.clientY - lastPointerY;
+  cube.rotation.y += deltaX * 0.01;
+  cube.rotation.x += deltaY * 0.01;
+  lastPointerX = e.clientX;
+  lastPointerY = e.clientY;
+});
+
+window.addEventListener('mouseup', () => {
+  if (!isDragging) return;
+  isDragging = false;
+  cubeContainer.style.cursor = 'grab';
+  fillOpacityTarget = 0;
+});
+
 function animateCube() {
   requestAnimationFrame(animateCube);
-  cube.rotation.y += 0.003;
-  cube.rotation.x += 0.0015;
+  if (!isDragging) {
+    cube.rotation.y += 0.003;
+    cube.rotation.x += 0.0015;
+  }
+  fillMaterial.opacity += (fillOpacityTarget - fillMaterial.opacity) * 0.15;
   cubeRenderer.render(cubeScene, cubeCamera);
 }
 animateCube();
@@ -106,4 +153,20 @@ window.addEventListener('mousemove', (e) => {
 document.querySelectorAll('nav a').forEach((el) => {
   el.addEventListener('mouseenter', () => cursorGlow.classList.add('hidden'));
   el.addEventListener('mouseleave', () => cursorGlow.classList.remove('hidden'));
+});
+
+// PAGE FADE TRANSITION
+requestAnimationFrame(() => document.body.classList.add('page-loaded'));
+
+document.querySelectorAll('a[href]').forEach((link) => {
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('http') || link.target === '_blank') return;
+
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.body.classList.remove('page-loaded');
+    setTimeout(() => {
+      window.location.href = href;
+    }, 400);
+  });
 });
