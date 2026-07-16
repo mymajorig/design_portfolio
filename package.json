@@ -5,8 +5,16 @@
   "main": "portfolio.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "concurrently -n web,api -c cyan,magenta \"npm:dev:web\" \"npm:dev:api\"",
+    "dev:web": "vite",
+    "dev:api": "node --watch server/index.js",
+    "build": "vite build",
+    "start": "node server/index.js", 
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "node server/seed.js"
   },
   "repository": {
     "type": "git",
@@ -15,15 +23,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/mymajorig/design_portfolio/issues"
   },
   "homepage": "https://github.com/mymajorig/design_portfolio#readme",
   "dependencies": {
+    "@hono/node-server": "^2.0.10",
+    "better-sqlite3": "^12.11.1",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.12.30",
     "three": "^0.185.0"
   },
   "devDependencies": {
+    "concurrently": "^10.0.3",
+    "drizzle-kit": "^0.31.10",
     "vite": "^8.1.0"
   }
 }

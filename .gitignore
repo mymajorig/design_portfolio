@@ -4,3 +4,11 @@
 
 #ignore include folder
 include/
+
+#node dependencies
+node_modules/
+
+#local SQLite database (and WAL sidecar files)
+portfolio.db
+portfolio.db-wal
+portfolio.db-shm

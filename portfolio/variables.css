@@ -1,0 +1,20 @@
+:root{
+    --main-font: "Bebas Neue", sans-serif;
+    --card-bg: #232323;
+    /* colors */
+     --black: #1e1e1e;
+    --white: #F2F0EF;
+    --mustard: #a68200;
+    --lavender:rgb(112, 112, 221);
+    --sky-blue: rgba(168, 216, 234);
+
+    /* font families */
+    --sans-serif-font: "Bebas Neue", sans-serif;
+    --serif-font: "Rokkitt", serif;
+    /* font sizes */
+    --h1-font-size: 10rem;
+    --h2-font-size: 7rem;
+    --h3-font-size: 3rem;
+    --text-font-size: 16px;
+    --back-button-font-size: 14px;
+}

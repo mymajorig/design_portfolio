@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio DB — Fetch Demo</title>
+  <style>
+    * { box-sizing: border-box; }
+    /* an explicit display (e.g. #list below) overrides the browser's built-in
+       [hidden]{display:none}, so restore it for our toggled sections */
+    [hidden] { display: none !important; }
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    header p { color: #555; }
+    code { background: #f0f0f0; padding: 0.1em 0.35em; border-radius: 4px; }
+
+    /* list view */
+    #list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .card {
+      display: block; text-decoration: none; color: inherit;
+      border: 1px solid #e2e2e2; border-radius: 10px; overflow: hidden;
+      transition: box-shadow 0.15s, transform 0.15s;
+    }
+    .card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .card img { width: 100%; height: 130px; object-fit: cover; display: block; background: #eee; }
+    .card h2 { font-size: 1.05rem; margin: 0.75rem 0.9rem 0.25rem; }
+    .card p { margin: 0 0.9rem 0.9rem; color: #666; font-size: 0.9rem; }
+
+    /* detail view */
+    #detail .label { text-transform: uppercase; letter-spacing: 0.08em; color: #888; font-size: 0.8rem; margin: 0; }
+    #detail h1 { margin: 0.15rem 0 1rem; }
+    #detail .one-liner { font-size: 1.15rem; color: #444; }
+    .back { background: none; border: none; color: #2563eb; cursor: pointer; font-size: 0.95rem; padding: 0; margin-bottom: 1rem; }
+    .empty { color: #888; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fetch demo</h1>
+    <p>
+      Reading projects from <code>portfolio.db</code> through the same API pattern your
+      real pages will use. If your table is empty, this demo serves sample rows so you can
+      see the rendering — nothing is written to your database.
+    </p>
+  </header>
+
+  <main>
+    <!-- list of all projects -->
+    <section id="list"></section>
+    <!-- single project, shown when the URL has a #slug -->
+    <section id="detail" hidden></section>
+  </main>
+
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

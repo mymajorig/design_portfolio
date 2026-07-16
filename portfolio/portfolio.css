@@ -1,22 +1,4 @@
 
-:root{
-    --main-font: "Bebas Neue", sans-serif;
-    --card-bg: #232323;
-    /* colors */
-     --black: #1e1e1e;
-    --white: #F2F0EF;
-
-    /* font families */
-    --sans-serif-font: "Bebas Neue", sans-serif;
-    --serif-font: "Lora", serif;
-    /* font sizes */
-    --h1-font-size: 10rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 3rem;
-    --text-font-size: 16px;
-    --back-button-font-size: 14px;
-}
-
 body {
   margin: 0;
   background-color: white;
@@ -25,9 +7,9 @@ body {
   color: var(--black);
   font-family: var(--main-font);
   overflow: hidden;
-  padding: 2rem;
+  padding: 0rem;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.5s ease;
 }
 
 body.page-loaded {
@@ -76,6 +58,7 @@ body.page-loaded {
   flex-direction: column;
   gap:8rem; 
   align-items: center;
+  padding: 0 4rem 00;
 }
 
 header{
@@ -91,8 +74,9 @@ header h2{
 }
 
 h1{
-    font-size: 12rem;
-    letter-spacing: 1.5rem;
+    font-size: 10rem;
+    letter-spacing: 0.2rem;
+    font-family: var(--serif-font);
 }
 
 h2{
@@ -103,22 +87,30 @@ h2{
 }
 
 #projects-button:hover a{
-  color: lavender;
+  color: var(--lavender);
 }
 
 #about-button:hover a{
-  color: aqua;
+  color: var(--mustard);
 }
 
 h3{
   font-size: var(--h3-font-size);
+  letter-spacing: 01rem;
+}
+
+.sub-header{
+  opacity: 0.5;
+  font-family: var(--serif-font);
+  font-size: 1.5rem;
   letter-spacing: 0.5rem;
+
 }
 
 nav {
   display: flex;
   gap: 20px;
-  justify-content: space-between;
+  justify-content: space-between; 
   width: 100%;
 }
 
@@ -131,7 +123,7 @@ nav a{
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: 0; /* stars live behind everything */
+  z-index: 0; 
 }
 
 .overlay {
@@ -143,13 +135,14 @@ nav a{
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 12rem;
+  /* gap: 4rem; */
 }
 
 .cube-container {
-  width: 400px;
-  height: 400px;
-  flex-shrink: 0;
+   width: 400px;
+  height: 400px; 
+  flex-shrink: 0;  
+  flex-grow: 1; 
 }
 
 

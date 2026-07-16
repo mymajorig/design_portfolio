@@ -81,10 +81,57 @@ const titleLineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
 const titleCube = new THREE.LineSegments(titleEdges, titleLineMaterial);
 titleCubeScene.add(titleCube);
 
+// pastel fill that fades in while the cube is being pressed/dragged, and fades out on release
+const TITLE_CUBE_FILL_OPACITY = 0.25;
+const titleFillMaterial = new THREE.MeshBasicMaterial({
+  color: 0xc9b6f0,
+  transparent: true,
+  opacity: 0,
+  side: THREE.DoubleSide,
+  depthWrite: true,
+});
+const titleCubeFill = new THREE.Mesh(titleBoxGeometry, titleFillMaterial);
+titleCube.add(titleCubeFill);
+
+let isTitleCubeDragging = false;
+let lastTitleCubePointerX = 0;
+let lastTitleCubePointerY = 0;
+let titleFillOpacityTarget = 0;
+
+titleCubeContainer.style.cursor = 'grab';
+
+titleCubeContainer.addEventListener('mousedown', (e) => {
+  isTitleCubeDragging = true;
+  lastTitleCubePointerX = e.clientX;
+  lastTitleCubePointerY = e.clientY;
+  titleCubeContainer.style.cursor = 'grabbing';
+  titleFillOpacityTarget = TITLE_CUBE_FILL_OPACITY;
+});
+
+window.addEventListener('mousemove', (e) => {
+  if (!isTitleCubeDragging) return;
+  const deltaX = e.clientX - lastTitleCubePointerX;
+  const deltaY = e.clientY - lastTitleCubePointerY;
+  titleCube.rotation.y += deltaX * 0.01;
+  titleCube.rotation.x += deltaY * 0.01;
+  lastTitleCubePointerX = e.clientX;
+  lastTitleCubePointerY = e.clientY;
+});
+
+window.addEventListener('mouseup', () => {
+  if (!isTitleCubeDragging) return;
+  isTitleCubeDragging = false;
+  titleCubeContainer.style.cursor = 'grab';
+  titleFillOpacityTarget = 0;
+});
+
 function animateTitleCube() {
   requestAnimationFrame(animateTitleCube);
-  titleCube.rotation.y += 0.003;
-  titleCube.rotation.x += 0.0015;
+  if (!isTitleCubeDragging) {
+    titleCube.rotation.y += 0.003;
+    titleCube.rotation.x += 0.0015;
+  }
+  titleFillMaterial.opacity += (titleFillOpacityTarget - titleFillMaterial.opacity) * 0.15;
   titleCubeRenderer.render(titleCubeScene, titleCubeCamera);
 }
 animateTitleCube();
@@ -123,3 +170,14 @@ document.querySelectorAll('a[href]').forEach((link) => {
     }, 400);
   });
 });
+
+// fetch all projects using /api/projects; that will return JSON for all your project;
+// loop over this JSON array and turn it into HTML; insert HTML into DOM
+
+// [
+//   {
+//     "project_id": "1",
+//     "project_name": "THis is my really cool project",
+//     "project_img": "google.com"
+//   }
+// ]
