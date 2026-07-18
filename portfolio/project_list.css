@@ -8,9 +8,11 @@
 body{
     background-color: var(--white);
     color: var(--black);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-text);
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 10rem;
     align-items: flex-start;
     justify-content: flex-start;
     padding: 3rem 3rem;
@@ -87,8 +89,8 @@ header{
     font-family: var(--sans-serif-font);
     font-size: clamp(11rem, 8vw, 12rem);
     font-weight: 400;
-    letter-spacing: 0.4rem;
-    line-height: 1;
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-display);
     margin: 0;
     color: var(--black);
 }
@@ -174,7 +176,7 @@ header{
     font-weight: 400;
     font-size: 1.1rem;
     letter-spacing: 0;
-    line-height: 1.2;
+    line-height: var(--leading-tight);
     margin: 0;
     color: var(--black);
 }
@@ -184,6 +186,7 @@ header{
     font-weight: 400;
     font-size: 0.85rem;
     letter-spacing: 0;
+    line-height: var(--leading-normal);
     text-transform: none;
     margin: 0.15rem 0 0;
     color: rgba(30, 30, 30, 0.6);

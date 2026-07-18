@@ -17,4 +17,24 @@
     --h3-font-size: 3rem;
     --text-font-size: 16px;
     --back-button-font-size: 14px;
+
+    /* spacing scale */
+    --space-sm: 1.5rem;
+    --space-md: 2rem;
+    --space-lg: 3rem;
+    --space-xl: 4rem;
+    --space-2xl: 6rem;
+    --space-3xl: 8rem;
+
+    /* line heights */
+    --leading-display: 1.1;
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.5;
+
+    /* letter spacing */
+    --tracking-text: 0.15rem;
+    --tracking-display: 0.3rem;
+    --tracking-caps: 0.5rem;
+    --tracking-wide: 1rem;
 }
