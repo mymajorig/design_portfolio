@@ -150,7 +150,7 @@ window.addEventListener('mousemove', (e) => {
   cursorGlow.style.top = `${e.clientY}px`;
 });
 
-document.querySelectorAll('nav a').forEach((el) => {
+document.querySelectorAll('nav a, .project').forEach((el) => {
   el.addEventListener('mouseenter', () => cursorGlow.classList.add('hidden'));
   el.addEventListener('mouseleave', () => cursorGlow.classList.remove('hidden'));
 });

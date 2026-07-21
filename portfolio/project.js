@@ -133,65 +133,46 @@ window.addEventListener('resize', () => {
   renderer.setSize(container.clientWidth, container.clientHeight);
 });
 
-// GOALS SECTION DECORATIVE SHAPE
-const traitContainer = document.querySelector('#trait-header-3d');
-const traitScene = new THREE.Scene();
-const traitCamera = new THREE.PerspectiveCamera(75, traitContainer.clientWidth / traitContainer.clientHeight, 0.1, 1000);
-traitCamera.position.z = 7;
+// SECTION DECORATIVE SHAPES (goals, research, process, outcome)
+// each section header gets its own slowly rotating wireframe shape
+function createTraitShape(containerId, geometry) {
+  const container = document.querySelector(containerId);
+  if (!container) return;
 
-const traitRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-traitRenderer.setSize(traitContainer.clientWidth, traitContainer.clientHeight);
-traitContainer.appendChild(traitRenderer.domElement);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+  camera.position.z = 7;
 
-const traitGeometry = new THREE.IcosahedronGeometry(4, 5);
-const traitMaterial = new THREE.ShaderMaterial({
-  uniforms: {
-    time: { value: 0 },
-  },
-  vertexShader: `
-    varying vec3 vNormal;
-    void main() {
-      vNormal = normalize(normalMatrix * normal);
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `,
-  fragmentShader: `
-    varying vec3 vNormal;
-    uniform float time;
-    void main() {
-      vec3 colorA = vec3(0.94, 0.78, 0.55); // peach
-      vec3 colorB = vec3(0.88, 0.4, 0.18);  // orange
-      vec3 colorC = vec3(0.93, 0.55, 0.3);  // warm coral
-      vec3 color = colorA * (0.5 + 0.5 * sin(vNormal.x + time)) + colorB * (0.5 + 0.5 * sin(vNormal.y + time)) + colorC * (0.5 + 0.5 * sin(vNormal.z + time));
-      gl_FragColor = vec4(color, 1.0);
-    }
-  `,
-});
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
 
-const traitOrb = new THREE.Mesh(traitGeometry, traitMaterial);
-traitScene.add(traitOrb);
+  const edges = new THREE.EdgesGeometry(geometry);
+  const material = new THREE.LineBasicMaterial({ color: 0x000000 });
+  const shape = new THREE.LineSegments(edges, material);
+  scene.add(shape);
 
-const traitLight = new THREE.DirectionalLight(0xffffff, 2);
-traitLight.position.set(5, 3, 2);
-traitScene.add(traitLight);
-traitScene.add(new THREE.AmbientLight(0xffffff, 0.4));
+  let time = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    time += 0.003;
+    shape.rotation.y += 0.002;
+    shape.rotation.x = Math.sin(time * 0.5) * 0.1;
+    renderer.render(scene, camera);
+  }
+  animate();
 
-let traitTime = 0;
-function animateTrait() {
-  requestAnimationFrame(animateTrait);
-  traitTime += 0.003;
-  traitMaterial.uniforms.time.value = traitTime;
-  traitOrb.rotation.y += 0.002;
-  traitOrb.rotation.x = Math.sin(traitTime * 0.5) * 0.1;
-  traitRenderer.render(traitScene, traitCamera);
+  window.addEventListener('resize', () => {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+  });
 }
-animateTrait();
 
-window.addEventListener('resize', () => {
-  traitCamera.aspect = traitContainer.clientWidth / traitContainer.clientHeight;
-  traitCamera.updateProjectionMatrix();
-  traitRenderer.setSize(traitContainer.clientWidth, traitContainer.clientHeight);
-});
+createTraitShape('#trait-header-3d', new THREE.BoxGeometry(4, 4, 4));
+createTraitShape('#research-3d', new THREE.IcosahedronGeometry(3));
+createTraitShape('#process-3d', new THREE.OctahedronGeometry(3));
+createTraitShape('#outcome-3d', new THREE.TetrahedronGeometry(3.2));
 
 // PAGE FADE TRANSITION
 requestAnimationFrame(() => document.body.classList.add('page-loaded'));

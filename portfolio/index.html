@@ -2,12 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My first three.js app</title>
     <link rel="stylesheet" href="portfolio.css">
      <link rel="stylesheet" href="variables.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Major+Mono+Display&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Three.js renders the black star field background -->
@@ -18,8 +19,8 @@
     </div>
 
     <nav>
-      <h3 id="projects-button"><a href="project_list.html">PROJECTS</a></h3>
-      <h3 id="about-button"><a href="#">ABOUT</a></h3>
+      <h3 id="projects-button"><a href="#project-grid">PROJECTS</a></h3>
+      <h3 id="about-button"><a href="about.html">ABOUT</a></h3>
       <h3 id="resume-button"><a href="#">RESUME</a></h3>
     </nav>
 
@@ -33,7 +34,7 @@
       </section>
     </div>
 
-    <section class="project-grid">
+    <section class="project-grid" id="project-grid">
         <a class="project" id="one" href="project.html">
             <img class="project-preview" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCdq2pOp2SDxA-psAVSyqzKE0g2ewPXefkSHhoai9xJ4iS9hxdvriw4jqv&s=10" alt="project-image">
             <div class="project-text">

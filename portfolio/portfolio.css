@@ -3,13 +3,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background-color: white;
   min-height: 100vh;
   position: relative;
   color: var(--black);
-  font-family: var(--main-font);
+  font-family: var(--sans-serif-font);
   overflow-x: hidden;
   padding: 100vh 0 0; /* reserves the first screen for the hero overlay */
   opacity: 0;
@@ -40,20 +44,22 @@ body.page-loaded {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 34px;
-    height: 34px;
-    border: 2px solid;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--black);
+    background-color: transparent;
 }
 
+/* outer wireframe square echoes the black 3d shapes */
 .cursor-square--a{
-    border-color: #ffb5c2;
-    background-color: rgba(255, 181, 194, 0.75);
     transform: translate(-50%, -50%) rotate(0deg);
 }
 
+/* smaller nested square in the mustard accent from the palette */
 .cursor-square--b{
-    border-color: #a8d8ea;
-    background-color: rgba(168, 216, 234, 0.75);
+    width: 16px;
+    height: 16px;
+    border-color: var(--mustard);
     transform: translate(-50%, -50%) rotate(18deg);
 }
 
@@ -80,10 +86,10 @@ h3{
 }
 
 h1{
-    font-size: var(--h1-font-size);
-    letter-spacing: var(--tracking-display);
+    font-size: clamp(3.5rem, 15vw, 13rem);
+    letter-spacing: var(--tracking-wide);
     line-height: var(--leading-display);
-    font-family: var(--serif-font);
+    font-family: var(--sans-serif-font);
 }
 
 h2{
@@ -114,8 +120,9 @@ h3{
 .sub-header{
   opacity: 0.5;
   font-family: var(--serif-font);
-  font-size: 1.5rem;
-  letter-spacing: var(--tracking-caps);
+  font-weight: 400;
+  font-size: 1.25rem;
+  letter-spacing: var(--tracking-text);
   line-height: var(--leading-normal);
 }
 
@@ -169,49 +176,116 @@ nav a{
   flex-grow: 1;
 }
 
+/* stack the hero vertically once the cube + text no longer fit side by side */
+@media (max-width: 900px){
+  .overlay{
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .cube-container{
+    width: min(300px, 60vw);
+    height: min(300px, 60vw);
+    flex-grow: 0;
+  }
+
+  .cube-container canvas{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .text{
+    padding: 0 var(--space-md);
+  }
+
+  nav{
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  nav h3{
+    font-size: 1rem;
+    letter-spacing: var(--tracking-text);
+  }
+}
+
 /* project grid */
 
 .project-grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem 3rem;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
+    width: min(1300px, 100% - 6rem);
+    margin: 0 auto 5rem;
     padding: 4rem 3rem;
     position: relative;
     z-index: 1;
+    /*border: 1.5px solid var(--black);*/
 }
+
+/* back face of the grid's wireframe box, offset like the 3d shapes */
+/*.project-grid::before{
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid var(--black);
+    pointer-events: none;
+    z-index: -1;
+}*/
 
 .project{
     width: 100%;
     text-decoration: none;
     color: inherit;
     display: block;
-    transition: transform 0.3s ease;
+    position: relative;
 }
 
-.project:hover{
-    transform: translateY(-6px);
+/* each card is a small wireframe box: offset back face behind the image */
+.project::before{
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border: 1.5px solid var(--black);
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    pointer-events: none;
+}
+
+/* pastel press-fill on hover, cycling the site's accents */
+.project:nth-child(3n+1){ --card-accent: rgba(201, 182, 240, 0.5); } /* cube fill lavender */
+.project:nth-child(3n+2){ --card-accent: rgba(255, 181, 194, 0.5); } /* cursor square pink */
+.project:nth-child(3n){ --card-accent: rgba(168, 216, 234, 0.5); }   /* cursor square blue */
+
+.project:hover::before{
+    background-color: var(--card-accent);
 }
 
 .project-preview{
     display: block;
+    position: relative;
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease, transform 0.4s ease;
+    border: 1.5px solid var(--black);
+    transition: transform 0.3s ease;
 }
 
+/* front face slides away from the back face so the depth gap widens */
 .project:hover .project-preview{
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-    transform: scale(1.02);
+    transform: translate(-6px, -6px);
 }
 
 .project-text{
     text-align: center;
-    margin-top: 0.75rem;
+    margin-top: 2rem; /* clears the back-face outline that hangs 12px below the image */
 }
 
 .project-title{

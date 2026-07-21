@@ -53,20 +53,22 @@ body.page-loaded{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 34px;
-    height: 34px;
-    border: 2px solid;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--black);
+    background-color: transparent;
 }
 
+/* outer wireframe square echoes the black 3d shapes */
 .cursor-square--a{
-    border-color: var(--mustard);
-    background-color: #a68200a3;
     transform: translate(-50%, -50%) rotate(0deg);
 }
 
+/* smaller nested square in the mustard accent from the palette */
 .cursor-square--b{
-    border-color: var(--lavender);
-    background-color: rgba(112, 112, 221, 0.75);
+    width: 16px;
+    height: 16px;
+    border-color: var(--mustard);
     transform: translate(-50%, -50%) rotate(18deg);
 }
 
