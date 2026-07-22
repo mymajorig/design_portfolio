@@ -153,6 +153,7 @@ header{
     font-size: var(--h3-font-size);
     line-height: var(--leading-tight);
     margin-bottom: 0.5rem;
+    color: var(--orange);
 }
 
 .project-name-title{
@@ -187,12 +188,30 @@ header{
     gap: 5rem;
 }
 
+/* orange highlight system */
+
+/* highlighter-marker swipe behind key phrases (covers the lower half like a real pen) */
+.highlight{
+    background-image: linear-gradient(transparent 55%, var(--orange-highlight) 55%);
+    padding: 0 0.1em;
+}
+
+/* dragging to select text picks up the same orange */
+::selection{
+    background-color: var(--orange);
+    color: var(--white);
+}
+
 /* key learnings */
 
 .key-learnings{
     border: 2px solid var(--black);
     padding: 2rem 3rem;
     border-radius: 1rem;
+}
+
+.key-learnings li::marker{
+    color: var(--orange);
 }
 
 /* goals, research, process, outcome all share this layout */

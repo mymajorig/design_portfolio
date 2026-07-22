@@ -6,6 +6,8 @@
     --mustard: #a68200;
     --lavender:rgb(112, 112, 221);
     --sky-blue: rgba(168, 216, 234);
+    --orange: #e0662e; /* querri brand orange — used as the project page highlight */
+    --orange-highlight: rgba(224, 102, 46, 0.4); /* translucent for the marker swipe behind text */
 
     /* font families */
     --sans-serif-font: "Bebas Neue", sans-serif;
