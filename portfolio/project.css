@@ -53,7 +53,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10rem;
-    padding: 2rem 5rem;
+    padding: 5vh 5rem 2rem 5rem;
     opacity: 0;
     transition: opacity 0.4s ease;
 }
@@ -85,7 +85,7 @@ p, li, a
 
 header{
     position: relative;
-    min-height: 100vh;
+    min-height: 95vh;
     /* padding: 3rem 4rem; */
     display: flex;
     flex-direction: column;
