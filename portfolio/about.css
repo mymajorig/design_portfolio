@@ -119,4 +119,28 @@ nav a{
     .about-text{
         width: 100%;
     }
+
+    /* keep the portrait from filling the whole phone screen */
+    .about-image{
+        width: min(100%, 340px);
+        align-self: center;
+    }
+}
+
+/* phone: shrink page padding and pull the nav in so it doesn't overflow */
+@media (max-width: 600px){
+    body{
+        padding: 6rem 1.25rem 2rem;
+    }
+
+    nav{
+        justify-content: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm);
+    }
+
+    nav h3{
+        font-size: 1rem;
+        letter-spacing: var(--tracking-text);
+    }
 }

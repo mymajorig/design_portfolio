@@ -3,19 +3,21 @@
     /* colors */
      --black: #1e1e1e;
     --white: #F2F0EF;
-    --mustard: #a68200;
-    --lavender:rgb(112, 112, 221);
-    --sky-blue: rgba(168, 216, 234);
+    --mustard: #bf7d00;
+    --lavender: #7b42ff;
+    --sky-blue: #0092d6;
     --orange: #e0662e; /* querri brand orange — used as the project page highlight */
     --orange-highlight: rgba(224, 102, 46, 0.4); /* translucent for the marker swipe behind text */
 
     /* font families */
     --sans-serif-font: "Bebas Neue", sans-serif;
     --serif-font: "Rokkitt", serif;
-    /* font sizes */
-    --h1-font-size: 10rem;
-    --h2-font-size: 7rem;
-    --h3-font-size: 3rem;
+    /* font sizes — clamp() keeps the desktop size but scales down on small
+       screens (min, preferred-with-viewport, max). Max equals the old fixed
+       value so wide screens look unchanged. */
+    --h1-font-size: clamp(3.5rem, 16vw, 10rem);
+    --h2-font-size: clamp(2.5rem, 14vw, 7rem);
+    --h3-font-size: clamp(1.75rem, 8vw, 3rem);
     --text-font-size: 16px;
     --back-button-font-size: 14px;
 
@@ -38,4 +40,55 @@
     --tracking-display: 0.3rem;
     --tracking-caps: 0.5rem;
     --tracking-wide: 1rem;
+}
+
+/* --- shared page-transition curtain ---
+   A full-screen colored overlay (see transitions.js). It fades in when leaving
+   a project card, then on the project page it collapses into the Back button. */
+.page-curtain{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+}
+
+.page-curtain--visible{
+    opacity: 1;
+}
+
+/* while collapsing, animate the box geometry down to the button instead.
+   A slow-start / soft-landing ease over 1s makes the orange linger large, then
+   settle gently onto the button as one continuous motion. */
+.page-curtain--collapsing{
+    transition: top 1s cubic-bezier(0.6, 0, 0.2, 1),
+                left 1s cubic-bezier(0.6, 0, 0.2, 1),
+                width 1s cubic-bezier(0.6, 0, 0.2, 1),
+                height 1s cubic-bezier(0.6, 0, 0.2, 1),
+                border-radius 1s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+/* --- custom arrow cursor ---
+   A right-pointing arrow with a wireframe echo, matching the site's solid +
+   offset-outline motif. Set on <html> (not *) so it's inherited: links still
+   get their pointer, and the draggable 3d shapes keep their grab cursor.
+   The two numbers after the url are the click "hotspot" (x y, in px). */
+html{
+    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='30' viewBox='0 0 36 30'><g transform='rotate(12 19 18)'><polygon points='16,6 16,26 33,16' fill='white' stroke='%231e1e1e' stroke-width='1' stroke-linejoin='round'/><polygon points='5,8 5,28 22,18' fill='%231e1e1e'/></g></svg>") 22 19, auto;
+}
+
+/* the old floating wireframe-square cursor is replaced by the real cursor above */
+#cursor-glow{
+    display: none;
+}
+
+/* project cards are <a> links, so the browser would give them a pointer hand;
+   re-inherit the arrow instead. (The 3d shapes set their own grab cursor in JS,
+   so they're untouched by this.) */
+.project{
+    cursor: inherit;
 }

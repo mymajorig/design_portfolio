@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { playExitToProject } from './transitions.js';
 
 // STARS BACKGROUND
 const starsContainer = document.getElementById('stars-container');
@@ -171,13 +172,61 @@ document.querySelectorAll('a[href]').forEach((link) => {
   });
 });
 
-// fetch all projects using /api/projects; that will return JSON for all your project;
-// loop over this JSON array and turn it into HTML; insert HTML into DOM
+// PROJECT GRID FROM THE DATABASE
+// Fetch every project from the API and build a card for each one.
+async function renderProjects() {
+  const grid = document.querySelector('.project-grid');
+  if (!grid) return;
 
-// [
-//   {
-//     "project_id": "1",
-//     "project_name": "THis is my really cool project",
-//     "project_img": "google.com"
-//   }
-// ]
+  let projects;
+  try {
+    const res = await fetch('/api/projects');
+    projects = await res.json();
+  } catch (err) {
+    console.error('Could not load projects:', err);
+    return;
+  }
+
+  grid.innerHTML = '';
+  projects.forEach((p) => {
+    const card = document.createElement('a');
+    card.className = 'project';
+    // the slug tells the detail page which project to load
+    card.href = `project.html?slug=${encodeURIComponent(p.slug)}`;
+
+    if (p.previewImage) {
+      const img = document.createElement('img');
+      img.className = 'project-preview';
+      img.src = p.previewImage;
+      img.alt = p.title;
+      card.appendChild(img);
+    }
+
+    const text = document.createElement('div');
+    text.className = 'project-text';
+
+    const title = document.createElement('h1');
+    title.className = 'project-title';
+    title.textContent = p.title;
+
+    const headliner = document.createElement('h2');
+    headliner.className = 'project-headliner';
+    headliner.textContent = p.headliner ?? '';
+
+    text.append(title, headliner);
+    card.appendChild(text);
+    grid.appendChild(card);
+
+    // hide the custom cursor while hovering a card (same as the static cards did)
+    card.addEventListener('mouseenter', () => cursorGlow.classList.add('hidden'));
+    card.addEventListener('mouseleave', () => cursorGlow.classList.remove('hidden'));
+
+    // colored-curtain transition into the project (theme color from the DB later)
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      playExitToProject(card.getAttribute('href'), p.themeColor);
+    });
+  });
+}
+
+renderProjects();

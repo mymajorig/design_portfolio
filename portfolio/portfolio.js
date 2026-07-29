@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { playExitToProject } from './transitions.js';
 
 // STAR FIELD BACKGROUND
 const starsContainer = document.getElementById('stars-container');
@@ -161,6 +162,8 @@ requestAnimationFrame(() => document.body.classList.add('page-loaded'));
 document.querySelectorAll('a[href]').forEach((link) => {
   const href = link.getAttribute('href');
   if (!href || href.startsWith('#') || href.startsWith('http') || link.target === '_blank') return;
+  // project cards get the colored-curtain transition below instead
+  if (link.classList.contains('project')) return;
 
   link.addEventListener('click', (e) => {
     e.preventDefault();
@@ -168,5 +171,13 @@ document.querySelectorAll('a[href]').forEach((link) => {
     setTimeout(() => {
       window.location.href = href;
     }, 400);
+  });
+});
+
+// project cards: colored-curtain transition into the project page
+document.querySelectorAll('.project').forEach((card) => {
+  card.addEventListener('click', (e) => {
+    e.preventDefault();
+    playExitToProject(card.getAttribute('href'), card.dataset.themeColor);
   });
 });

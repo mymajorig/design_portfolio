@@ -113,7 +113,7 @@ header{
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background-image: linear-gradient(to right, #2fafcc, #b06ab7, #cca981);
+    background-color: #ba5526;
     opacity: 0;
     transition: opacity 0.3s ease-in;
     z-index: -1;
@@ -121,6 +121,15 @@ header{
 
 .back-button:hover::before{
     opacity: 1;
+}
+
+/* after the transition curtain collapses into it, the button keeps the
+   project's theme color (set inline via --theme-color by transitions.js) */
+.back-button--themed{
+    background-color: var(--theme-color, var(--orange));
+    border-color: var(--theme-color, var(--orange));
+    color: var(--white);
+    transition: background-color 0.3s ease;
 }
 
 .header-content{
@@ -240,5 +249,97 @@ header{
     min-height: auto;
     gap: 3rem;
     align-items: center;
+}
+
+/* tablet/phone: stack the header and every section, shrink the 3d canvases */
+@media (max-width: 900px){
+    body{
+        padding: 5vh 2rem 2rem;
+        gap: 6rem;
+    }
+
+    /* hero: one-liner/title above the 3d orb instead of beside it */
+    .header-content{
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .header-text{
+        max-width: 100%;
+    }
+
+    .header-3d{
+        align-self: flex-start;
+        width: min(320px, 70vw);
+        height: min(320px, 70vw);
+        margin-top: 1rem;
+    }
+
+    .one-liner{
+        font-size: clamp(2rem, 8vw, 4rem);
+    }
+
+    /* the title is normally set by var(--h1-font-size); ease the wide tracking
+       so it doesn't push off-screen at phone widths */
+    .project-name-title,
+    .project-name h1{
+        letter-spacing: var(--tracking-display);
+    }
+
+    /* extra separation so each section reads as its own block */
+    .info-container{
+        gap: 5rem;
+    }
+
+    /* each Goals/Research/Process/Outcome block stacks vertically */
+    .trait-section,
+    .trait-section:nth-of-type(odd){
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+    }
+
+    .trait-header{
+        gap: 1.5rem;
+    }
+
+    .trait-header-3d{
+        width: min(220px, 55vw);
+        height: min(220px, 55vw);
+        margin-top: -2rem;
+    }
+
+    /* Key Learnings: shrink the oversized, widely-spaced heading and bump the
+       list items so the two sizes feel balanced inside the box */
+    .key-learnings h3{
+        font-size: clamp(1.4rem, 6vw, 1.9rem);
+        letter-spacing: var(--tracking-display);
+        margin-top: 0;
+    }
+
+    .key-learnings ol{
+        margin: 0;
+        padding-left: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .key-learnings li{
+        font-size: 1.15rem;
+        letter-spacing: 0.08rem;
+    }
+}
+
+/* phone: pull side padding in further */
+@media (max-width: 600px){
+    body{
+        padding: 4vh 1.25rem 2rem;
+    }
+
+    .key-learnings{
+        padding: 1.5rem;
+    }
 }
 

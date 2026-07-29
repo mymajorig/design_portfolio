@@ -89,7 +89,9 @@ header{
 
 .page-title {
     font-family: var(--sans-serif-font);
-    font-size: clamp(11rem, 8vw, 12rem);
+    /* min was 11rem before, which never let the title shrink and overflowed
+       small screens; a lower floor lets it scale down while staying 12rem wide */
+    font-size: clamp(3.5rem, 20vw, 12rem);
     font-weight: 400;
     letter-spacing: var(--tracking-display);
     line-height: var(--leading-display);
@@ -192,4 +194,29 @@ header{
     text-transform: none;
     margin: 0.15rem 0 0;
     color: rgba(30, 30, 30, 0.6);
+}
+
+/* tablet: shrink page padding, the gap under the title, and the title cube */
+@media (max-width: 768px){
+    body{
+        padding: 2rem 1.5rem;
+        gap: 4rem;
+    }
+
+    .title-row{
+        gap: 1.25rem;
+    }
+
+    #title-cube-container{
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* phone: one project per row, with generous space between cards */
+@media (max-width: 600px){
+    .project-grid{
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
 }

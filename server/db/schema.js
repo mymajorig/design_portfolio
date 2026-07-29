@@ -14,6 +14,11 @@ export const projects = sqliteTable('projects', {
   oneLiner: text('one_liner'),
   previewImage: text('preview_image'),
   description: text('description'),
+  // The blurb of text shown under each section header on the detail page.
+  goals: text('goals'),
+  research: text('research'),
+  process: text('process'),
+  outcome: text('outcome'),
   // stored as a JSON array of strings, e.g. ["Thing one", "Thing two"]
   keyLearnings: text('key_learnings', { mode: 'json' }),
   // lower numbers show first on the project list

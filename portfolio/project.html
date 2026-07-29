@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Querri</title>
+    <!-- Paint the incoming project's theme color on the very first frame, before
+         the JS module loads, so the page never flashes white between navigations.
+         (The body starts at opacity:0, so this root color is what shows.) -->
+    <script>
+      (function () {
+        try {
+          var c = sessionStorage.getItem('projectTransitionColor');
+          if (c) document.documentElement.style.backgroundColor = c;
+        } catch (e) {}
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -259,10 +259,10 @@ nav a{
     pointer-events: none;
 }
 
-/* pastel press-fill on hover, cycling the site's accents */
-.project:nth-child(3n+1){ --card-accent: rgba(201, 182, 240, 0.5); } /* cube fill lavender */
-.project:nth-child(3n+2){ --card-accent: rgba(255, 181, 194, 0.5); } /* cursor square pink */
-.project:nth-child(3n){ --card-accent: rgba(168, 216, 234, 0.5); }   /* cursor square blue */
+/* bright press-fill on hover, cycling the site's accents */
+.project:nth-child(3n+1){ --card-accent: rgba(123, 66, 255, 0.5); }  /* bright violet */
+.project:nth-child(3n+2){ --card-accent: rgba(255, 56, 130, 0.5); }  /* bright pink */
+.project:nth-child(3n){ --card-accent: rgba(0, 174, 255, 0.5); }     /* bright blue */
 
 .project:hover::before{
     background-color: var(--card-accent);
@@ -307,6 +307,29 @@ nav a{
     text-transform: none;
     margin: 0.15rem 0 0;
     color: rgba(30, 30, 30, 0.6);
+}
+
+/* tablet: tighten the grid's generous desktop padding/gaps */
+@media (max-width: 768px){
+    .project-grid{
+        gap: 3rem 2rem;
+        padding: 2rem 1.5rem;
+        width: 100%;
+    }
+}
+
+/* phone: one project per row, with generous space between cards */
+@media (max-width: 600px){
+    .project-grid{
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    /* the card's offset back-face box hangs ~12px below the image, so give the
+       title a bit more clearance from it */
+    .project-text{
+        margin-top: 2.5rem;
+    }
 }
 
 

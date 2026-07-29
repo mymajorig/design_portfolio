@@ -15,7 +15,7 @@ const SAMPLE = [
     title: 'Querri',
     headliner: 'A UI/UX Website Redesign',
     label: 'A WashUX Project',
-    oneLiner: 'This is a one liner\nabout what I had to do',
+    oneLiner: 'This is a one liner\nabout what I had to do!',
     previewImage:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCdq2pOp2SDxA-psAVSyqzKE0g2ewPXefkSHhoai9xJ4iS9hxdvriw4jqv&s=10',
     description:
