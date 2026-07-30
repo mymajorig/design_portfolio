@@ -25,5 +25,7 @@ export const projects = sqliteTable('projects', {
   sortOrder: integer('sort_order').notNull().default(0),
   createdAt: integer('created_at', { mode: 'timestamp' })
     .notNull()
-    .default(sql`(unixepoch())`),
+    .default(sql`(unixepoch())`), 
+  colorTheme: text('color'),
+  image: text('images')
 });
