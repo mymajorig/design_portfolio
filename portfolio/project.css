@@ -215,12 +215,28 @@ header{
 
 .key-learnings{
     border: 2px solid var(--black);
-    padding: 2rem 3rem;
+    padding: 3rem 4rem;
+    margin: 2vh 7vh 7vh;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.key-learnings h3{
+    margin: 0;
+}
+
+.key-learnings ol{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
 }
 
 .key-learnings li::marker{
-    color: var(--orange);
+    color: var(--black);
 }
 
 /* goals, research, process, outcome all share this layout */
@@ -315,7 +331,7 @@ header{
     .key-learnings h3{
         font-size: clamp(1.4rem, 6vw, 1.9rem);
         letter-spacing: var(--tracking-display);
-        margin-top: 0;
+        margin: 0;
     }
 
     .key-learnings ol{
@@ -323,7 +339,7 @@ header{
         padding-left: 1.5rem;
         display: flex;
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 2rem;
     }
 
     .key-learnings li{
