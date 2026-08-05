@@ -26,21 +26,23 @@ container.appendChild(renderer.domElement);
 const pictureGroup = new THREE.Group();
 scene.add(pictureGroup);
 
+// This project's theme color, read from the --theme-color CSS variable that
+// showIndividualProject sets on <html> before this script runs — so the frame
+// and mark match the page accent automatically, per project.
+const themeColorValue = getComputedStyle(document.documentElement)
+  .getPropertyValue('--theme-color').trim() || '#e0662e';
+
 // two wireframe squares, offset along z so the depth separation reads as you rotate
 const squareGeometry = new THREE.PlaneGeometry(6, 6);
 const squareEdges = new THREE.EdgesGeometry(squareGeometry);
-const SQUARE_IDLE_COLOR = 0x000000;
-const SQUARE_BACK_ACTIVE_COLOR = 0xe0662e;
-const SQUARE_FRONT_ACTIVE_COLOR = 0xf4a261;
-const SQUARE_FILL_OPACITY = 0.55;
+const SQUARE_FILL_OPACITY = 0.4;
 
-const squareBackMaterial = new THREE.LineBasicMaterial({ color: SQUARE_IDLE_COLOR });
-const squareBack = new THREE.LineSegments(squareEdges, squareBackMaterial);
+const squareBack = new THREE.LineSegments(squareEdges, new THREE.LineBasicMaterial({ color: 0x000000 }));
 squareBack.position.z = 2;
 pictureGroup.add(squareBack);
 
 const squareBackFillMaterial = new THREE.MeshBasicMaterial({
-  color: SQUARE_BACK_ACTIVE_COLOR,
+  color: new THREE.Color(themeColorValue),
   transparent: true,
   opacity: 0,
   side: THREE.DoubleSide,
@@ -50,30 +52,42 @@ const squareBackFill = new THREE.Mesh(squareGeometry, squareBackFillMaterial);
 squareBackFill.position.z = 2;
 pictureGroup.add(squareBackFill);
 
-const squareFrontMaterial = new THREE.LineBasicMaterial({ color: SQUARE_IDLE_COLOR });
-const squareFront = new THREE.LineSegments(squareEdges, squareFrontMaterial);
+const squareFront = new THREE.LineSegments(squareEdges, new THREE.LineBasicMaterial({ color: 0x000000 }));
 squareFront.position.z = 5;
 squareFront.rotation.z = THREE.MathUtils.degToRad(18);
 pictureGroup.add(squareFront);
 
-const squareFrontFillMaterial = new THREE.MeshBasicMaterial({
-  color: SQUARE_FRONT_ACTIVE_COLOR,
-  transparent: true,
-  opacity: 0,
-  side: THREE.DoubleSide,
-  depthWrite: true,
-});
-const squareFrontFill = new THREE.Mesh(squareGeometry, squareFrontFillMaterial);
-squareFrontFill.position.z = 5;
-squareFrontFill.rotation.z = THREE.MathUtils.degToRad(18);
-pictureGroup.add(squareFrontFill);
+// the mark: the project's initial drawn on a transparent canvas in the theme
+// color, so it reads as flat line-art rather than a pasted-in photo. A canvas
+// texture (same trick as the starfield) lets us tint it without an image file.
+function createMarkTexture(letter, color) {
+  const size = 256;
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.font = `700 ${size * 0.72}px "Bebas Neue", sans-serif`;
+  ctx.fillText(letter, size / 2, size / 2 + size * 0.04);
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.anisotropy = 4;
+  return texture;
+}
 
-const logoTexture = new THREE.TextureLoader().load('./images/querri-logo.jpeg');
-const logoGeometry = new THREE.PlaneGeometry(4, 4);
-const logoMaterial = new THREE.MeshBasicMaterial({ map: logoTexture, transparent: true });
-const logoPlane = new THREE.Mesh(logoGeometry, logoMaterial);
-logoPlane.position.z = 7;
-pictureGroup.add(logoPlane);
+const initial = (document.querySelector('.project-name-title')?.textContent || '?')
+  .trim().charAt(0).toUpperCase();
+const markMaterial = new THREE.MeshBasicMaterial({ transparent: true });
+markMaterial.map = createMarkTexture(initial, themeColorValue);
+const markPlane = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 3.2), markMaterial);
+markPlane.position.z = 5.1;
+squareFront.add(markPlane);
+// once the brand font finishes loading, redraw the mark in Bebas Neue
+document.fonts.ready.then(() => {
+  markMaterial.map = createMarkTexture(initial, themeColorValue);
+  markMaterial.needsUpdate = true;
+});
 
 let isDragging = false;
 let lastPointerX = 0;
@@ -81,7 +95,7 @@ let lastPointerY = 0;
 let idleTime = 0;
 let fillOpacityTarget = 0;
 
-// keep the rotation within a range where the logo is always still facing the camera
+// keep the rotation within a range so the mark always stays facing the camera
 const MAX_ROTATION_Y = 0.5;
 const MAX_ROTATION_X = 0.35;
 
@@ -123,7 +137,6 @@ function animate() {
     pictureGroup.rotation.x = MAX_ROTATION_X * 0.5 * Math.sin(pictureGroup.rotation.y);
   }
   squareBackFillMaterial.opacity += (fillOpacityTarget - squareBackFillMaterial.opacity) * 0.15;
-  squareFrontFillMaterial.opacity += (fillOpacityTarget - squareFrontFillMaterial.opacity) * 0.15;
   renderer.render(scene, camera);
 }
 animate();

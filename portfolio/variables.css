@@ -9,6 +9,13 @@
     --orange: #e0662e; /* querri brand orange — used as the project page highlight */
     --orange-highlight: rgba(224, 102, 46, 0.4); /* translucent for the marker swipe behind text */
 
+    /* project & nav theme accents — one cohesive family (see palette) */
+    --cobalt: #2f6bd4;
+    --plum: #7c4bbf;
+    --raspberry: #d6314c;
+    --gold: #d9992b;
+    --emerald: #3f9d6b;
+
     /* font families */
     --sans-serif-font: "Bebas Neue", sans-serif;
     --serif-font: "Rokkitt", serif;
@@ -86,9 +93,10 @@ html{
     display: none;
 }
 
-/* project cards are <a> links, so the browser would give them a pointer hand;
-   re-inherit the arrow instead. (The 3d shapes set their own grab cursor in JS,
-   so they're untouched by this.) */
-.project{
+/* links (nav, back button, project cards) would get the browser's pointer hand;
+   re-inherit the custom arrow instead so every link shows the normal cursor.
+   (The 3d shapes set their own grab cursor in JS on <canvas>, so they're
+   untouched by this.) */
+a{
     cursor: inherit;
 }

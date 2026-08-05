@@ -9,7 +9,7 @@ html {
 
 body {
   margin: 0;
-  background-color: white;
+  background-color: var(--white);
   min-height: 100vh;
   position: relative;
   color: var(--black);
@@ -100,15 +100,15 @@ h2{
 }
 
 #projects-button:hover a{
-  color: var(--lavender);
+  color: var(--gold);
 }
 
 #about-button:hover a{
-  color: var(--mustard);
+  color: var(--plum);
 }
 
 #resume-button:hover a{
-  color: var(--sky-blue);
+  color: var(--raspberry);
 }
 
 h3{
@@ -260,12 +260,9 @@ nav a{
 }
 
 /* bright press-fill on hover, cycling the site's accents */
-.project:nth-child(3n+1){ --card-accent: rgba(123, 66, 255, 0.5); }  /* bright violet */
-.project:nth-child(3n+2){ --card-accent: rgba(255, 56, 130, 0.5); }  /* bright pink */
-.project:nth-child(3n){ --card-accent: rgba(0, 174, 255, 0.5); }     /* bright blue */
 
 .project:hover::before{
-    background-color: var(--card-accent);
+    background-color: color-mix(in srgb, var(--card-hover-accent) 50%, transparent) /*color mixing so that the accent color can be transparent*/
 }
 
 .project-preview{

@@ -113,7 +113,8 @@ header{
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background-color: #ba5526;
+    background-color: var(--theme-color, var(--orange));
+    color: white;
     opacity: 0;
     transition: opacity 0.3s ease-in;
     z-index: -1;
