@@ -1,4 +1,4 @@
-
+/* NOTE: var(--theme-color) is set in showIndividualProject() in projects_array.js rather than in variables.css */
 
 *{
     box-sizing: border-box;
@@ -162,7 +162,7 @@ header{
     font-size: var(--h3-font-size);
     line-height: var(--leading-tight);
     margin-bottom: 0.5rem;
-    color: var(--orange);
+    color: var(--theme-color, var(--orange)); /*if there's a set theme color, make it that. if not, make it var(--orange)*/
 }
 
 .project-name-title{
@@ -201,18 +201,19 @@ header{
 
 /* highlighter-marker swipe behind key phrases (covers the lower half like a real pen) */
 .highlight{
-    background-image: linear-gradient(transparent 55%, var(--orange-highlight) 55%);
+    /* translucent version of the project's theme color (falls back to orange) so
+       it reads like a marker swipe, not a solid block */
+    background-image: linear-gradient(transparent 55%, color-mix(in srgb, var(--theme-color, var(--orange)) 40%, transparent) 55%);
     padding: 0 0.1em;
 }
 
-/* dragging to select text picks up the same orange */
+/* for when you manually highlight text on different pages */
 ::selection{
-    background-color: var(--orange);
+    background-color: var(--theme-color, var(--orange));
     color: var(--white);
 }
 
 /* key learnings */
-
 .key-learnings{
     border: 2px solid var(--black);
     padding: 3rem 4rem;
