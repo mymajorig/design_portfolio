@@ -93,14 +93,13 @@ header{
 }
 
 
-
 .back-button{
     position: relative;
     align-self: flex-start;
     border: 1px solid var(--black);
     border-radius: 999px;
     padding: 0.5rem 1.5rem;
-    color: var(--black);
+    color: var(--white);
     text-decoration: none;
     font-family: var(--sans-serif-font);
     font-size: 0.9rem;
@@ -114,7 +113,7 @@ header{
     inset: -1px;
     border-radius: inherit;
     background-color: var(--theme-color, var(--orange));
-    color: white;
+    color: var(--white);
     opacity: 0;
     transition: opacity 0.3s ease-in;
     z-index: -1;
@@ -132,6 +131,14 @@ header{
     color: var(--white);
     transition: background-color 0.3s ease;
 }
+
+.back-button--themed:hover{
+    background-color: color-mix(in srgb, var(--theme-color, var(--orange)) 82%, #000);
+}
+
+.back-button--themed:hover::before{ /* the button is already filled, so suppress the plain ::before reveal on the themed button — otherwise it fades in a lighter 1px ring around the edge */
+    opacity:0;
+} 
 
 .header-content{
     flex: 1;
@@ -172,6 +179,13 @@ header{
     letter-spacing: var(--tracking-wide);
     line-height: var(--leading-display);
     margin: 0;
+}
+
+/* long titles (set via a --long class in showIndividualProject when the title
+   is over ~30 chars) shrink so they don't dominate the header. Scoped as
+   `.project-name h1.…` to out-specify the `.project-name h1` rule below. */
+.project-name h1.project-name-title--long{
+    font-size: clamp(2.5rem, 7vw, 5rem);
 }
 
 .header-3d{

@@ -46,7 +46,7 @@ const PROJECTS = [
   },
   {
     slug: 'wexler',
-    title: 'Optimization of Lennard Jones and Atomic Configurations for Potential Energy',
+    title: 'The Wexler Group',
     headliner: 'A Computational Chemistry Design',
     label: 'A WashUX Project',
     oneLiner: 'What Happens When Design Thinking Meets Sustainable Chemistry?',
@@ -117,7 +117,7 @@ function showIndividualProject() {
                 <p class="one-liner">${project.oneLiner}</p>
                 <div class="project-name">
                     <h3 class="project-label">${project.label}</h3>
-                    <h1 class="project-name-title">${project.title}</h1>
+                    <h1 class="project-name-title ${project.title.length > 30 ? 'project-name-title--long' : ''}">${project.title}</h1>
                 </div>
             </div>
 

@@ -41,12 +41,15 @@ export function playEnterFromProject() {
   const color = sessionStorage.getItem(STORAGE_KEY);
   sessionStorage.removeItem(STORAGE_KEY);
 
-  // arrived without a transition (or reduced motion): just fade the page in,
-  // but still carry the color onto the back button if we have one
+  // arrived without a transition (direct load / refresh / reduced motion): just
+  // fade the page in. Theme the back button directly so it's visible at rest —
+  // it inherits --theme-color from <html> (set by showIndividualProject), so we
+  // only need to add the class, no stored transition color required.
   if (!color || REDUCED_MOTION) {
     document.documentElement.style.backgroundColor = '';
     requestAnimationFrame(() => document.body.classList.add('page-loaded'));
-    if (color) themeBackButton(color);
+    const backButton = document.querySelector('.back-button');
+    if (backButton) backButton.classList.add('back-button--themed');
     return;
   }
 
@@ -68,6 +71,12 @@ export function playEnterFromProject() {
   // identical — the handoff is invisible and the collapse + button read as one
   // continuous motion instead of "collapse, then the button separately appears".
   themeBackButton(color);
+
+  // hide the real button while the curtain collapses, so you don't see it sitting
+  // in the background before the curtain lands on it (that double-image is what
+  // read as choppy). visibility (not display) keeps its layout box so the collapse
+  // can still measure where to shrink to. It's revealed again in finish().
+  if (backButton) backButton.style.visibility = 'hidden';
 
   // hold on the colored screen briefly, then flow down into the back button
   setTimeout(() => {
@@ -92,8 +101,23 @@ export function playEnterFromProject() {
     const finish = () => {
       if (done) return;
       done = true;
+      // Reveal the pill FIRST (it's identical to, and directly under, the
+      // collapsed curtain), THEN remove the curtain — so the pill handoff stays
+      // invisible. The "Back" label starts transparent (set with no transition,
+      // so the reveal itself doesn't animate) so it doesn't pop in with the pill...
+      backButton.style.color = 'transparent';
+      backButton.style.visibility = 'visible';
       curtain.remove();
       document.documentElement.style.backgroundColor = '';
+      // ...then a moment later, add the transition and clear the color so the
+      // label fades from transparent to its real color. Uses setTimeout, not
+      // requestAnimationFrame: rAF is paused in a background tab, which would
+      // leave the label stuck invisible; setTimeout still fires, so the label is
+      // guaranteed to end up visible.
+      setTimeout(() => {
+        backButton.style.transition = 'color 0.4s ease';
+        backButton.style.color = '';
+      }, 60);
     };
     // finish when the size animation completes (fallback in case it doesn't fire)
     curtain.addEventListener('transitionend', (e) => {
