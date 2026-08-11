@@ -159,6 +159,14 @@ document.querySelectorAll('nav a, .project').forEach((el) => {
 // PAGE FADE TRANSITION
 requestAnimationFrame(() => document.body.classList.add('page-loaded'));
 
+// When returning via the browser's Back button, the page can be restored from
+// the back/forward cache exactly as it was left — including page-loaded removed
+// by the exit fade below, which leaves the body at opacity:0 (blank). pageshow
+// fires on every show (including that restore), so re-add the class to reveal it.
+window.addEventListener('pageshow', () => {
+  document.body.classList.add('page-loaded');
+});
+
 document.querySelectorAll('a[href]').forEach((link) => {
   const href = link.getAttribute('href');
   if (!href || href.startsWith('#') || href.startsWith('http') || link.target === '_blank') return;
