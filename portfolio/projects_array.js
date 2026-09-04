@@ -105,7 +105,7 @@ function showIndividualProject() {
   
   // loop over the projects JSON array to find the one that matches the slug 
 
-  const project = PROJECTS.find((project) => project.slug == slug);
+  const project = PROJECTS.find((project) => project.slug == slug) || PROJECTS[0];
   document.documentElement.style.setProperty('--theme-color', project.themeColor); //after you've found the project, apply the corresponding theme color
 
   ProjectHtmlHeader +=

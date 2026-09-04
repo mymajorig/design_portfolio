@@ -190,9 +190,15 @@ header{
 
 .header-3d{
     align-self: center;
-    width: 420px;
-    height: 420px;
+    width: min(520px, 46vw);
+    aspect-ratio: 16 / 10;
+    height: auto;
     flex-shrink: 0;
+}
+
+.header-3d canvas{
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .trait-header-3d{
@@ -303,8 +309,9 @@ header{
 
     .header-3d{
         align-self: flex-start;
-        width: min(320px, 70vw);
-        height: min(320px, 70vw);
+        width: min(460px, 88vw);
+        aspect-ratio: 16 / 10;
+        height: auto;
         margin-top: 1rem;
     }
 
