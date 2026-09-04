@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 import { playExitToProject } from './transitions.js';
+import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
+import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
+import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 
 // STAR FIELD BACKGROUND
 const starsContainer = document.getElementById('stars-container');
@@ -78,8 +81,19 @@ cubeContainer.appendChild(cubeRenderer.domElement);
 
 const boxGeometry = new THREE.BoxGeometry(7, 7, 7);
 const edges = new THREE.EdgesGeometry(boxGeometry);
-const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
-const cube = new THREE.LineSegments(edges, lineMaterial);
+const lineGeometry = new LineSegmentsGeometry().fromEdgesGeometry(edges);
+
+const RESTING_LINE_WIDTH = 1.5;
+const HOVER_LINE_WIDTH = 3.5;
+let targetLineWidth = RESTING_LINE_WIDTH;
+
+const lineMaterial = new LineMaterial({
+  color: 0x000000,
+  linewidth: RESTING_LINE_WIDTH,
+});
+lineMaterial.resolution.set(cubeContainer.clientWidth || window.innerWidth, cubeContainer.clientHeight || window.innerHeight);
+
+const cube = new LineSegments2(lineGeometry, lineMaterial);
 cubeScene.add(cube);
 
 // pastel fill that fades in while the cube is being pressed/dragged, and fades out on release
@@ -93,6 +107,37 @@ const fillMaterial = new THREE.MeshBasicMaterial({
 });
 const cubeFill = new THREE.Mesh(boxGeometry, fillMaterial);
 cube.add(cubeFill);
+
+// Invisible hit box slightly padded around the cube for a responsive, comfortable hover area
+const hitBox = new THREE.Mesh(
+  new THREE.BoxGeometry(8, 8, 8),
+  new THREE.MeshBasicMaterial({
+    transparent: true,
+    opacity: 0,
+    depthWrite: false,
+    side: THREE.DoubleSide,
+  })
+);
+cube.add(hitBox);
+
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2(-1000, -1000);
+let isPointerInContainer = false;
+let isHovered = false;
+
+cubeContainer.addEventListener('pointermove', (e) => {
+  const rect = cubeRenderer.domElement.getBoundingClientRect();
+  mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+  isPointerInContainer = true;
+});
+
+cubeContainer.addEventListener('pointerleave', () => {
+  isPointerInContainer = false;
+  mouse.x = -1000;
+  mouse.y = -1000;
+  isHovered = false;
+});
 
 let isDragging = false;
 let lastPointerX = 0;
@@ -132,6 +177,18 @@ function animateCube() {
     cube.rotation.y += 0.003;
     cube.rotation.x += 0.0015;
   }
+
+  if (isPointerInContainer) {
+    raycaster.setFromCamera(mouse, cubeCamera);
+    const intersects = raycaster.intersectObject(hitBox);
+    isHovered = intersects.length > 0;
+  } else {
+    isHovered = false;
+  }
+
+  targetLineWidth = (isHovered || isDragging) ? HOVER_LINE_WIDTH : RESTING_LINE_WIDTH;
+  lineMaterial.linewidth += (targetLineWidth - lineMaterial.linewidth) * 0.15;
+
   fillMaterial.opacity += (fillOpacityTarget - fillMaterial.opacity) * 0.15;
   cubeRenderer.render(cubeScene, cubeCamera);
 }
@@ -141,6 +198,7 @@ window.addEventListener('resize', () => {
   cubeCamera.aspect = cubeContainer.clientWidth / cubeContainer.clientHeight;
   cubeCamera.updateProjectionMatrix();
   cubeRenderer.setSize(cubeContainer.clientWidth, cubeContainer.clientHeight);
+  lineMaterial.resolution.set(cubeContainer.clientWidth, cubeContainer.clientHeight);
 });
 
 // CURSOR GLOW
