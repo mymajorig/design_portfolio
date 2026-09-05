@@ -46,12 +46,28 @@ const PROJECTS = [
     previewImage: '/images/pretus-logo.jpeg',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
-    goals:
-      'Collaborated with other designers to serve as Pretus’ core design team, delivering iterative improvements while shaping a clear strategy for future growth. Our goal is to leverage strong UI/UX design principles to enhance the Pretus website so it is both visually compelling and intuitive, while clearly communicating the company’s mission and unique value. Through thoughtful design choices, we aimed to distinguish Pretus from other IB prep platforms and create a cohesive, standout digital experience that reinforces its brand identity.',
-    impact:
-      'Our design directly influenced Pretus’ digital direction, culminating in the company adopting one of our final website designs. The redesigned interface strengthened brand clarity, improved visual cohesion, and more clearly communicated Pretus’ mission and competitive positioning within the IB prep market. By aligning user experience with strategic goals, our work provided Pretus with a scalable foundation for future growth and continued iteration.',
-    process:
-      'Working in rapid iterations, we moved from low-fidelity wireframes to polished, interactive prototypes, testing each round with real users. We refined the information architecture so the mission and unique value read clearly on the first screen, then tightened the visual system for consistency across the site. Frequent design critiques kept the team aligned and let us fold feedback back into the work quickly.',
+    goals: [
+      'Directly influenced Pretus’ digital direction, culminating in the company adopting one of our final website designs.',
+      'Strengthened brand clarity and visual cohesion across the redesigned interface.',
+      'Clearly communicated Pretus’ mission and competitive positioning within the IB prep market.',
+      'Aligned the user experience with strategic business goals to create a stronger digital presence.',
+      'Provided Pretus with a scalable foundation for future growth and continued iteration.'
+    ],
+
+    impact:[
+      'Directly influenced Pretus’ digital direction, leading the company to adopt one of our final website designs.',
+      'Strengthened brand clarity and visual cohesion across the redesigned interface.',
+      'More clearly communicated Pretus’ mission and competitive positioning within the IB prep market.',
+      'Aligned the user experience with strategic goals to create a stronger digital presence.',
+      'Established a scalable foundation for future growth and continued iteration.'
+  ],
+    process:[
+      'Worked through rapid design iterations, progressing from 8 low-fidelity wireframes to 12 polished, interactive prototypes while focusing on a seamless experience across key touchpoints.',
+      'Refined the information architecture and user flow to make core features, including the student report, question bank, AI personalization, and mock interviews, easy to discover and understand.',
+      'Restructured the landing page and navigation experience to clearly communicate the platform’s value proposition, key differentiators, and primary calls to action.',
+      'Strengthened the visual system and branding through feature hierarchy, partnership logos, pricing, and competitor differentiation to build credibility and establish a cohesive identity.',
+      'Used frequent design critiques and user feedback to iterate quickly, refining the experience around feature priorities, personalization, and the needs of students preparing for investment banking interviews.'
+    ],
     final_design:
       'The redesigned experience gave Pretus a cohesive, standout identity that clearly communicates who it serves and why it matters. The new interface is both visually compelling and intuitive, reducing friction for prospective students and reinforcing the brand at every step. Beyond the immediate improvements, the work established a clear design strategy the team can carry forward as the platform continues to grow.',
     final_design_images: ["/images/blue-book.png", "/images/cake.png"],
