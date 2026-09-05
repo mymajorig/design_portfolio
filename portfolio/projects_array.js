@@ -9,8 +9,12 @@ const PROJECTS = [
     previewImage: '/images/querri-logo-2.png',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
-    goals:
-      "Delivering a polished, production-ready design solution requires a meticulous evaluation of the platform's foundation. The primary goal of this initiative is to optimize engagement and eliminate key friction points within the user journey, specifically targeting the initial activation path and long-term retention. By integrating a clear onboarding introduction to Querri, an AI-powered, no-code data analytics platform designed to make data accessible to people unfamiliar with data or who do not often deal with it, the interface immediately bridges the gap between business knowledge and data fluency. Focusing on the structural challenges that prevent non-technical business professionals from maximizing the platform's value, the project establishes a framework to transition casual usage into an indispensable, habit-forming daily routine.",
+    goals: [
+      "Optimize engagement and eliminate key friction points within the user journey, targeting the initial activation path and long-term retention.",
+      "Integrate a clear onboarding introduction to Querri — an AI-powered, no-code data analytics platform — bridging the gap between business knowledge and data fluency.",
+      "Resolve structural challenges preventing non-technical business professionals from maximizing the platform's value.",
+      "Establish a framework to transition casual usage into an indispensable, habit-forming daily routine.",
+    ],
     impact: "Optimizing these user paths will generate a significant impact on product adoption metrics, directly driving Weekly Active Users (WAU) and Daily Active Users (DAU) upward. By systematically resolving the 'cold-start' dilemma, where individuals struggle to formulate apt data queries, and effectively managing perceived analysis latency, the system empowers users to extract a higher volume of valuable insights per session. Subsequently, this focus on efficiency and immediate value creation transforms data interactions from a complex, infrequent chore into a continuous, streamlined asset for strategic decision-making.",
     process:
       "The execution process operates as a 14-week sprint structured across three distinct phases to ensure technical alignment and user validation. Phase I (Weeks 1-4) focuses on Discovery and Definition, launching with a stakeholder kickoff to map product metrics, executing a detailed UX audit of the core interface, and conducting 3-5 user interviews to ground the problem space in empirical friction points.<br> Phase II (Weeks 5-10) center on Strategy and Design. Findings from Phase 1 are synthesized into explicit user flows and lo-fi wireframes to explore divergent concepts before developing high-fidelity interactive screens built strictly on Querri’s Poppins typography, Tangelo color palette, and generous border radius system tokens. <br>Finally, Phase III (Weeks 11-14) drives Refinement and Handoff, executing rigorous usability testing to validate the solution against the baseline experience, perfecting the interactive prototype, and delivering complete Figma redline specifications ready for engineering execution.",
@@ -143,7 +147,10 @@ function showIndividualProject() {
           <div class="trait-header-3d" id="trait-header-3d"></div>
       </header>
       <div class="project-text">
-          <p>${project.goals}</p>
+          ${Array.isArray(project.goals)
+            ? `<ul class="goals-list">${project.goals.map((g) => `<li>${g}</li>`).join('')}</ul>`
+            : `<p>${project.goals}</p>`
+          }
       </div>
   </section>
 

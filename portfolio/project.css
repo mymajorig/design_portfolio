@@ -145,7 +145,7 @@ header{
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 3rem;
     margin-top: 3rem;
 }
 
@@ -190,10 +190,10 @@ header{
 
 .header-3d{
     align-self: center;
-    width: min(520px, 46vw);
+    width: min(680px, 50vw);
     aspect-ratio: 16 / 10;
     height: auto;
-    flex-shrink: 0;
+    flex-shrink: 1;
 }
 
 .header-3d canvas{
@@ -261,6 +261,22 @@ header{
     color: var(--black);
 }
 
+/* goals bullet list — used when project.goals is an array */
+.goals-list{
+    font-family: var(--serif-font);
+    letter-spacing: var(--tracking-text);
+    line-height: var(--leading-normal);
+    margin: 0;
+    padding-left: 1.4em;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.goals-list li::marker{
+    color: var(--theme-color, var(--orange));
+}
+
 /* goals, research, process, outcome all share this layout */
 .trait-section{
     display: flex;
@@ -309,7 +325,7 @@ header{
 
     .header-3d{
         align-self: flex-start;
-        width: min(460px, 88vw);
+        width: min(580px, 94vw);
         aspect-ratio: 16 / 10;
         height: auto;
         margin-top: 1rem;
