@@ -11,13 +11,24 @@ const PROJECTS = [
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
     goals: [
       "Optimize engagement and eliminate key friction points within the user journey, targeting the initial activation path and long-term retention.",
-      "Integrate a clear onboarding introduction to Querri — an AI-powered, no-code data analytics platform — bridging the gap between business knowledge and data fluency.",
+      "Integrate a clear onboarding introduction to Querri, an AI-powered, no-code data analytics platform, bridging the gap between business knowledge and data fluency.",
       "Resolve structural challenges preventing non-technical business professionals from maximizing the platform's value.",
       "Establish a framework to transition casual usage into an indispensable, habit-forming daily routine.",
     ],
-    impact: "Optimizing these user paths will generate a significant impact on product adoption metrics, directly driving Weekly Active Users (WAU) and Daily Active Users (DAU) upward. By systematically resolving the 'cold-start' dilemma, where individuals struggle to formulate apt data queries, and effectively managing perceived analysis latency, the system empowers users to extract a higher volume of valuable insights per session. Subsequently, this focus on efficiency and immediate value creation transforms data interactions from a complex, infrequent chore into a continuous, streamlined asset for strategic decision-making.",
-    process:
-      "The execution process operates as a 14-week sprint structured across three distinct phases to ensure technical alignment and user validation. Phase I (Weeks 1-4) focuses on Discovery and Definition, launching with a stakeholder kickoff to map product metrics, executing a detailed UX audit of the core interface, and conducting 3-5 user interviews to ground the problem space in empirical friction points.<br> Phase II (Weeks 5-10) center on Strategy and Design. Findings from Phase 1 are synthesized into explicit user flows and lo-fi wireframes to explore divergent concepts before developing high-fidelity interactive screens built strictly on Querri’s Poppins typography, Tangelo color palette, and generous border radius system tokens. <br>Finally, Phase III (Weeks 11-14) drives Refinement and Handoff, executing rigorous usability testing to validate the solution against the baseline experience, perfecting the interactive prototype, and delivering complete Figma redline specifications ready for engineering execution.",
+    impact: [
+    "Increase Weekly Active Users (WAU) and Daily Active Users (DAU) by encouraging more frequent engagement with Querri.",
+      "Reduce the cold-start problem by helping users overcome uncertainty around what questions to ask their data.",
+      "Improve perceived wait times for longer analyses by setting clearer expectations around processing and results.",
+      "Enable users to uncover more valuable insights per session by making the analysis process faster and more intuitive.",
+      "Shift data analysis from an occasional, complex task into a streamlined part of users’ everyday decision-making workflows.",
+    ],
+
+    process: [
+      "Weeks 1–4, Discovery & Definition: Kicked off with stakeholders to map product metrics, conducted a detailed UX audit of the core interface, and completed 3–5 user interviews to identify key friction points.",
+      "Weeks 5–10, Strategy & Design: Synthesized research findings into user flows and lo-fi wireframes, explored divergent concepts, and developed high-fidelity interactive screens using Querri’s existing Poppins typography, Tangelo color palette, and border-radius system.",
+      "Weeks 11–14, Refinement & Handoff: Conducted usability testing against the baseline experience, refined the interactive prototype, and delivered complete Figma redline specifications for engineering handoff.",
+    ],
+
     final_design: "The final design establishes an intuitive homepage and guidance experience featuring a tailored, three-question onboarding sequence designed to spin up a customized analyst experience immediately. By transitioning from a standard synchronous chat tool to a proactive, asynchronous analyst mental model, the interface strategically handles data latency while delivering automated, high-value insights. This modern interface leverages progressive disclosure to balance trust with speed, delivering production-ready interactive components and comprehensive redline specifications prepared for engineering handoff.",
     final_design_images: ["/images/blue-book.png", "/images/cake.png"],
       keyLearnings: ["<b>Designing for Digital Trust and Credibility:</b> <br> I always knew design played an important role in engaging users, but this project showed me just how much it influences a website's credibility. By intentionally using trust-building language, highlighting industry credentials, and creating a polished visual hierarchy with subtle depth instead of harsh boundaries, I realized that even small design decisions can make people feel more confident and comfortable interacting with a product.", 
@@ -160,7 +171,10 @@ function showIndividualProject() {
           <div class="trait-header-3d" id="research-3d"></div>
       </header>
       <div class="project-text">
-          <p>${project.impact}</p>
+        ${Array.isArray(project.impact)
+          ? `<ul class="goals-list">${project.impact.map(i => `<li>${i}</li>`).join('')}</ul>`
+          : `<p>${project.impact}</p>`
+        }
       </div>
   </section>
 
@@ -170,7 +184,10 @@ function showIndividualProject() {
           <div class="trait-header-3d" id="process-3d"></div>
       </header>
       <div class="project-text">
-          <p>${project.process}</p>
+          ${Array.isArray(project.process)
+      ? `<ul class="goals-list">${project.process.map(i => `<li>${i}</li>`).join('')}</ul>`
+      : `<p>${project.process}</p>`
+    }
       </div>
   </section>
 
