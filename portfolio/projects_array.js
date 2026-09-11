@@ -71,13 +71,40 @@ const PROJECTS = [
     final_design:
       'The redesigned experience gave Pretus a cohesive, standout identity that clearly communicates who it serves and why it matters. The new interface is both visually compelling and intuitive, reducing friction for prospective students and reinforcing the brand at every step. Beyond the immediate improvements, the work established a clear design strategy the team can carry forward as the platform continues to grow.',
     final_design_images: ["/images/blue-book.png", "/images/cake.png"],
-      keyLearnings: ['Thing one', 'Thing two', 'Thing three'],
+      keyLearnings: ["<b>Client-Centered, Collaborative Design<b/> <br> This was my first time working with a group on a client project, which taught me how wireframing shifts when designing for someone else's vision rather than my own. I learned how to incorporate client needs into the design process and how to modify wireframes collaboratively as a group, balancing different perspectives rather than relying on individual instinct.", 
+        "<b> Framing Competitive Advantages </b> <br> Competitors can offer similar advantages, but how those advantages are structured and presented can communicate very different things. The same feature or benefit can land differently depending on its framing.", 
+        "<b> UX as the Bridge Between Resources and Accessibility</b> <br> No matter how many resources a website has, they won't elevate the site or reach people unless they're easily accessible. Good UX doesn't just make a website's advantages known, it makes them accessible"
+      ], 
     sortOrder: 0,
     themeColor: 'rgb(13, 148, 136)'
   },
   {
     slug: 'wexler',
     title: 'The Wexler Group',
+    headliner: 'A Computational Chemistry Design',
+    label: 'A WashUX Project',
+    oneLiner: 'What Happens When Design Thinking Meets Sustainable Chemistry?',
+    previewImage: '/images/the_wexler_group.webp',
+    description:
+      'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
+    goals:
+    "Working with The Wexler Group, the goal of this research project was to develop a computational method for predicting the most stable atomic configurations of heterogeneous catalysts before they begin reacting. Because unstable catalyst structures can lose efficiency over time, accurately identifying low-energy configurations has the potential to improve energy conservation during industrial chemical production. <br> To simplify this problem, I used the Lennard-Jones potential to model atomic interactions and developed components of a Basin Hopping optimization algorithm capable of finding stable configurations. Throughout the project, I collaborated with a postdoctoral researcher and supervising professor while independently researching optimization techniques and implementing core portions of the algorithm.",    
+    impact:
+      "The long-term objective of this project is to incorporate the Basin Hopping algorithm and its supporting functions into a publicly available package that can be used by researchers studying catalyst stability and energy-efficient chemical production. Beyond its scientific applications, this experience strengthened my ability to communicate complex technical concepts through data visualization, quickly learn new programming languages and optimization libraries, and collaborate within an interdisciplinary research environment. It also reinforced the importance of building solutions that are reusable, scalable, and designed with future users in mind.",
+    process:
+        "The project began by building a strong foundation in numerical computing and optimization using Python libraries such as NumPy, SciPy, and Matplotlib before transitioning to Julia and the Optim package. I compared optimization methods including BFGS, Nelder-Mead, and Gradient Descent by benchmarking them on functions such as Rosenbrock and Booth, ultimately determining that BFGS provided the best performance. <br> I then designed and evaluated several approaches for calculating Lennard-Jones potential energy before selecting an implementation that accepts an N × 3 matrix of atomic coordinates because it was the most scalable and adaptable. Throughout development, I continuously tested, debugged, and refined the algorithm while using contour maps, energy plots, optimization paths, violin plots, and atomic configuration visualizations to better understand its performance and guide my decisions.",
+    final_design:
+      "The final solution is an optimization algorithm that accepts an N × 3 matrix of atomic positions, computes the total Lennard-Jones potential energy, applies the BFGS optimization method to determine the lowest-energy configuration, and visualizes the optimization process through energy progression plots. The experience demonstrated that thoughtful design extends beyond user interfaces, as creating an effective computational tool also requires balancing usability, scalability, efficiency, and clear communication through visualization.",
+    final_design_images: ["/images/blue-book.png", "/images/cake.png"],
+      keyLearnings: ["<b>Iteration drives better solutions.</b> <br> Developing an effective optimization algorithm required continuous testing, comparing approaches, and refining my implementation based on performance data. I learned that exploring multiple solutions is often more valuable than settling on the first one that works.", 
+        "<b>Visualization can be a powerful problem-solving tool.</b> <br> Contour maps, plots, and graphs weren't just presentation materials, they helped me identify patterns, debug algorithms, and make informed decisions throughout the research process. This reinforced the importance of communicating complex information visually.", 
+        "<b>Good design extends beyond interfaces.</b> <br> Although this wasn't a traditional UI/UX project, I found myself applying the same design mindset by balancing efficiency, scalability, and usability while creating a solution that other researchers can build upon. This experience showed me how thoughtful design can create meaningful impact in scientific and environmental applications."],
+    sortOrder: 0,
+    themeColor: "#C70000"
+  },
+   {
+    slug: 'thisPortfolio',
+    title: 'This Portfolio',
     headliner: 'A Computational Chemistry Design',
     label: 'A WashUX Project',
     oneLiner: 'What Happens When Design Thinking Meets Sustainable Chemistry?',
