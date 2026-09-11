@@ -1,10 +1,12 @@
 import * as THREE from 'three';
 import { playExitToProject } from './transitions.js';
+import { showProjectsList } from './projects_array.js';
 import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 
 // STAR FIELD BACKGROUND
+showProjectsList();
 const starsContainer = document.getElementById('stars-container');
 const starsScene = new THREE.Scene();
 const starsCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);

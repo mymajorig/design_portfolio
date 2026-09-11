@@ -1,12 +1,12 @@
 
-const PROJECTS = [
+export const PROJECTS = [
   {
     slug: 'querri',
     title: 'Querri',
     headliner: 'A UI/UX Website Redesign',
     label: 'A WashUX Project',
     oneLiner: 'Helping users find answers before they know the questions.',
-    previewImage: '/images/querri-logo-2.png',
+    previewImage: 'images/querri-logo-2.png',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
     goals: [
@@ -30,7 +30,7 @@ const PROJECTS = [
     ],
 
     final_design: "The final design establishes an intuitive homepage and guidance experience featuring a tailored, three-question onboarding sequence designed to spin up a customized analyst experience immediately. By transitioning from a standard synchronous chat tool to a proactive, asynchronous analyst mental model, the interface strategically handles data latency while delivering automated, high-value insights. This modern interface leverages progressive disclosure to balance trust with speed, delivering production-ready interactive components and comprehensive redline specifications prepared for engineering handoff.",
-    final_design_images: ["/images/blue-book.png", "/images/cake.png"],
+    final_design_images: ["images/blue-book.png", "images/cake.png"],
       keyLearnings: ["<b>Designing for Digital Trust and Credibility:</b> <br> I always knew design played an important role in engaging users, but this project showed me just how much it influences a website's credibility. By intentionally using trust-building language, highlighting industry credentials, and creating a polished visual hierarchy with subtle depth instead of harsh boundaries, I realized that even small design decisions can make people feel more confident and comfortable interacting with a product.", 
         "<b>Designing Around Technical Limitations by Understanding User Expectations:</b> <br> A user's experience is shaped not only by what a product can do, but also by how the experience communicates limitations. When complex analyses required up to 15 minutes to complete, I realized that thoughtful design could shift the user's perception of waiting time. By reframing the experience from an immediate chat interaction into a more intentional asynchronous analysis process, we were able to set clearer expectations, reduce frustration, and create a more comfortable experience for users.", 
         "<b>Balancing Freedom with Guidance</b> <br> I originally expected the flexibility of an open-ended search bar to empower users, but I learned that too much freedom can sometimes create uncertainty. When users are unfamiliar with what their data can reveal, they may struggle to know where to begin. By introducing guided insights and proactive recommendations, we created a clearer path to value while helping users feel more confident and comfortable navigating the product"],
@@ -43,7 +43,7 @@ const PROJECTS = [
     headliner: 'A UI/UX Website Redesign',
     label: 'A WashUX Project',
     oneLiner: "How can design make you stand out at first glance?",
-    previewImage: '/images/pretus-logo.jpeg',
+    previewImage: 'images/pretus-logo.jpeg',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
     goals: [
@@ -70,7 +70,7 @@ const PROJECTS = [
     ],
     final_design:
       'The redesigned experience gave Pretus a cohesive, standout identity that clearly communicates who it serves and why it matters. The new interface is both visually compelling and intuitive, reducing friction for prospective students and reinforcing the brand at every step. Beyond the immediate improvements, the work established a clear design strategy the team can carry forward as the platform continues to grow.',
-    final_design_images: ["/images/blue-book.png", "/images/cake.png"],
+    final_design_images: ["images/blue-book.png", "images/cake.png"],
       keyLearnings: ["<b>Client-Centered, Collaborative Design<b/> <br> This was my first time working with a group on a client project, which taught me how wireframing shifts when designing for someone else's vision rather than my own. I learned how to incorporate client needs into the design process and how to modify wireframes collaboratively as a group, balancing different perspectives rather than relying on individual instinct.", 
         "<b> Framing Competitive Advantages </b> <br> Competitors can offer similar advantages, but how those advantages are structured and presented can communicate very different things. The same feature or benefit can land differently depending on its framing.", 
         "<b> UX as the Bridge Between Resources and Accessibility</b> <br> No matter how many resources a website has, they won't elevate the site or reach people unless they're easily accessible. Good UX doesn't just make a website's advantages known, it makes them accessible"
@@ -84,7 +84,7 @@ const PROJECTS = [
     headliner: 'A Computational Chemistry Design',
     label: 'A WashUX Project',
     oneLiner: 'What Happens When Design Thinking Meets Sustainable Chemistry?',
-    previewImage: '/images/the_wexler_group.webp',
+    previewImage: 'images/the_wexler_group.webp',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
     goals:
@@ -95,7 +95,7 @@ const PROJECTS = [
         "The project began by building a strong foundation in numerical computing and optimization using Python libraries such as NumPy, SciPy, and Matplotlib before transitioning to Julia and the Optim package. I compared optimization methods including BFGS, Nelder-Mead, and Gradient Descent by benchmarking them on functions such as Rosenbrock and Booth, ultimately determining that BFGS provided the best performance. <br> I then designed and evaluated several approaches for calculating Lennard-Jones potential energy before selecting an implementation that accepts an N × 3 matrix of atomic coordinates because it was the most scalable and adaptable. Throughout development, I continuously tested, debugged, and refined the algorithm while using contour maps, energy plots, optimization paths, violin plots, and atomic configuration visualizations to better understand its performance and guide my decisions.",
     final_design:
       "The final solution is an optimization algorithm that accepts an N × 3 matrix of atomic positions, computes the total Lennard-Jones potential energy, applies the BFGS optimization method to determine the lowest-energy configuration, and visualizes the optimization process through energy progression plots. The experience demonstrated that thoughtful design extends beyond user interfaces, as creating an effective computational tool also requires balancing usability, scalability, efficiency, and clear communication through visualization.",
-    final_design_images: ["/images/blue-book.png", "/images/cake.png"],
+    final_design_images: ["images/blue-book.png", "images/cake.png"],
       keyLearnings: ["<b>Iteration drives better solutions.</b> <br> Developing an effective optimization algorithm required continuous testing, comparing approaches, and refining my implementation based on performance data. I learned that exploring multiple solutions is often more valuable than settling on the first one that works.", 
         "<b>Visualization can be a powerful problem-solving tool.</b> <br> Contour maps, plots, and graphs weren't just presentation materials, they helped me identify patterns, debug algorithms, and make informed decisions throughout the research process. This reinforced the importance of communicating complex information visually.", 
         "<b>Good design extends beyond interfaces.</b> <br> Although this wasn't a traditional UI/UX project, I found myself applying the same design mindset by balancing efficiency, scalability, and usability while creating a solution that other researchers can build upon. This experience showed me how thoughtful design can create meaningful impact in scientific and environmental applications."],
@@ -105,10 +105,10 @@ const PROJECTS = [
    {
     slug: 'thisPortfolio',
     title: 'This Portfolio',
-    headliner: 'A Computational Chemistry Design',
-    label: 'A WashUX Project',
+    headliner: 'A Personal Design',
+    label: 'A Less Annoying CRM Project',
     oneLiner: 'What Happens When Design Thinking Meets Sustainable Chemistry?',
-    previewImage: '/images/the_wexler_group.webp',
+    previewImage: 'images/the_wexler_group.webp',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
     goals:
@@ -119,17 +119,17 @@ const PROJECTS = [
         "The project began by building a strong foundation in numerical computing and optimization using Python libraries such as NumPy, SciPy, and Matplotlib before transitioning to Julia and the Optim package. I compared optimization methods including BFGS, Nelder-Mead, and Gradient Descent by benchmarking them on functions such as Rosenbrock and Booth, ultimately determining that BFGS provided the best performance. <br> I then designed and evaluated several approaches for calculating Lennard-Jones potential energy before selecting an implementation that accepts an N × 3 matrix of atomic coordinates because it was the most scalable and adaptable. Throughout development, I continuously tested, debugged, and refined the algorithm while using contour maps, energy plots, optimization paths, violin plots, and atomic configuration visualizations to better understand its performance and guide my decisions.",
     final_design:
       "The final solution is an optimization algorithm that accepts an N × 3 matrix of atomic positions, computes the total Lennard-Jones potential energy, applies the BFGS optimization method to determine the lowest-energy configuration, and visualizes the optimization process through energy progression plots. The experience demonstrated that thoughtful design extends beyond user interfaces, as creating an effective computational tool also requires balancing usability, scalability, efficiency, and clear communication through visualization.",
-    final_design_images: ["/images/blue-book.png", "/images/cake.png"],
+    final_design_images: ["images/blue-book.png", "images/cake.png"],
       keyLearnings: ["<b>Iteration drives better solutions.</b> <br> Developing an effective optimization algorithm required continuous testing, comparing approaches, and refining my implementation based on performance data. I learned that exploring multiple solutions is often more valuable than settling on the first one that works.", 
         "<b>Visualization can be a powerful problem-solving tool.</b> <br> Contour maps, plots, and graphs weren't just presentation materials, they helped me identify patterns, debug algorithms, and make informed decisions throughout the research process. This reinforced the importance of communicating complex information visually.", 
         "<b>Good design extends beyond interfaces.</b> <br> Although this wasn't a traditional UI/UX project, I found myself applying the same design mindset by balancing efficiency, scalability, and usability while creating a solution that other researchers can build upon. This experience showed me how thoughtful design can create meaningful impact in scientific and environmental applications."],
     sortOrder: 0,
-    themeColor: "#C70000"
+    themeColor: "#7b42ff"
   },
 ];
 
 
-function showProjectsList() {
+export function showProjectsList() {
   // loop over the projects JSON array of objects
   let ProjectHtml = '';
   PROJECTS.forEach((ThisProject) => {
@@ -153,10 +153,10 @@ function showProjectsList() {
   document.getElementById("project-grid").innerHTML = ProjectHtml;
 }
 
-function showIndividualProject() { 
+export function showIndividualProject() { 
 
-    ProjectHtmlHeader = '';
-    ProjectHtmlSection = '';
+  let ProjectHtmlHeader = '';
+  let ProjectHtmlSection = '';
   // this is where you would read the URL parameter of which slug you want to view
   const project_parameters = new URLSearchParams(window.location.search); //building a new constructor
   const slug = project_parameters.get("slug");
