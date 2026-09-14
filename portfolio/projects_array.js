@@ -7,6 +7,7 @@ export const PROJECTS = [
     label: 'A WashUX Project',
     oneLiner: 'Helping users find answers before they know the questions.',
     previewImage: 'images/querri-logo-2.png',
+    walkthroughVideo: 'images/querri-screen-recording.mov',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
     goals: [
@@ -44,6 +45,7 @@ export const PROJECTS = [
     label: 'A WashUX Project',
     oneLiner: "How can design make you stand out at first glance?",
     previewImage: 'images/pretus-logo.jpeg',
+    walkthroughVideo: 'images/pretus_screen_recording.mov',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
     goals: [
