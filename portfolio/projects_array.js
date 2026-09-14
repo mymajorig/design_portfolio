@@ -84,7 +84,7 @@ export const PROJECTS = [
     headliner: 'A Computational Chemistry Design',
     label: 'A WashUX Project',
     oneLiner: 'What Happens When Design Thinking Meets Sustainable Chemistry?',
-    previewImage: 'images/the_wexler_group.webp',
+    previewImage: 'images/wexler_group_cover_picture.png',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
     goals: [
@@ -128,7 +128,7 @@ export const PROJECTS = [
     headliner: 'A Personal Design',
     label: 'A Less Annoying CRM Project',
     oneLiner: 'What Happens When a CS Major Decides to Learn Design?',
-    previewImage: 'images/this_portfolio.webp',
+    previewImage: 'images/portfolio_cover_picture.png',
     description:
       'Designed and built my personal portfolio from the ground up, teaching myself design fundamentals and Three.js to create a site that felt authentically mine.',
     goals: [
