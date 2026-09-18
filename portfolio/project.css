@@ -190,7 +190,7 @@ header{
 
 .header-3d{
     align-self: center;
-    width: min(830px, 58vw);
+    width: min(1000px, 68vw);
     aspect-ratio: 16 / 10;
     height: auto;
     flex-shrink: 1;
@@ -209,11 +209,12 @@ header{
 }
 
 .trait-images img{
-    width: 220px;
-    max-width: 40vw;
+    width: 300px;
+    max-width: 50vw;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 0.75rem;
+    border: 3px solid var(--theme-color, var(--orange));
 }
 
 .project-name h1{
@@ -368,8 +369,8 @@ header{
     }
 
     .trait-images img{
-        width: min(220px, 55vw);
-        max-width: 55vw;
+        width: min(260px, 65vw);
+        max-width: 65vw;
     }
 
     /* Key Learnings: shrink the oversized, widely-spaced heading and bump the
