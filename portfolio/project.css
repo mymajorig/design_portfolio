@@ -153,7 +153,8 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 600px;
+    flex: 1 1 0%;
+    min-width: 0;
 }
 
 .one-liner{
@@ -190,10 +191,11 @@ header{
 
 .header-3d{
     align-self: center;
-    width: min(1000px, 68vw);
+    flex: 0 0 48%;
+    width: 48%;
+    max-width: 48%;
     aspect-ratio: 16 / 10;
     height: auto;
-    flex-shrink: 1;
 }
 
 .header-3d canvas{
@@ -203,13 +205,13 @@ header{
 
 .trait-images{
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 1.25rem;
     flex-shrink: 0;
 }
 
 .trait-images img{
-    width: 300px;
+    width: 400px;
     max-width: 50vw;
     aspect-ratio: 4 / 3;
     object-fit: cover;
@@ -334,7 +336,9 @@ header{
 
     .header-3d{
         align-self: flex-start;
-        width: min(650px, 96vw);
+        flex: none;
+        width: min(750px, 94vw);
+        max-width: 94vw;
         aspect-ratio: 16 / 10;
         height: auto;
         margin-top: 1rem;
@@ -369,8 +373,8 @@ header{
     }
 
     .trait-images img{
-        width: min(260px, 65vw);
-        max-width: 65vw;
+        width: min(340px, 75vw);
+        max-width: 75vw;
     }
 
     /* Key Learnings: shrink the oversized, widely-spaced heading and bump the
