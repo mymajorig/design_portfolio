@@ -190,7 +190,7 @@ header{
 
 .header-3d{
     align-self: center;
-    width: min(680px, 50vw);
+    width: min(830px, 58vw);
     aspect-ratio: 16 / 10;
     height: auto;
     flex-shrink: 1;
@@ -201,11 +201,19 @@ header{
     height: 100% !important;
 }
 
-.trait-header-3d{
-    width: 320px;
-    height: 320px;
+.trait-images{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     flex-shrink: 0;
-    margin-top: -5rem; /* the cube only fills the middle of the canvas, so tuck the empty top under the heading */
+}
+
+.trait-images img{
+    width: 220px;
+    max-width: 40vw;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0.75rem;
 }
 
 .project-name h1{
@@ -325,7 +333,7 @@ header{
 
     .header-3d{
         align-self: flex-start;
-        width: min(580px, 94vw);
+        width: min(650px, 96vw);
         aspect-ratio: 16 / 10;
         height: auto;
         margin-top: 1rem;
@@ -359,10 +367,9 @@ header{
         gap: 1.5rem;
     }
 
-    .trait-header-3d{
+    .trait-images img{
         width: min(220px, 55vw);
-        height: min(220px, 55vw);
-        margin-top: -2rem;
+        max-width: 55vw;
     }
 
     /* Key Learnings: shrink the oversized, widely-spaced heading and bump the

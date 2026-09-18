@@ -384,47 +384,6 @@ if (container) {
   });
 }
 
-// SECTION DECORATIVE SHAPES (goals, research, process, outcome)
-// each section header gets its own slowly rotating wireframe shape
-function createTraitShape(containerId, geometry) {
-  const container = document.querySelector(containerId);
-  if (!container) return;
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-  camera.position.z = 7;
-
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  container.appendChild(renderer.domElement);
-
-  const edges = new THREE.EdgesGeometry(geometry);
-  const material = new THREE.LineBasicMaterial({ color: 0x000000 });
-  const shape = new THREE.LineSegments(edges, material);
-  scene.add(shape);
-
-  let time = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    time += 0.003;
-    shape.rotation.y += 0.002;
-    shape.rotation.x = Math.sin(time * 0.5) * 0.1;
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  window.addEventListener('resize', () => {
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-  });
-}
-
-createTraitShape('#trait-header-3d', new THREE.BoxGeometry(4, 4, 4));
-createTraitShape('#research-3d', new THREE.IcosahedronGeometry(3));
-createTraitShape('#process-3d', new THREE.OctahedronGeometry(3));
-createTraitShape('#outcome-3d', new THREE.TetrahedronGeometry(3.2));
-
 // LOAD PROJECT CONTENT FROM THE DATABASE
 // The URL looks like project.html?slug=querri — we read that slug, fetch that
 // one project from the API, and drop its text into the page.

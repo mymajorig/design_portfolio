@@ -31,7 +31,10 @@ export const PROJECTS = [
     ],
 
     final_design: "The final design establishes an intuitive homepage and guidance experience featuring a tailored, three-question onboarding sequence designed to spin up a customized analyst experience immediately. By transitioning from a standard synchronous chat tool to a proactive, asynchronous analyst mental model, the interface strategically handles data latency while delivering automated, high-value insights. This modern interface leverages progressive disclosure to balance trust with speed, delivering production-ready interactive components and comprehensive redline specifications prepared for engineering handoff.",
-    final_design_images: ["images/blue-book.png", "images/cake.png"],
+    goalsImages: ["images/querri-lofi-wireframe.png"],
+    impactImages: ["images/querri-competitor-analysis.png"],
+    processImages: ["images/querri-hifid-wireframe.png"],
+    final_design_images: ["images/querri_cover_picture.png", "images/querri-official-logo.png"],
       keyLearnings: ["<b>Designing for Digital Trust and Credibility:</b> <br> I always knew design played an important role in engaging users, but this project showed me just how much it influences a website's credibility. By intentionally using trust-building language, highlighting industry credentials, and creating a polished visual hierarchy with subtle depth instead of harsh boundaries, I realized that even small design decisions can make people feel more confident and comfortable interacting with a product.", 
         "<b>Designing Around Technical Limitations by Understanding User Expectations:</b> <br> A user's experience is shaped not only by what a product can do, but also by how the experience communicates limitations. When complex analyses required up to 15 minutes to complete, I realized that thoughtful design could shift the user's perception of waiting time. By reframing the experience from an immediate chat interaction into a more intentional asynchronous analysis process, we were able to set clearer expectations, reduce frustration, and create a more comfortable experience for users.", 
         "<b>Balancing Freedom with Guidance</b> <br> I originally expected the flexibility of an open-ended search bar to empower users, but I learned that too much freedom can sometimes create uncertainty. When users are unfamiliar with what their data can reveal, they may struggle to know where to begin. By introducing guided insights and proactive recommendations, we created a clearer path to value while helping users feel more confident and comfortable navigating the product"],
@@ -72,7 +75,10 @@ export const PROJECTS = [
     ],
     final_design:
       'The redesigned experience gave Pretus a cohesive, standout identity that clearly communicates who it serves and why it matters. The new interface is both visually compelling and intuitive, reducing friction for prospective students and reinforcing the brand at every step. Beyond the immediate improvements, the work established a clear design strategy the team can carry forward as the platform continues to grow.',
-    final_design_images: ["images/blue-book.png", "images/cake.png"],
+    goalsImages: ["images/pretus-hifid-wireframe.png"],
+    impactImages: ["images/pretus-hifi-detail.png"],
+    processImages: ["images/pretus-hifi-detail2.png"],
+    final_design_images: ["images/pretus_cover_picture.png"],
       keyLearnings: ["<b>Client-Centered, Collaborative Design<b/> <br> This was my first time working with a group on a client project, which taught me how wireframing shifts when designing for someone else's vision rather than my own. I learned how to incorporate client needs into the design process and how to modify wireframes collaboratively as a group, balancing different perspectives rather than relying on individual instinct.", 
         "<b> Framing Competitive Advantages </b> <br> Competitors can offer similar advantages, but how those advantages are structured and presented can communicate very different things. The same feature or benefit can land differently depending on its framing.", 
         "<b> UX as the Bridge Between Resources and Accessibility</b> <br> No matter how many resources a website has, they won't elevate the site or reach people unless they're easily accessible. Good UX doesn't just make a website's advantages known, it makes them accessible"
@@ -117,7 +123,10 @@ export const PROJECTS = [
     'Visualizes the optimization process through energy progression plots.',
     'The experience demonstrated that thoughtful design extends beyond user interfaces, as creating an effective computational tool also requires balancing usability, scalability, efficiency, and clear communication through visualization.'
   ],
-    final_design_images: ["images/blue-book.png", "images/cake.png"],
+    goalsImages: ["images/wexler_group_cover_picture.png"],
+    impactImages: ["images/the_wexler_group.webp"],
+    processImages: ["images/wexler_group_cover_picture.png"],
+    final_design_images: ["images/the_wexler_group.webp"],
       keyLearnings: ["<b>Iteration drives better solutions.</b> <br> Developing an effective optimization algorithm required continuous testing, comparing approaches, and refining my implementation based on performance data. I learned that exploring multiple solutions is often more valuable than settling on the first one that works.", 
         "<b>Visualization can be a powerful problem-solving tool.</b> <br> Contour maps, plots, and graphs weren't just presentation materials, they helped me identify patterns, debug algorithms, and make informed decisions throughout the research process. This reinforced the importance of communicating complex information visually.", 
         "<b>Good design extends beyond interfaces.</b> <br> Although this wasn't a traditional UI/UX project, I found myself applying the same design mindset by balancing efficiency, scalability, and usability while creating a solution that other researchers can build upon. This experience showed me how thoughtful design can create meaningful impact in scientific and environmental applications."],
@@ -159,7 +168,10 @@ export const PROJECTS = [
       'Balanced visual distinctiveness with clarity, ensuring the site stands out on first impression while staying easy to navigate.'
     ],
 
-    final_design_images: ["images/blue-book.png", "images/cake.png"],
+    goalsImages: ["images/portfolio_cover_picture.png"],
+    impactImages: ["images/headshot-1.jpg"],
+    processImages: ["images/portfolio_cover_picture.png"],
+    final_design_images: ["images/headshot-1.jpg"],
     keyLearnings: [
     "<b>Design is a learnable discipline, not an instinct.</b> <br> Coming from a CS background, I discovered that design has its own rigorous process, research, critique, and iteration, that can be developed with the same intentionality as any technical skill.",
     "<b>Functional isn't the finish line.</b> <br> Fixing structure and alignment wasn't enough on its own; recognizing that the design still didn't feel authentic, and going back to inspiration rather than settling, taught me to iterate past 'working' toward 'right.'",
@@ -195,7 +207,19 @@ export function showProjectsList() {
   document.getElementById("project-grid").innerHTML = ProjectHtml;
 }
 
-export function showIndividualProject() { 
+// builds the little image gallery that sits next to a trait-section heading
+// (Goals/Impact/Process/Final Design). Accepts an array of image paths so a
+// section can hold one, two, or more images without any markup changes.
+function renderTraitImages(images) {
+  if (!Array.isArray(images) || images.length === 0) return '';
+  return `
+    <div class="trait-images">
+        ${images.map((src) => `<img src="${src}" alt="">`).join('')}
+    </div>
+  `;
+}
+
+export function showIndividualProject() {
 
   let ProjectHtmlHeader = '';
   let ProjectHtmlSection = '';
@@ -240,7 +264,7 @@ export function showIndividualProject() {
   <section class="goals trait-section">
       <header class="trait-header">
           <h2>Goals</h2>
-          <div class="trait-header-3d" id="trait-header-3d"></div>
+          ${renderTraitImages(project.goalsImages)}
       </header>
       <div class="project-text">
           ${Array.isArray(project.goals)
@@ -253,7 +277,7 @@ export function showIndividualProject() {
   <section class="trait-section">
       <header class="trait-header">
           <h2>Impact</h2>
-          <div class="trait-header-3d" id="research-3d"></div>
+          ${renderTraitImages(project.impactImages)}
       </header>
       <div class="project-text">
         ${Array.isArray(project.impact)
@@ -266,7 +290,7 @@ export function showIndividualProject() {
   <section class="trait-section">
       <header class="trait-header">
           <h2>Process</h2>
-          <div class="trait-header-3d" id="process-3d"></div>
+          ${renderTraitImages(project.processImages)}
       </header>
       <div class="project-text">
           ${Array.isArray(project.process)
@@ -279,7 +303,7 @@ export function showIndividualProject() {
   <section class="trait-section">
       <header class="trait-header">
           <h2>Final Design</h2>
-          <div class="trait-header-3d" id="outcome-3d"></div>
+          ${renderTraitImages(project.final_design_images)}
       </header>
       <div class="project-text">
           <p>${project.final_design}</p>
