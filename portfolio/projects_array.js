@@ -79,7 +79,7 @@ export const PROJECTS = [
     impactImages: ["images/pretus-hifi-detail.png"],
     processImages: ["images/pretus-hifi-detail2.png"],
     final_design_images: ["images/pretus_cover_picture.png"],
-      keyLearnings: ["<b>Client-Centered, Collaborative Design<b/> <br> This was my first time working with a group on a client project, which taught me how wireframing shifts when designing for someone else's vision rather than my own. I learned how to incorporate client needs into the design process and how to modify wireframes collaboratively as a group, balancing different perspectives rather than relying on individual instinct.", 
+      keyLearnings: ["<b>Client-Centered, Collaborative Design</b> <br> This was my first time working with a group on a client project, which taught me how wireframing shifts when designing for someone else's vision rather than my own. I learned how to incorporate client needs into the design process and how to modify wireframes collaboratively as a group, balancing different perspectives rather than relying on individual instinct.", 
         "<b> Framing Competitive Advantages </b> <br> Competitors can offer similar advantages, but how those advantages are structured and presented can communicate very different things. The same feature or benefit can land differently depending on its framing.", 
         "<b> UX as the Bridge Between Resources and Accessibility</b> <br> No matter how many resources a website has, they won't elevate the site or reach people unless they're easily accessible. Good UX doesn't just make a website's advantages known, it makes them accessible"
       ], 
@@ -163,15 +163,14 @@ export const PROJECTS = [
     ],
 
     final_design: [
-      'Implemented Three.js sparingly and intentionally, using minimalist 3D elements to drive discoverability without overshadowing content.',
+      "You're looking at it! I implemented Three.js sparingly and intentionally, using minimalist 3D elements to drive discoverability without overshadowing content.",
       'Positioned projects and written content as the primary experience, with 3D functioning as an attention-driving accent rather than a centerpiece.',
       'Balanced visual distinctiveness with clarity, ensuring the site stands out on first impression while staying easy to navigate.'
     ],
 
     goalsImages: ["images/portfolio_cover_picture.png"],
     impactImages: ["images/headshot-1.jpg"],
-    processImages: ["images/portfolio_cover_picture.png"],
-    final_design_images: ["images/headshot-1.jpg"],
+    processImages: ["images/personal_portfolio_pics_copy/prototype1figma.png", "images/personal_portfolio_pics_copy/prototype2figma.png"],
     keyLearnings: [
     "<b>Design is a learnable discipline, not an instinct.</b> <br> Coming from a CS background, I discovered that design has its own rigorous process, research, critique, and iteration, that can be developed with the same intentionality as any technical skill.",
     "<b>Functional isn't the finish line.</b> <br> Fixing structure and alignment wasn't enough on its own; recognizing that the design still didn't feel authentic, and going back to inspiration rather than settling, taught me to iterate past 'working' toward 'right.'",
@@ -303,10 +302,16 @@ export function showIndividualProject() {
   <section class="trait-section">
       <header class="trait-header">
           <h2>Final Design</h2>
-          ${renderTraitImages(project.final_design_images)}
+          ${project.slug === 'thisPortfolio'
+            ? `<a href="index.html" class="back-button back-button--themed home-cta">Back to Home</a>`
+            : renderTraitImages(project.final_design_images)
+          }
       </header>
       <div class="project-text">
-          <p>${project.final_design}</p>
+          ${Array.isArray(project.final_design)
+            ? `<ul class="goals-list">${project.final_design.map(i => `<li>${i}</li>`).join('')}</ul>`
+            : `<p>${project.final_design}</p>`
+          }
       </div>
   </section>
   `

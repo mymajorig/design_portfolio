@@ -79,6 +79,7 @@ h2{
 p, li, a
 {
     font-family: var(--serif-font);
+    font-size: var(--text-font-size);
     letter-spacing: var(--tracking-text);
     line-height: var(--leading-normal);
 }
@@ -138,7 +139,17 @@ header{
 
 .back-button--themed:hover::before{ /* the button is already filled, so suppress the plain ::before reveal on the themed button — otherwise it fades in a lighter 1px ring around the edge */
     opacity:0;
-} 
+}
+
+/* stands in for a trait-section's image slot on the "This Portfolio" page's
+   Final Design section, so it needs to read as a bigger CTA rather than a
+   small corner nav link */
+.home-cta{
+    align-self: center;
+    font-size: 1.1rem;
+    padding: 0.9rem 2.25rem;
+    flex-shrink: 0;
+}
 
 .header-content{
     flex: 1;
@@ -153,8 +164,8 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 1 1 0%;
-    min-width: 0;
+    flex: 0 0 auto;
+    max-width: 600px;
 }
 
 .one-liner{
@@ -191,9 +202,9 @@ header{
 
 .header-3d{
     align-self: center;
-    flex: 0 0 48%;
-    width: 48%;
-    max-width: 48%;
+    flex: 1 1 auto;
+    width: auto;
+    max-width: 100%;
     aspect-ratio: 16 / 10;
     height: auto;
 }
@@ -213,8 +224,7 @@ header{
 .trait-images img{
     width: 400px;
     max-width: 50vw;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    height: auto;
     border-radius: 0.75rem;
     border: 3px solid var(--theme-color, var(--orange));
 }
