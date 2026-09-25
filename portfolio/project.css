@@ -200,18 +200,19 @@ header{
     font-size: clamp(2.5rem, 7vw, 5rem);
 }
 
-.header-3d{
+.header-media{
     align-self: center;
     flex: 1 1 auto;
     width: auto;
     max-width: 100%;
-    aspect-ratio: 16 / 10;
-    height: auto;
 }
 
-.header-3d canvas{
-    width: 100% !important;
-    height: 100% !important;
+.header-media video,
+.header-media img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
 }
 
 .trait-images{
@@ -226,7 +227,7 @@ header{
     max-width: 50vw;
     height: auto;
     border-radius: 0.75rem;
-    border: 3px solid var(--theme-color, var(--orange));
+    border: 2px solid var(--theme-color, var(--orange));
 }
 
 .project-name h1{
@@ -344,13 +345,10 @@ header{
         max-width: 100%;
     }
 
-    .header-3d{
-        align-self: flex-start;
+    .header-media{
+        align-self: stretch;
         flex: none;
-        width: min(750px, 94vw);
-        max-width: 94vw;
-        aspect-ratio: 16 / 10;
-        height: auto;
+        width: 100%;
         margin-top: 1rem;
     }
 
