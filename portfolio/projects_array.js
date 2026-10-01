@@ -156,9 +156,9 @@ export const PROJECTS = [
     ],
 
     process: [
-      'Audited my existing toolkit: strong in HTML/CSS, moderately familiar with Figma, and starting from scratch with Three.js and PHP.',
-      "Selected a mentor through structured sessions with LACRM's team, then used paired-programming meetings to establish project timelines and resource needs.",
-      'Iterated through multiple structural passes, refining layout and alignment before shifting focus toward visual identity and personal voice.',
+      "Project management started before a single line of code was written. I worked through a structured selection process with LACRM's team to find the right mentor, then used paired-programming sessions to scope timelines, technical requirements, and resource needs",
+      "The process began in Figma, exploring layout directions until the site's visual identity clicked refining hierarchy, spacing, alignment, and interaction along the way.",
+      "Used Claude Code as a creative development partner, translating design ideas into code, troubleshooting implementation challenges, and rapidly iterating on interactive elements.",
       'Scoped 3D elements to a supporting, minimalist role, prioritizing project content and copy as the primary focus of the site.'
     ],
 
@@ -233,7 +233,15 @@ export function showIndividualProject() {
 
   ProjectHtmlHeader +=
   `
-  <a href="index.html" class="back-button">Back</a>
+  <div class="header-top">
+      <a href="index.html" class="back-button">Back</a>
+      <a href="index.html" class="home-link">
+          <svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.1 1 12h3v9h6v-6h4v6h6v-9h3z"/>
+          </svg>
+          <span class="home-name">PHOEBE TAYLOR</span>
+      </a>
+  </div>
 
         <div class="header-content">
             <div class="header-text">

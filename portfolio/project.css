@@ -93,6 +93,44 @@ header{
     gap: 2rem;
 }
 
+/* back button on the left, brand mark on the right — same row so neither
+   has to fight the other for the top-left corner */
+.header-top{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 1.5rem;
+}
+
+.header-top .back-button{
+    align-self: center;
+}
+
+/* left-side brand mark: home icon + name, styled like the PHOEBE TAYLOR
+   hero heading on the home page, just scaled down to header size */
+.home-link{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.home-icon{
+    width: 18px;
+    height: 18px;
+    fill: var(--black);
+    flex-shrink: 0;
+}
+
+.home-name{
+    font-family: var(--sans-serif-font);
+    font-weight: bold;
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-tight);
+    font-size: 1.25rem;
+}
 
 .back-button{
     position: relative;
@@ -332,6 +370,10 @@ header{
     body{
         padding: 5vh 2rem 2rem;
         gap: 6rem;
+    }
+
+    .home-name{
+        font-size: 1rem;
     }
 
     /* hero: one-liner/title above the 3d orb instead of beside it */

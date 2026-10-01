@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="resume.css">
+    <link rel="stylesheet" href="variables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home-link">
+            <svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.1 1 12h3v9h6v-6h4v6h6v-9h3z"/>
+            </svg>
+            <span class="home-name">PHOEBE TAYLOR</span>
+        </a>
+        <div class="nav-links">
+            <h3 id="projects-button"><a href="index.html#project-grid">PROJECTS</a></h3>
+            <h3 id="about-button"><a href="about.html">ABOUT</a></h3>
+            <h3 id="resume-button"><a href="resume.html">RESUME</a></h3>
+        </div>
+    </nav>
+
+    <div class="resume-wrap">
+        <iframe class="resume-frame" src="images/resume.pdf" title="Resume"></iframe>
+        <a class="resume-fallback" href="images/resume.pdf" target="_blank" rel="noopener">Open in a new tab</a>
+    </div>
+
+    <script type="module" src="resume.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 // Fade the page in on load, and fade it out before navigating away — matching
-// the page transition used on the other pages.
+// the page transition used on about.html.
 requestAnimationFrame(() => document.body.classList.add('page-loaded'));
 
 // If the browser restores this page from bfcache (e.g. hitting Back after a

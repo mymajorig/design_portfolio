@@ -8,7 +8,8 @@ export default {
       input: {
         index: resolve(import.meta.dirname, 'portfolio/index.html'),
         about: resolve(import.meta.dirname, 'portfolio/about.html'),
-        project: resolve(import.meta.dirname, 'portfolio/project.html')
+        project: resolve(import.meta.dirname, 'portfolio/project.html'),
+        resume: resolve(import.meta.dirname, 'portfolio/resume.html')
       }
     }
   }
