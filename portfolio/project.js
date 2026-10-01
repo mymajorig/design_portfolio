@@ -1,6 +1,8 @@
 import { playEnterFromProject } from './transitions.js';
 import { showIndividualProject } from "./projects_array.js";
+import { initDirectionalCursor } from './cursor.js';
 
+initDirectionalCursor();
 showIndividualProject();
 
 // CURSOR GLOW

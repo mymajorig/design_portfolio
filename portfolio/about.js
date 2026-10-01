@@ -1,3 +1,7 @@
+import { initDirectionalCursor } from './cursor.js';
+
+initDirectionalCursor();
+
 // Fade the page in on load, and fade it out before navigating away — matching
 // the page transition used on the other pages.
 requestAnimationFrame(() => document.body.classList.add('page-loaded'));

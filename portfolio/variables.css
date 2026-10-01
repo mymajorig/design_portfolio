@@ -79,24 +79,32 @@
                 border-radius 1s cubic-bezier(0.6, 0, 0.2, 1);
 }
 
-/* --- custom arrow cursor ---
-   A right-pointing arrow with a wireframe echo, matching the site's solid +
-   offset-outline motif. Set on <html> (not *) so it's inherited: links still
-   get their pointer, and the draggable 3d shapes keep their grab cursor.
-   The two numbers after the url are the click "hotspot" (x y, in px). */
+/* --- custom directional cursor (see cursor.js) ---
+   The real OS pointer is hidden everywhere; a JS-driven black circle with a
+   white arrow takes its place and rotates to face whichever way the mouse is
+   moving. Elements that need the native cursor back (e.g. a draggable 3d
+   shape's grab/grabbing) set an inline `cursor` style, which — being on the
+   element itself — still shows through under the hidden `<html>` cursor. */
 html{
-    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='30' viewBox='0 0 36 30'><g transform='rotate(12 19 18)'><polygon points='16,6 16,26 33,16' fill='white' stroke='%231e1e1e' stroke-width='1' stroke-linejoin='round'/><polygon points='5,8 5,28 22,18' fill='%231e1e1e'/></g></svg>") 22 19, auto;
+    cursor: none;
 }
 
-/* the old floating wireframe-square cursor is replaced by the real cursor above */
+#directional-cursor{
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.15s ease;
+    will-change: transform, filter;
+}
+
+#directional-cursor.hidden{
+    opacity: 0;
+}
+
+/* the old floating wireframe-square cursor is replaced by the cursor above */
 #cursor-glow{
     display: none;
-}
-
-/* links (nav, back button, project cards) would get the browser's pointer hand;
-   re-inherit the custom arrow instead so every link shows the normal cursor.
-   (The 3d shapes set their own grab cursor in JS on <canvas>, so they're
-   untouched by this.) */
-a{
-    cursor: inherit;
 }

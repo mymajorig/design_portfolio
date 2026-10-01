@@ -1,9 +1,12 @@
 import * as THREE from 'three';
 import { playExitToProject } from './transitions.js';
 import { showProjectsList } from './projects_array.js';
+import { initDirectionalCursor } from './cursor.js';
 import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
+
+initDirectionalCursor();
 
 // STAR FIELD BACKGROUND
 showProjectsList();
@@ -147,6 +150,7 @@ let lastPointerY = 0;
 let fillOpacityTarget = 0;
 
 cubeContainer.style.cursor = 'grab';
+cubeContainer.dataset.cursorHide = '';
 
 cubeContainer.addEventListener('mousedown', (e) => {
   isDragging = true;

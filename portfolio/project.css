@@ -253,19 +253,25 @@ header{
     border-radius: 1rem;
 }
 
+/* images are the focus of each section: a 2-column grid when there's more
+   than one, or a single full-width shot when there's just one */
 .trait-images{
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
 }
 
 .trait-images img{
-    width: 400px;
-    max-width: 50vw;
+    width: 100%;
     height: auto;
     border-radius: 0.75rem;
     border: 2px solid var(--theme-color, var(--orange));
+}
+
+/* a lone image spans both grid columns instead of sitting half-width */
+.trait-images img:only-child{
+    grid-column: 1 / -1;
 }
 
 .project-name h1{
@@ -337,32 +343,25 @@ header{
     color: var(--theme-color, var(--orange));
 }
 
-/* goals, research, process, outcome all share this layout */
+/* goals, research, process, outcome all share this layout: a short text
+   intro on top, then the image(s) as a large full-width row below — the
+   images are the point, so they get the bulk of the section's footprint */
 .trait-section{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: var(--space-lg);
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-/* alternate the layout so the 3d shape flips sides each section:
-   Goals = row, Research = row-reverse, Process = row, Outcome = row-reverse.
-   (key-learnings is the 1st <section>, so trait sections land on positions 2–5.) */
-.trait-section:nth-of-type(odd){
-    flex-direction: row-reverse;
+/* scaled down from the site-wide h2 size — a shorter intro reads better as a
+   lead-in to a large image than a near-full-screen headline would */
+.trait-section h2{
+    font-size: clamp(2rem, 4vw, 3rem);
 }
 
-/* header and text split the row equally */
-.trait-section .trait-header,
+/* bullets/paragraphs run the full section width now, rather than being
+   capped to a narrow column */
 .trait-section .project-text{
-    flex: 1;
-}
-
-.trait-header{
-    min-height: auto;
-    gap: 3rem;
-    align-items: center;
+    width: 100%;
 }
 
 /* tablet/phone: stack the header and every section, shrink the 3d canvases */
@@ -410,21 +409,16 @@ header{
         gap: 5rem;
     }
 
-    /* each Goals/Research/Process/Outcome block stacks vertically */
-    .trait-section,
-    .trait-section:nth-of-type(odd){
-        flex-direction: column;
-        align-items: flex-start;
+    /* each Goals/Research/Process/Outcome block gets a little more breathing
+       room between its text intro and image row at this width */
+    .trait-section{
         gap: 2.5rem;
     }
 
-    .trait-header{
-        gap: 1.5rem;
-    }
-
-    .trait-images img{
-        width: min(340px, 75vw);
-        max-width: 75vw;
+    /* one image per row — a 2-column grid would squeeze each shot too small
+       to read as "the focus" on a phone width */
+    .trait-images{
+        grid-template-columns: 1fr;
     }
 
     /* Key Learnings: shrink the oversized, widely-spaced heading and bump the

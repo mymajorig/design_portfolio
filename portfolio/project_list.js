@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 import { playExitToProject } from './transitions.js';
+import { initDirectionalCursor } from './cursor.js';
+
+initDirectionalCursor();
 
 // STARS BACKGROUND
 const starsContainer = document.getElementById('stars-container');
@@ -100,6 +103,7 @@ let lastTitleCubePointerY = 0;
 let titleFillOpacityTarget = 0;
 
 titleCubeContainer.style.cursor = 'grab';
+titleCubeContainer.dataset.cursorHide = '';
 
 titleCubeContainer.addEventListener('mousedown', (e) => {
   isTitleCubeDragging = true;
