@@ -11,10 +11,10 @@ export const PROJECTS = [
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
     goals: [
-      "Optimize engagement and eliminate key friction points within the user journey, targeting the initial activation path and long-term retention.",
-      "Integrate a clear onboarding introduction to Querri, an AI-powered, no-code data analytics platform, bridging the gap between business knowledge and data fluency.",
-      "Resolve structural challenges preventing non-technical business professionals from maximizing the platform's value.",
-      "Establish a framework to transition casual usage into an indispensable, habit-forming daily routine.",
+      "Querri is an AI-powered, no-code data analytics platform built to bridge the gap between business knowledge and data fluency. Its mission was clear and impactful, but a powerful mission means little if users find other software that achieves the same goal with less friction.",
+      "Users were signing up for the product, but retention numbers told a different story. Too few were coming back. This gap became the core challenge behind our primary task: rework Querri's website to establish a unique brand identity while giving users real reason to return",
+      "Analyzing the site with that goal in mind, we identified a key trigger behind the drop-off: an unclear onboarding process that confused users from the start, leaving them either unmotivated to sign up or not inclined to keep using the platform",
+      "With that insight, our direction became clear: design an experience that made Querri stand out and communicate its unique value, while staying clean, understandable, and engaging enough to bring users back again and again",
     ],
     impact: [
     "Increase Weekly Active Users (WAU) and Daily Active Users (DAU) by encouraging more frequent engagement with Querri.",
@@ -25,16 +25,17 @@ export const PROJECTS = [
     ],
 
     process: [
-      "Weeks 1-4, Discovery & Definition: Kicked off with stakeholders to map product metrics, conducted a detailed UX audit of the core interface, and completed 3-5 user interviews to identify key friction points.",
-      "Weeks 5-10, Strategy & Design: Synthesized research findings into user flows and lo-fi wireframes, explored divergent concepts, and developed high-fidelity interactive screens using Querri's existing Poppins typography, Tangelo color palette, and border-radius system.",
-      "Weeks 11-14, Refinement & Handoff: Conducted usability testing against the baseline experience, refined the interactive prototype, and delivered complete Figma redline specifications for engineering handoff.",
+      "We started by looking beyond Querri itself. I led a competitive analysis across six platforms, 3 direct and 3 indirect, to see how other products approached onboarding, data visualization, and user retention. This helped us understand what was already working in the space, where users might be experiencing friction, and where Querri had room to stand apart.",
+      "We also paid attention to how each competitor presented itself. Beyond functionality, I evaluated their visual language, looking at how typography, color, layout, and branding communicated trust and credibility. Some products made their value immediately clear, while others left us questioning what the platform actually offered. These findings helped us identify opportunities to make Querri’s experience clearer and more compelling.",
+      "We turned to users for their perspective. We surveyed people with prior experience using AI tools to process data, using their feedback to uncover recurring pain points, frustrations, and expectations around the data analysis experience.",
+      "Together, these insights shaped our design direction. By combining competitive and visual analysis with direct user feedback, we could focus on creating an experience that felt clearer, more approachable, and easier to engage with from the very first interaction.",
     ],
 
     final_design: "The final design establishes an intuitive homepage and guidance experience featuring a tailored, three-question onboarding sequence designed to spin up a customized analyst experience immediately. By transitioning from a standard synchronous chat tool to a proactive, asynchronous analyst mental model, the interface strategically handles data latency while delivering automated, high-value insights. This modern interface leverages progressive disclosure to balance trust with speed, delivering production-ready interactive components and comprehensive redline specifications prepared for engineering handoff.",
     goalsImages: [],
     impactImages: ["images/querri/querri-competitor-analysis.png"],
-    processImages: ["images/querri/querri-hifid-wireframe.png", "images/querri/querri-lofi-tophalf.png","images/querri/querri-lofi-bottomhalf.png"],
-    final_design_images: ["images/querri/querri-zoomed-mockup.png"],
+    processImages: ["images/querri/querri-lofi-tophalf.png","images/querri/querri-lofi-bottomhalf.png", "images/querri/querri-comment.png","images/querri/querri-hifid-wireframe.png",],
+    final_design_images: ["images/querri/querri-mockupdetail2.png"],
       keyLearnings: ["<b>Designing for Digital Trust and Credibility:</b> <br> I always knew design played an important role in engaging users, but this project showed me just how much it influences a website's credibility. By intentionally using trust-building language, highlighting industry credentials, and creating a polished visual hierarchy with subtle depth instead of harsh boundaries, I realized that even small design decisions can make people feel more confident and comfortable interacting with a product.", 
         "<b>Designing Around Technical Limitations by Understanding User Expectations:</b> <br> A user's experience is shaped not only by what a product can do, but also by how the experience communicates limitations. When complex analyses required up to 15 minutes to complete, I realized that thoughtful design could shift the user's perception of waiting time. By reframing the experience from an immediate chat interaction into a more intentional asynchronous analysis process, we were able to set clearer expectations, reduce frustration, and create a more comfortable experience for users.", 
         "<b>Balancing Freedom with Guidance</b> <br> I originally expected the flexibility of an open-ended search bar to empower users, but I learned that too much freedom can sometimes create uncertainty. When users are unfamiliar with what their data can reveal, they may struggle to know where to begin. By introducing guided insights and proactive recommendations, we created a clearer path to value while helping users feel more confident and comfortable navigating the product"],
@@ -234,7 +235,7 @@ export function showIndividualProject() {
   ProjectHtmlHeader +=
   `
   <div class="header-top">
-      <a href="index.html" class="back-button">Back</a>
+      <a href="index.html" class="back-button">Back this way</a>
       <a href="index.html" class="home-link">
           <svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2.1 1 12h3v9h6v-6h4v6h6v-9h3z"/>

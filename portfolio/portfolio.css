@@ -118,12 +118,25 @@ h3{
 }
 
 .sub-header{
-  opacity: 0.5;
+  opacity: 0.85;
   font-family: var(--serif-font);
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   letter-spacing: var(--tracking-text);
   line-height: var(--leading-normal);
+}
+
+/* "direction" gets its own hook to react on hover — a little nod to the
+   word's own meaning: it tilts, like it's pointing a new way */
+.direction-word{
+  display: inline-block;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.direction-word:hover{
+  color: var(--lavender);
+  transform: rotate(-8deg);
 }
 
 nav {
