@@ -169,8 +169,8 @@ export const PROJECTS = [
       'Balanced visual distinctiveness with clarity, ensuring the site stands out on first impression while staying easy to navigate.'
     ],
 
-    goalsImages: ["images/personal_portfolio_pics_copy/prototye10.png"],
-    impactImages: ["images/personal_portfolio_pics_copy/prototye7.png", "images/personal_portfolio_pics_copy/prototye8.png"],
+    goalsImages: ["images/personal_portfolio_pics_copy/prototype12figma.png", "images/personal_portfolio_pics_copy/prototype9figma.png"],
+    impactImages: ["images/personal_portfolio_pics_copy/prototype7.png", "images/personal_portfolio_pics_copy/prototype8.png", "images/personal_portfolio_pics_copy/home_page_drafts.png"],
     processImages: ["images/personal_portfolio_pics_copy/prototype1figma.png", "images/personal_portfolio_pics_copy/prototype2figma.png"],
     keyLearnings: [
     "<b>Design is a learnable discipline, not an instinct.</b> <br> Coming from a CS background, I discovered that design has its own rigorous process, research, critique, and iteration, that can be developed with the same intentionality as any technical skill.",
