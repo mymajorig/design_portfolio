@@ -134,3 +134,25 @@ function themeBackButton(color) {
   backButton.style.setProperty('--theme-color', color);
   backButton.classList.add('back-button--themed');
 }
+
+// Chrome's native Back button restores a page from the back-forward cache
+// (bfcache) in whatever DOM state it was frozen in when the user navigated
+// away — scripts don't re-run, only already-registered listeners fire. That
+// frozen state can include: the page mid-fade-out (page-loaded removed), a
+// leftover full-screen .page-curtain that was about to be cleaned up by the
+// page that was about to replace it, or the back button still mid-collapse
+// (visibility:hidden / transparent text). None of that self-heals without
+// this, which is why the in-site Back button (a real navigation + reload)
+// looks fine but the browser's native Back button looks "glitched".
+window.addEventListener('pageshow', (e) => {
+  if (!e.persisted) return;
+
+  document.querySelectorAll('.page-curtain').forEach((el) => el.remove());
+  document.documentElement.style.backgroundColor = '';
+  document.body.classList.add('page-loaded');
+
+  document.querySelectorAll('.back-button').forEach((btn) => {
+    btn.style.visibility = '';
+    btn.style.color = '';
+  });
+});
