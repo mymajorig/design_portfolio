@@ -78,7 +78,7 @@ export const PROJECTS = [
       'The redesigned experience gave Pretus a cohesive, standout identity that clearly communicates who it serves and why it matters. The new interface is both visually compelling and intuitive, reducing friction for prospective students and reinforcing the brand at every step. Beyond the immediate improvements, the work established a clear design strategy the team can carry forward as the platform continues to grow.',
     goalsImages: [],
     impactImages: ["images/pretus/pretus-hifi-detail.png"],
-    processImages: ["images/pretus/pretus-hifid-wireframe.png","images/pretus/pretus-hifi-detail.png", "images/pretus/pretus-hifi-detail2.png"],
+    processImages: ["images/pretus/pretus-hifid-wireframe.png", "images/pretus/pretus-hifi-detail2.png"],
     final_design_images: ["images/pretus/pretus_cover_picture.png"],
       keyLearnings: ["<b>Client-Centered, Collaborative Design</b> <br> This was my first time working with a group on a client project, which taught me how wireframing shifts when designing for someone else's vision rather than my own. I learned how to incorporate client needs into the design process and how to modify wireframes collaboratively as a group, balancing different perspectives rather than relying on individual instinct.", 
         "<b> Framing Competitive Advantages </b> <br> Competitors can offer similar advantages, but how those advantages are structured and presented can communicate very different things. The same feature or benefit can land differently depending on its framing.", 
