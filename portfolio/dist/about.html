@@ -7,25 +7,82 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/about-CVu1tTrm.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/variables-DfWgXguz.js">
-    <link rel="stylesheet" crossorigin href="./assets/variables-CezIQLl1.css">
-    <link rel="stylesheet" crossorigin href="./assets/about-DwqsujyA.css">
+    <script type="module" crossorigin src="./assets/about-CopdhoUE.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/cursor-BLlgtBtX.js">
+    <link rel="stylesheet" crossorigin href="./assets/cursor-C1zOYKb9.css">
+    <link rel="stylesheet" crossorigin href="./assets/about-YuImBVS3.css">
   </head>
   <body>
     <nav>
-      <h3 id="projects-button"><a href="index.html#project-grid">PROJECTS</a></h3>
-      <h3 id="about-button"><a href="about.html">ABOUT</a></h3>
-      <h3 id="resume-button"><a href="images/resume.pdf">RESUME</a></h3>
+      <a href="index.html" class="home-link">
+        <svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.1 1 12h3v9h6v-6h4v6h6v-9h3z"/>
+        </svg>
+        <span class="home-name">PHOEBE TAYLOR</span>
+      </a>
+      <div class="nav-links">
+        <h3 id="projects-button"><a href="index.html#project-grid">PROJECTS</a></h3>
+        <h3 id="about-button"><a href="about.html">ABOUT</a></h3>
+        <h3 id="resume-button"><a href="resume.html">RESUME</a></h3>
+      </div>
     </nav>
 
-    <section class="about">
+    <section class="about-block about-intro">
       <div class="about-image">
         <img src="images/headshot-1.jpg" alt="Portrait of Phoebe Taylor">
       </div>
       <div class="about-text">
         <h1>About</h1>
-        <p>I’m a UI/UX designer and creative technologist driven by curiosity and a passion for exploring how design can create meaningful change. I’m interested in the intersection of design, technology, and storytelling through using research, visual thinking, and code to rethink how people interact with products and ideas. <br><br>I’m drawn to design because it combines creativity, human understanding, and problem-solving. I enjoy exploring how thoughtful experiences can simplify complexity, build trust, and extend beyond interfaces to influence strategy, communication, and emerging technologies. As I continue to grow, I hope to create work that not only solves problems but also <span class="highlight">leaves a lasting impact:</span> helping people connect with products in ways that are thoughtful, engaging, and distinctly human. I’m always excited to connect with others who are passionate about design, technology, and creating meaningful experiences!</p>
+        <p>Hi hi! I’m Phoebe, a UI/UX designer and Computer Science student at WashU who loves studying people and their habits to make things that improve a community or simply brighten someone’s day. Along with design, creativity is a constant flow in my everyday life, from the short-form videos I film for WashU’s official social accounts to the flyers I design for NSBE. You might also find me learning a hip hop dance in an empty classroom after hours, or turning the nearest object into the seed of my next novel idea. When the sun sets, I’m meditating and cozied up with a good book. If you want to talk all things design, or even want a book recommendation, I would love to connect!</p>
+
+        <div class="contact-row">
+            <a href="https://www.linkedin.com/in/phoebe-taylor1" target="_blank" rel="noopener" class="contact-link">
+                <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.064 2.064 0 1 1 0-4.128 2.064 2.064 0 0 1 0 4.128zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <span>linkedin.com/in/phoebe-taylor1</span>
+            </a>
+            <a href="mailto:phoebe.t@wustl.edu" class="contact-link">
+                <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <span>phoebe.t@wustl.edu</span>
+            </a>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="favorites-intro-heading">when I'm not designing...</h2>
+
+    <section class="about-block favorites-block">
+      <h2 class="favorites-heading">I'll be watching movies like:</h2>
+      <div class="favorites-row">
+        <div class="favorite-card" style="--card-hover-accent: var(--cobalt)">
+          <img class="favorite-cover" src="images/thor.jpeg" alt="Favorite movie poster placeholder">
+        </div>
+        <div class="favorite-card" style="--card-hover-accent: var(--raspberry)">
+          <img class="favorite-cover" src="images/underland.jpeg" alt="Favorite movie poster placeholder">
+        </div>
+        <div class="favorite-card" style="--card-hover-accent: var(--gold)">
+          <img class="favorite-cover" src="images/sinners.jpeg" alt="Favorite movie poster placeholder">
+        </div>
+        <div class="favorite-card" style="--card-hover-accent: var(--plum)">
+          <img class="favorite-cover" src="images/barbie2.jpg" alt="Favorite movie poster placeholder">
+        </div>
+      </div>
+    </section>
+
+    <section class="about-block favorites-block">
+      <h2 class="favorites-heading">I'll be reading and writing books like:</h2>
+      <div class="favorites-row">
+        <div class="favorite-card" style="--card-hover-accent: var(--emerald)">
+          <img class="favorite-cover" src="images/babel.jpeg" alt="Favorite book cover placeholder">
+        </div>
+        <div class="favorite-card" style="--card-hover-accent: var(--mustard)">
+          <img class="favorite-cover" src="images/the_deep.jpg" alt="Favorite book cover placeholder">
+        </div>
+        <div class="favorite-card" style="--card-hover-accent: var(--lavender)">
+          <img class="favorite-cover" src="images/carrie-soto.jpeg" alt="Favorite book cover placeholder">
+        </div>
+        <div class="favorite-card" style="--card-hover-accent: var(--sky-blue)">
+          <img class="favorite-cover" src="images/history-of-sound.jpeg" alt="Favorite book cover placeholder">
+        </div>
       </div>
     </section>
 

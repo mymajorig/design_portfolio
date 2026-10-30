@@ -30,7 +30,10 @@ export function playExitToProject(href, color) {
 
   // navigate once the fade has finished; the destination page paints the same
   // color on its first frame (see the inline script in project.html), so the
-  // color stays put across the navigation — no blink, no second fade
+  // color stays put across the navigation — no blink, no second fade. The
+  // curtain itself is cleaned up in the pagehide listener below, right as
+  // this page gets frozen into bfcache — not here, since removing it before
+  // navigating would force an extra visible paint of the plain page first.
   setTimeout(() => {
     window.location.href = href;
   }, 550);
@@ -144,15 +147,31 @@ function themeBackButton(color) {
 // (visibility:hidden / transparent text). None of that self-heals without
 // this, which is why the in-site Back button (a real navigation + reload)
 // looks fine but the browser's native Back button looks "glitched".
-window.addEventListener('pageshow', (e) => {
-  if (!e.persisted) return;
-
+function clearTransitionArtifacts() {
   document.querySelectorAll('.page-curtain').forEach((el) => el.remove());
   document.documentElement.style.backgroundColor = '';
-  document.body.classList.add('page-loaded');
 
   document.querySelectorAll('.back-button').forEach((btn) => {
     btn.style.visibility = '';
     btn.style.color = '';
   });
+}
+
+// Belt-and-suspenders cleanup for whenever a bfcache restore is caught.
+window.addEventListener('pageshow', (e) => {
+  if (!e.persisted) return;
+  clearTransitionArtifacts();
+  document.body.classList.add('page-loaded');
+});
+
+// The real fix: a leaving page (e.g. the home/list page mid-way through
+// playExitToProject's fade, still showing its full-screen colored curtain)
+// gets frozen into bfcache exactly as it looks at this instant. If we wait
+// until pageshow to clean it up, the browser has already painted that stale,
+// colored frame for navigate — that one frame IS the "flash" of color on
+// native Back. Stripping it here, synchronously before the freeze, means the
+// cached snapshot is already clean, so there's nothing left to flash.
+window.addEventListener('pagehide', (e) => {
+  if (!e.persisted) return;
+  clearTransitionArtifacts();
 });
