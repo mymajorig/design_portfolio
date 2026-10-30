@@ -19,7 +19,7 @@ export const PROJECTS = [
     },
     goals: [
       "Querri is an AI-powered, no-code data platform built to bridge business knowledge and data fluency.",
-      "Users signed up but didn't return — retention, not acquisition, was the real problem.",
+      "Users signed up but didn't return: retention, not acquisition, was the real problem.",
       "Root cause: an unclear onboarding process that confused users from the start.",
       "Goal: a clean, engaging experience that gives users real reason to come back.",
     ],
@@ -33,7 +33,7 @@ export const PROJECTS = [
 
     process: [
       "Led a competitive analysis across 6 platforms (3 direct, 3 indirect) covering onboarding, visualization, and retention.",
-      "Evaluated competitors' visual language — typography, color, layout — for trust and credibility cues.",
+      "Evaluated competitors' visual language (typography, color, layout) for trust and credibility cues.",
       "Surveyed users experienced with AI data tools to surface pain points and expectations.",
       "Combined these insights into a clearer, more approachable design direction.",
     ],
@@ -81,13 +81,13 @@ export const PROJECTS = [
     ],
     process:[
       'Iterated from 8 low-fidelity wireframes to 12 polished, interactive prototypes.',
-      'Reworked information architecture so core features — student report, question bank, AI personalization, mock interviews — are easy to find.',
+      'Reworked information architecture so core features (student report, question bank, AI personalization, mock interviews) are easy to find.',
       'Restructured the landing page to clarify value proposition and calls to action.',
       'Strengthened visual branding through feature hierarchy, logos, and pricing.',
       'Iterated quickly through frequent design critiques and user feedback.'
     ],
     final_design:
-      'A cohesive, standout identity that clearly communicates who Pretus serves and why it matters — visually compelling, intuitive, and built on a design strategy the team can keep building on.',
+      'A cohesive, standout identity that clearly communicates who Pretus serves and why it matters: visually compelling, intuitive, and built on a design strategy the team can keep building on.',
     goalsImages: [],
     impactImages: ["images/pretus/pretus-hifi-detail.png"],
     processImages: ["images/pretus/pretus-hifid-wireframe.png", "images/pretus/pretus-hifi-detail2.png"],
@@ -131,7 +131,7 @@ export const PROJECTS = [
 
   process: [
     'Built a foundation in Python (NumPy, SciPy, Matplotlib) before moving to Julia\'s Optim package.',
-    'Benchmarked BFGS, Nelder-Mead, and Gradient Descent — BFGS performed best.',
+    'Benchmarked BFGS, Nelder-Mead, and Gradient Descent. BFGS performed best.',
     'Designed an N × 3 matrix-based Lennard-Jones energy calculation for scalability.',
     'Used contour maps, energy plots, and visualizations to debug and refine the algorithm.'
   ],
@@ -140,7 +140,7 @@ export const PROJECTS = [
     'An optimization algorithm that computes total Lennard-Jones potential energy from atomic positions.',
     'Applies BFGS to find the lowest-energy configuration.',
     'Visualizes the optimization process through energy progression plots.',
-    'Proof that good design extends beyond interfaces — into usability and clarity for technical tools.'
+    'Proof that good design extends beyond interfaces into usability and clarity for technical tools.'
   ],
     goalsImages: [],
     impactImages: ["images/wexler/wexler_code.png"],
