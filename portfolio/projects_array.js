@@ -10,28 +10,35 @@ export const PROJECTS = [
     walkthroughVideo: 'images/querri/querri-walkthrough.mov',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
+    meta: {
+      role: 'UI/UX Designer',
+      timeframe: 'Feb 2026 – Apr 2026',
+      team: 'WashUX core design team',
+      tools: 'Figma',
+      type: 'Student Org Project (WashUX)',
+    },
     goals: [
-      "Querri is an AI-powered, no-code data analytics platform built to bridge the gap between business knowledge and data fluency. Its mission was clear and impactful, but a powerful mission means little if users find other software that achieves the same goal with less friction.",
-      "Users were signing up for the product, but retention numbers told a different story. Too few were coming back. This gap became the core challenge behind our primary task: rework Querri's website to establish a unique brand identity while giving users real reason to return",
-      "Analyzing the site with that goal in mind, we identified a key trigger behind the drop-off: an unclear onboarding process that confused users from the start, leaving them either unmotivated to sign up or not inclined to keep using the platform",
-      "With that insight, our direction became clear: design an experience that made Querri stand out and communicate its unique value, while staying clean, understandable, and engaging enough to bring users back again and again",
+      "Querri is an AI-powered, no-code data platform built to bridge business knowledge and data fluency.",
+      "Users signed up but didn't return — retention, not acquisition, was the real problem.",
+      "Root cause: an unclear onboarding process that confused users from the start.",
+      "Goal: a clean, engaging experience that gives users real reason to come back.",
     ],
     impact: [
-    "Increase Weekly Active Users (WAU) and Daily Active Users (DAU) by encouraging more frequent engagement with Querri.",
-      "Reduce the cold-start problem by helping users overcome uncertainty around what questions to ask their data.",
-      "Improve perceived wait times for longer analyses by setting clearer expectations around processing and results.",
-      "Enable users to uncover more valuable insights per session by making the analysis process faster and more intuitive.",
-      "Shift data analysis from an occasional, complex task into a streamlined part of users' everyday decision-making workflows.",
+    "Increase Weekly and Daily Active Users through more frequent engagement.",
+      "Reduce the \"cold-start\" problem of not knowing what to ask.",
+      "Set clearer expectations around analysis wait times.",
+      "Help users surface more valuable insights, faster, per session.",
+      "Turn data analysis into an everyday habit, not an occasional chore.",
     ],
 
     process: [
-      "We started by looking beyond Querri itself. I led a competitive analysis across six platforms, 3 direct and 3 indirect, to see how other products approached onboarding, data visualization, and user retention. This helped us understand what was already working in the space, where users might be experiencing friction, and where Querri had room to stand apart.",
-      "We also paid attention to how each competitor presented itself. Beyond functionality, I evaluated their visual language, looking at how typography, color, layout, and branding communicated trust and credibility. Some products made their value immediately clear, while others left us questioning what the platform actually offered. These findings helped us identify opportunities to make Querri’s experience clearer and more compelling.",
-      "We turned to users for their perspective. We surveyed people with prior experience using AI tools to process data, using their feedback to uncover recurring pain points, frustrations, and expectations around the data analysis experience.",
-      "Together, these insights shaped our design direction. By combining competitive and visual analysis with direct user feedback, we could focus on creating an experience that felt clearer, more approachable, and easier to engage with from the very first interaction.",
+      "Led a competitive analysis across 6 platforms (3 direct, 3 indirect) covering onboarding, visualization, and retention.",
+      "Evaluated competitors' visual language — typography, color, layout — for trust and credibility cues.",
+      "Surveyed users experienced with AI data tools to surface pain points and expectations.",
+      "Combined these insights into a clearer, more approachable design direction.",
     ],
 
-    final_design: "The final design establishes an intuitive homepage and guidance experience featuring a tailored, three-question onboarding sequence designed to spin up a customized analyst experience immediately. By transitioning from a standard synchronous chat tool to a proactive, asynchronous analyst mental model, the interface strategically handles data latency while delivering automated, high-value insights. This modern interface leverages progressive disclosure to balance trust with speed, delivering production-ready interactive components and comprehensive redline specifications prepared for engineering handoff.",
+    final_design: "A three-question onboarding flow spins up a personalized analyst experience immediately. Reframing Querri as an asynchronous analyst rather than a live chat tool balances trust and speed while managing data latency, backed by production-ready components and redline specs.",
     goalsImages: [],
     impactImages: ["images/querri/querri-competitor-analysis.png"],
     processImages: ["images/querri/querri-lofi-tophalf.png","images/querri/querri-lofi-bottomhalf.png", "images/querri/querri-comment.png","images/querri/querri-hifid-wireframe.png",],
@@ -52,30 +59,35 @@ export const PROJECTS = [
     walkthroughVideo: 'images/pretus/pretus-portfolio-walkthrough.mov',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
+    meta: {
+      role: 'UI/UX Designer',
+      timeframe: 'Sep 2025 – Nov 2025',
+      team: 'WashUX design team, in partnership with the Pretus team',
+      tools: 'Figma',
+      type: 'Client Project (WashUX)',
+    },
     goals: [
-      'Directly influenced Pretus’ digital direction, culminating in the company adopting one of our final website designs.',
-      'Strengthened brand clarity and visual cohesion across the redesigned interface.',
-      'Clearly communicated Pretus’ mission and competitive positioning within the IB prep market.',
-      'Aligned the user experience with strategic business goals to create a stronger digital presence.',
-      'Provided Pretus with a scalable foundation for future growth and continued iteration.'
+      'Help Pretus stand out with a distinct, memorable digital identity.',
+      'Clarify Pretus’ mission and position within the IB prep market.',
+      'Align the experience with Pretus’ business goals.',
+      'Build a scalable foundation the team could keep iterating on.'
     ],
 
     impact:[
-      'Directly influenced Pretus’ digital direction, leading the company to adopt one of our final website designs.',
-      'Strengthened brand clarity and visual cohesion across the redesigned interface.',
-      'More clearly communicated Pretus’ mission and competitive positioning within the IB prep market.',
-      'Aligned the user experience with strategic goals to create a stronger digital presence.',
-      'Established a scalable foundation for future growth and continued iteration.'
+      'Client adopted one of our final designs for their live site.',
+      'Strengthened brand clarity and visual cohesion.',
+      'Sharper communication of mission and competitive position.',
+      'Established a scalable design foundation for future growth.'
     ],
     process:[
-      'Worked through rapid design iterations, progressing from 8 low-fidelity wireframes to 12 polished, interactive prototypes while focusing on a seamless experience across key touchpoints.',
-      'Refined the information architecture and user flow to make core features, including the student report, question bank, AI personalization, and mock interviews, easy to discover and understand.',
-      'Restructured the landing page and navigation experience to clearly communicate the platform’s value proposition, key differentiators, and primary calls to action.',
-      'Strengthened the visual system and branding through feature hierarchy, partnership logos, pricing, and competitor differentiation to build credibility and establish a cohesive identity.',
-      'Used frequent design critiques and user feedback to iterate quickly, refining the experience around feature priorities, personalization, and the needs of students preparing for investment banking interviews.'
+      'Iterated from 8 low-fidelity wireframes to 12 polished, interactive prototypes.',
+      'Reworked information architecture so core features — student report, question bank, AI personalization, mock interviews — are easy to find.',
+      'Restructured the landing page to clarify value proposition and calls to action.',
+      'Strengthened visual branding through feature hierarchy, logos, and pricing.',
+      'Iterated quickly through frequent design critiques and user feedback.'
     ],
     final_design:
-      'The redesigned experience gave Pretus a cohesive, standout identity that clearly communicates who it serves and why it matters. The new interface is both visually compelling and intuitive, reducing friction for prospective students and reinforcing the brand at every step. Beyond the immediate improvements, the work established a clear design strategy the team can carry forward as the platform continues to grow.',
+      'A cohesive, standout identity that clearly communicates who Pretus serves and why it matters — visually compelling, intuitive, and built on a design strategy the team can keep building on.',
     goalsImages: [],
     impactImages: ["images/pretus/pretus-hifi-detail.png"],
     processImages: ["images/pretus/pretus-hifid-wireframe.png", "images/pretus/pretus-hifi-detail2.png"],
@@ -96,33 +108,39 @@ export const PROJECTS = [
     previewImage: 'images/wexler/wexler_group_cover_picture.png',
     description:
       'Collaborated with other designers as the core design team, delivering iterative improvements while shaping a clear strategy for future growth.',
+    meta: {
+      role: 'Computational Materials Chemistry Researcher',
+      timeframe: 'Jun 2025 – Aug 2025',
+      team: 'A postdoctoral researcher and supervising professor',
+      tools: 'Python, Julia, Jupyter',
+      type: 'Research Project',
+    },
     goals: [
-    'Worked with The Wexler Group to develop a computational method for predicting the most stable atomic configurations of heterogeneous catalysts before they begin reacting.',
-    'Because unstable catalyst structures can lose efficiency over time, accurately identifying low-energy configurations has the potential to improve energy conservation during industrial chemical production.',
-    'Used the Lennard-Jones potential to model atomic interactions and developed components of a Basin Hopping optimization algorithm capable of finding stable configurations.',
-    'Collaborated with a postdoctoral researcher and supervising professor while independently researching optimization techniques and implementing core portions of the algorithm.'
+    'Develop a computational method to predict the most stable atomic configurations of heterogeneous catalysts.',
+    'Stable configurations help conserve energy in industrial chemical production.',
+    'Used the Lennard-Jones potential and built a Basin Hopping optimization algorithm.',
+    'Worked alongside a postdoctoral researcher and supervising professor.'
   ],
 
   impact: [
-    'The long-term objective is to incorporate the Basin Hopping algorithm and its supporting functions into a publicly available package that can be used by researchers studying catalyst stability and energy-efficient chemical production.',
-    'Strengthened my ability to communicate complex technical concepts through data visualization.',
-    'Quickly learned new programming languages and optimization libraries.',
-    'Collaborated within an interdisciplinary research environment.',
-    'Reinforced the importance of building solutions that are reusable, scalable, and designed with future users in mind.'
+    'Long-term goal: fold the algorithm into a public package for catalyst researchers.',
+    'Sharpened my ability to communicate technical concepts through data visualization.',
+    'Quickly picked up new languages and optimization libraries.',
+    'Worked across an interdisciplinary research environment.'
   ],
 
   process: [
-    'Built a strong foundation in numerical computing and optimization using Python libraries such as NumPy, SciPy, and Matplotlib before transitioning to Julia and the Optim package.',
-    'Compared optimization methods including BFGS, Nelder-Mead, and Gradient Descent by benchmarking them on functions such as Rosenbrock and Booth, ultimately determining that BFGS provided the best performance.',
-    'Designed and evaluated several approaches for calculating Lennard-Jones potential energy before selecting an implementation that accepts an N × 3 matrix of atomic coordinates because it was the most scalable and adaptable.',
-    'Continuously tested, debugged, and refined the algorithm while using contour maps, energy plots, optimization paths, violin plots, and atomic configuration visualizations to better understand its performance and guide decisions.'
+    'Built a foundation in Python (NumPy, SciPy, Matplotlib) before moving to Julia\'s Optim package.',
+    'Benchmarked BFGS, Nelder-Mead, and Gradient Descent — BFGS performed best.',
+    'Designed an N × 3 matrix-based Lennard-Jones energy calculation for scalability.',
+    'Used contour maps, energy plots, and visualizations to debug and refine the algorithm.'
   ],
 
   final_design: [
-    'The final solution is an optimization algorithm that accepts an N × 3 matrix of atomic positions and computes the total Lennard-Jones potential energy.',
-    'Applies the BFGS optimization method to determine the lowest-energy configuration.',
+    'An optimization algorithm that computes total Lennard-Jones potential energy from atomic positions.',
+    'Applies BFGS to find the lowest-energy configuration.',
     'Visualizes the optimization process through energy progression plots.',
-    'The experience demonstrated that thoughtful design extends beyond user interfaces, as creating an effective computational tool also requires balancing usability, scalability, efficiency, and clear communication through visualization.'
+    'Proof that good design extends beyond interfaces — into usability and clarity for technical tools.'
   ],
     goalsImages: [],
     impactImages: ["images/wexler/wexler_code.png"],
@@ -143,30 +161,37 @@ export const PROJECTS = [
     previewImage: 'images/portfolio_cover_picture.png',
     description:
       'Designed and built my personal portfolio from the ground up, teaching myself design fundamentals and Three.js to create a site that felt authentically mine.',
+    meta: {
+      role: 'Designer & Developer',
+      timeframe: 'May 2026 – Aug 2026',
+      team: 'Mentors at Less Annoying CRM (LACRM)',
+      tools: 'HTML, CSS, Three.js, Claude Code',
+      type: 'Personal Project (built during a design fellowship)',
+    },
     goals: [
-      'As a CS major with a newfound passion for design at a university where the two disciplines are kept largely separate, I set out to build a bridge between them.',
-      'Originally scoped as an informational, interactive site guiding users to personalized skincare and haircare routines.',
-      'Pivoted early on, recognizing that establishing myself as a designer had to come before designing for others.',
-      'Redirected the project toward building a personal portfolio from the ground up, using it as a hands-on vehicle for mastering design fundamentals.'
+      'Set out to bridge CS and design at a school that keeps them separate.',
+      'Originally scoped as a skincare/haircare recommendation site.',
+      'Pivoted: establishing myself as a designer had to come first.',
+      'Redirected into building this portfolio as a hands-on design exercise.'
     ],
 
     impact: [
-      'Partnered with mentors at LACRM to define tools, scope, and technical direction, gaining exposure to a real, intentional design process, from research and inspiration-gathering through critique and iteration.',
-      'Diagnosed and resolved structural and alignment issues, then pushed further, returning to inspiration and research to ensure the final result felt authentic rather than merely functional.',
-      'Delivered a portfolio that reflects a deliberate, research-driven design process end to end.'
+      'Partnered with LACRM mentors through a real, intentional design process.',
+      'Fixed structural issues, then kept iterating until it felt authentic.',
+      'Delivered a portfolio built on a deliberate, research-driven process.'
     ],
 
     process: [
-      "Project management started before a single line of code was written. I worked through a structured selection process with LACRM's team to find the right mentor, then used paired-programming sessions to scope timelines, technical requirements, and resource needs",
-      "The process began in Figma, exploring layout directions until the site's visual identity clicked refining hierarchy, spacing, alignment, and interaction along the way.",
-      "Used Claude Code as a creative development partner, translating design ideas into code, troubleshooting implementation challenges, and rapidly iterating on interactive elements.",
-      'Scoped 3D elements to a supporting, minimalist role, prioritizing project content and copy as the primary focus of the site.'
+      "Scoped timelines and tools with LACRM mentors before writing any code.",
+      "Explored layout direction in Figma, refining hierarchy and spacing.",
+      "Used Claude Code as a dev partner to implement and iterate quickly.",
+      'Kept 3D elements minimal supporting content, not competing with it.'
     ],
 
     final_design: [
-      "You're looking at it! I implemented Three.js sparingly and intentionally, using minimalist 3D elements to drive discoverability without overshadowing content.",
-      'Positioned projects and written content as the primary experience, with 3D functioning as an attention-driving accent rather than a centerpiece.',
-      'Balanced visual distinctiveness with clarity, ensuring the site stands out on first impression while staying easy to navigate.'
+      "You're looking at it! Three.js is used sparingly, as an accent, not a centerpiece.",
+      'Projects and content lead; 3D drives discoverability, not distraction.',
+      'Distinct on first impression, easy to navigate on every visit.'
     ],
 
     goalsImages: ["images/personal_portfolio_pics_copy/prototype12figma.png", "images/personal_portfolio_pics_copy/prototype9figma.png"],
@@ -269,6 +294,27 @@ export function showIndividualProject() {
   // array, so we .map() each item into an <li> and .join('') them into one string
   ProjectHtmlSection +=
   `
+  ${project.meta ? `
+  <section class="project-meta">
+      <div class="project-meta-item">
+          <h3>Role</h3>
+          <p>${project.meta.role}</p>
+      </div>
+      <div class="project-meta-item">
+          <h3>Timeframe</h3>
+          <p>${project.meta.timeframe}</p>
+      </div>
+      <div class="project-meta-item">
+          <h3>Worked With</h3>
+          <p>${project.meta.team}</p>
+      </div>
+      <div class="project-meta-item">
+          <h3>Tools</h3>
+          <p>${project.meta.tools}</p>
+      </div>
+  </section>
+  ` : ''}
+
   <section class="key-learnings">
       <h3><span class="highlight">Key Learnings</span></h3>
       <ol>
@@ -318,7 +364,7 @@ export function showIndividualProject() {
           }
       </div>
       ${project.slug === 'thisPortfolio'
-        ? `<a href="index.html" class="back-button back-button--themed home-cta">Back to Home</a>`
+        ? `<a href="index.html" class="back-button back-button--themed home-cta">Return Home</a>`
         : renderTraitImages(project.final_design_images)
       }
   </section>

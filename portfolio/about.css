@@ -11,8 +11,9 @@ body{
     letter-spacing: var(--tracking-text);
     line-height: var(--leading-normal);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: var(--space-2xl);
     padding: 8rem 3rem 3rem;
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -91,12 +92,19 @@ nav {
     font-size: 1.25rem;
 }
 
-/* about section: image and text split the row equally */
-.about{
+/* each of the 3 sections below (about/movies/books) fills roughly half the
+   viewport, stacked top to bottom down the page */
+.about-block{
+    width: min(1100px, 100%);
+    min-height: 50vh;
     display: flex;
+    flex-shrink: 0;
+}
+
+/* about section: image and text split the row equally */
+.about-intro{
     align-items: center;
     gap: var(--space-2xl);
-    width: min(1100px, 100%);
 }
 
 .about-image,
@@ -145,9 +153,151 @@ nav {
     line-height: var(--leading-normal);
 }
 
+.contact-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: var(--space-md);
+}
+
+.contact-link{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--serif-font);
+    font-size: var(--text-font-size);
+    letter-spacing: var(--tracking-text);
+    color: var(--black);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover{
+    color: var(--sky-blue);
+}
+
+.contact-icon{
+    width: 20px;
+    height: 20px;
+    fill: var(--black);
+    flex-shrink: 0;
+    transition: fill 0.3s ease;
+}
+
+.contact-link:hover .contact-icon{
+    fill: var(--sky-blue);
+}
+
+/* sits above both the movies and books sections, introducing the pair */
+.favorites-intro-heading{
+    align-self: flex-start;
+    width: min(1100px, 100%);
+    margin: 0;
+    margin-bottom: calc(-1 * var(--space-xl));
+    text-align: left;
+    font-family: var(--sans-serif-font);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    letter-spacing: var(--tracking-wide);
+    line-height: var(--leading-tight);
+}
+
+/* movies/books sections: heading pinned top-left, shelf of cards below,
+   vertically centered in the remaining space of the half-screen block */
+/* full-bleed: break out of the shared 1100px .about-block cap to span the
+   whole viewport width, regardless of body's side padding */
+.favorites-block{
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-lg);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 0 3rem;
+}
+
+/* pulls the books section slightly closer to the movies section above it */
+.favorites-block + .favorites-block{
+    margin-top: calc(-1 * var(--space-sm));
+}
+
+.favorites-heading{
+    align-self: flex-start;
+    margin: 0;
+    font-family: var(--serif-font);
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-tight);
+}
+
+.favorites-row{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    width: 100%;
+}
+
+/* a slightly uneven shelf — alternating vertical offsets and tilt direction
+   so the row doesn't look like a rigid grid */
+.favorite-card:nth-child(4n+1){ margin-top: 0; --tilt: 8deg; }
+.favorite-card:nth-child(4n+2){ margin-top: 1.75rem; --tilt: -7deg; }
+.favorite-card:nth-child(4n+3){ margin-top: -0.75rem; --tilt: 9deg; }
+.favorite-card:nth-child(4n+4){ margin-top: 1rem; --tilt: -6deg; }
+
+/* each "cover" is a slightly-rotated 3d plane: a wireframe back face offset
+   behind it that fills with the card's accent color on hover, echoing the
+   project-grid cards' outline-to-fill hover elsewhere on the site */
+.favorite-card{
+    position: relative;
+    width: min(180px, 15vw);
+    aspect-ratio: 2 / 3;
+    perspective: 900px;
+}
+
+.favorite-card::before{
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid var(--black);
+    background-color: transparent;
+    transform: rotateY(var(--tilt));
+    transition: background-color 0.3s ease;
+    pointer-events: none;
+}
+
+.favorite-card:hover::before{
+    background-color: color-mix(in srgb, var(--card-hover-accent) 55%, transparent);
+}
+
+.favorite-cover{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1.5px solid var(--black);
+    transform: rotateY(var(--tilt));
+    transition: transform 0.3s ease;
+    backface-visibility: hidden;
+}
+
+/* on hover the front face settles flat and slides off its back face,
+   widening the gap that's filling in with color */
+.favorite-card:hover .favorite-cover{
+    transform: rotateY(0deg) translate(-6px, -6px);
+}
+
 /* stack image above text once the row gets cramped */
 @media (max-width: 800px){
-    .about{
+    .about-block{
+        min-height: 0;
+    }
+
+    .about-intro{
         flex-direction: column;
         gap: var(--space-xl);
     }
@@ -161,6 +311,25 @@ nav {
     .about-image{
         width: min(100%, 340px);
         align-self: center;
+    }
+
+    .favorites-block{
+        gap: var(--space-md);
+        padding: var(--space-xl) 0;
+    }
+
+    .favorites-row{
+        gap: 1.5rem;
+    }
+
+    .favorite-card{
+        width: min(120px, 28vw);
+    }
+
+    .favorite-card:nth-child(4n+2),
+    .favorite-card:nth-child(4n+3),
+    .favorite-card:nth-child(4n+4){
+        margin-top: 0.75rem;
     }
 }
 

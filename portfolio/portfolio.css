@@ -126,6 +126,33 @@ h3{
   line-height: var(--leading-normal);
 }
 
+.contact-row{
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.contact-link{
+  display: flex;
+  color: var(--black);
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover{
+  color: var(--sky-blue);
+}
+
+.contact-icon{
+  width: 22px;
+  height: 22px;
+  fill: var(--black);
+  transition: fill 0.3s ease;
+}
+
+.contact-link:hover .contact-icon{
+  fill: var(--sky-blue);
+}
+
 /* "direction" gets its own hook to react on hover — a little nod to the
    word's own meaning: it tilts, like it's pointing a new way */
 .direction-word{

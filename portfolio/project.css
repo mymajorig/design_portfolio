@@ -300,6 +300,40 @@ header{
     color: var(--white);
 }
 
+/* project meta: role / timeframe / team / tools / type — a quick-scan
+   case-study summary that sits right under the hero, before any prose, so
+   context like "this was a class project" or "I led this" reads immediately */
+.project-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+    padding: 2rem 0;
+    margin: 2vh 7vh 0;
+}
+
+.project-meta-item{
+    flex: 1 1 160px;
+}
+
+.project-meta-item h3{
+    margin: 0 0 0.4rem;
+    font-family: var(--serif-font);
+    font-size: 0.85rem;
+    letter-spacing: var(--tracking-text);
+    line-height: var(--leading-tight);
+    color: var(--theme-color, var(--orange));
+}
+
+.project-meta-item p{
+    margin: 0;
+    font-family: var(--serif-font);
+    font-size: var(--text-font-size);
+    letter-spacing: var(--tracking-text);
+    line-height: var(--leading-normal);
+}
+
 /* key learnings */
 .key-learnings{
     border: 2px solid var(--black);
@@ -451,6 +485,15 @@ header{
 
     .key-learnings{
         padding: 1.5rem;
+    }
+
+    .project-meta{
+        gap: 1.5rem;
+        margin: 2vh 1.25rem 0;
+    }
+
+    .project-meta-item{
+        flex: 1 1 120px;
     }
 }
 
