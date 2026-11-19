@@ -256,6 +256,12 @@ export function showIndividualProject() {
 
   const project = PROJECTS.find((project) => project.slug == slug) || PROJECTS[0];
   document.documentElement.style.setProperty('--theme-color', project.themeColor); //after you've found the project, apply the corresponding theme color
+  document.title = project.title;
+
+  // tab icon: the same tilted wireframe square used on the home page, just
+  // filled in with this project's theme color instead of left outlined
+  const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2" transform="rotate(12 12 12)" fill="${project.themeColor}" stroke="#1e1e1e" stroke-width="2.2"/></svg>`;
+  document.getElementById('favicon').href = `data:image/svg+xml,${encodeURIComponent(faviconSvg)}`;
 
   ProjectHtmlHeader +=
   `
